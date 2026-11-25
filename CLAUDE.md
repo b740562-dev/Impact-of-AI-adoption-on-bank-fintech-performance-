@@ -51,16 +51,18 @@ Unbalanced panel is fine. Stock-based variables start at listing date.
 
 ### AI proxies (six)
 Main:
-1. `ai_kw` = AI-term count per 10,000 English words in annual report (FE model). English words = Latin-script
-   tokens that pass the English-vocabulary filter (legacy-font Hindi also extracts as Latin script; see
-   docs/spec_changes.md). Robustness: `ai_kw_ln` = ln(1 + raw AI-term count), as in the source paper.
+1. `ai_kw` = AI-term count per 10,000 English words in annual report (FE model). AI terms are counted on the
+   raw extracted text; the denominator counts only Latin-script tokens that pass the English-vocabulary filter
+   plus a banking-jargon whitelist (legacy-font Hindi also extracts as Latin script; see docs/spec_changes.md).
+   Report the share of Latin tokens dropped per report (English-only reports < 15%; flag > 40%).
+   Robustness: `ai_kw_ln` = ln(1 + raw AI-term count), as in the source paper.
 2. `post_adopt` = 1 from the FY of the bank's **first deployed AI system** (staggered DiD).
 Robustness:
 3. `ai_patents` = ln(1 + AI patent applications in year). Same search for ALL banks;
    no patent found = 0, never missing. Search: Google Patents / Indian Patent Office by assignee,
    AI classes (CPC G06N) plus AI keywords.
 4. `ai_events_cum` = cumulative count of verified AI events up to FY end.
-5. `fintech_idx` = Fintech index (Variables Selection sheet): equal-weighted average (1/6 each) of
+5. `fintech_idx` = Fintech index (Variables Selection sheet; Hamdouni 2025, IJFS 13(4):234): equal-weighted average (1/6 each) of
    (a) bank-wise mobile-banking transaction volume from RBI, min-max scaled 0–1 over all bank-FYs, and
    (b) feature dummies — mobile app, UPI live, chatbot, voice assistant, video-KYC — each 1 from the FY the
    feature went live. Report year coverage first; NA where the RBI volume is missing.
@@ -108,7 +110,7 @@ AI intensity = total-assets-weighted average of `ai_kw` across the panel banks i
 - trend chart of `ai_kw` vs ROE, ROA, GNPA, FY2011–FY2025;
 - mean comparison pre-FY2017 (FY2011–FY2016) vs post-FY2017 (FY2017–FY2025);
 - OLS: ROE_t on `ai_kw`_(t−1) + GDP growth + crisis dummies (demonetisation FY2017, AQR FY2016–FY2018,
-  COVID FY2021).
+  COVID FY2021); each regression also reported without the dummies, side by side.
 Describe as descriptive evidence only.
 
 ### Phase 2a: Two-way FE (main for `ai_kw`)
