@@ -16,6 +16,7 @@ data/raw/bse_announcements/
 data/raw/pca/
 data/raw/mobile_banking/
 data/raw/transcripts/
+data/raw/patents_bigquery_raw.csv
 data/interim/ai_kw_contexts_sample.csv
 AI_events/
 r-lib/
