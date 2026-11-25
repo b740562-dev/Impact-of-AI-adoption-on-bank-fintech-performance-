@@ -42,6 +42,41 @@ FIRMS = [
     ("SBICARD", "SBI Cards and Payment Services", "Fintech", "SBICARD.NS", False, True),
 ]
 
+BSE_CODES = {
+    "SBI": "500112", "BOB": "532134", "PNB": "532461", "CANARA": "532483", "UNION": "532477",
+    "BOI": "532149", "INDIAN": "532814", "CENTRAL": "532885", "IOB": "532388", "UCO": "532505",
+    "BOM": "532525", "PSB": "533295", "HDFC": "500180", "ICICI": "532174", "AXIS": "532215",
+    "KOTAK": "500247", "INDUSIND": "532187", "FEDERAL": "500469", "YES": "532648", "RBL": "540065",
+    "KVB": "590003", "CUB": "532210", "SIB": "532218", "DCB": "532772", "IDFCFIRST": "539437",
+}
+
+AR_FY = (2011, 2026)
+
+# Face value (Rs per share) today, and the Yahoo "splits" records that were face-value sub-divisions
+# (date -> factor). All other Yahoo split records are bonus issues, which raise paid-up capital but leave
+# face value unchanged (e.g. Kotak 2015-07-08, Federal 2015-07-08, ICICI 2017-06-20, HDFC 2025-08-26, CUB, KVB).
+FACE_VALUE_NOW = {
+    "SBI": 1, "BOB": 2, "PNB": 2, "CANARA": 2, "UNION": 10, "BOI": 10, "INDIAN": 10, "CENTRAL": 10,
+    "IOB": 10, "UCO": 10, "BOM": 10, "PSB": 10, "HDFC": 1, "ICICI": 2, "AXIS": 2, "KOTAK": 1,
+    "INDUSIND": 10, "FEDERAL": 2, "YES": 2, "RBL": 10, "KVB": 2, "CUB": 1, "SIB": 1, "DCB": 10, "IDFCFIRST": 10,
+}
+# RBI Table 1 "Capital" includes perpetual non-cumulative preference share capital (PNCPS) for these
+# bank-years (evidence: annual report Schedule 1 and/or share-count breaks); equity share count unknown -> NA.
+PREF_CAPITAL = {
+    "CENTRAL": (2009, 2014, "AR Sch.1 FY2011-14: PNCPS Rs 1,617 cr held by GoI; gone by FY2015"),
+    "INDIAN": (2009, 2013, "AR Sch.1 FY2011-13: PNCPS Rs 400 cr (GoI); converted to equity in FY2014"),
+    "UCO": (2009, 2013, "AR Sch.1 FY2012: PNCPS held by GoI; capital falls 61% in FY2014"),
+    "PSB": (2009, 2021, "AR Sch.1 FY2011-12, FY2015-17, FY2020-21: separate Preference Share Capital line"),
+    "BOM": (2009, 2015, "AR Sch.1 FY2011, FY2013-15 paid-up section mentions preference capital"),
+    "KOTAK": (2019, 2023, "PNCPS Rs 500 cr issued FY2019 (capital +53%, no bonus), redeemed FY2024 (-33%)"),
+}
+FV_SPLITS = {
+    "SBI": {"2014-11-20": 10}, "BOB": {"2015-01-22": 5}, "PNB": {"2014-12-18": 5}, "CANARA": {"2024-05-15": 5},
+    "HDFC": {"2011-07-14": 5, "2019-09-19": 2}, "ICICI": {"2014-12-04": 5}, "AXIS": {"2014-07-28": 5},
+    "KOTAK": {"2010-09-13": 2, "2026-01-14": 5}, "FEDERAL": {"2013-10-17": 5}, "YES": {"2017-09-21": 5},
+    "KVB": {"2016-11-17": 5}, "SIB": {"2010-09-23": 10},
+}
+
 # Bank names exactly as in RBI Statistical Tables Relating to Banks in India (DBIE export)
 RBI_NAMES = {
     "STATE BANK OF INDIA": "SBI",
@@ -81,6 +116,20 @@ RBI_GROUPS = {
     "SMALL FINANCE BANKS": "SFB",
     "PAYMENTS BANKS": "Payments",
     "ALL SCHEDULED COMMERCIAL BANKS": "All_SCB",
+}
+
+# Company names as written in data/raw/events.csv
+EVENT_COMPANIES = {
+    "HDFC Bank": "HDFC", "ICICI Bank": "ICICI", "Axis Bank": "AXIS", "Kotak Mahindra Bank": "KOTAK",
+    "IndusInd Bank": "INDUSIND", "SBI": "SBI", "Bank of Baroda": "BOB", "Punjab National Bank": "PNB",
+    "Canara Bank": "CANARA", "Bajaj Finance": "BAJFIN", "Bajaj Finserv": "BAJFINSV",
+    "One97 Communications (Paytm)": "PAYTM", "PB Fintech": "PBFINTECH", "SBI Cards": "SBICARD",
+    "City Union Bank": "CUB", "Yes Bank": "YES", "Indian Bank": "INDIAN", "Federal Bank": "FEDERAL",
+    "Union Bank of India": "UNION",
+}
+
+EVENT_CATEGORIES = {
+    "product/service launch", "partnership/vendor deal", "ai investment/acquisition", "internal deployment",
 }
 
 # index_id, name, Yahoo ticker

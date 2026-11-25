@@ -24,6 +24,15 @@ Script: `src/python/02_clean_rbi.py` → `data/interim/rbi_long.parquet` (all ba
 - Spot checks vs reported results: HDFC FY2025 PAT ₹67,347 cr; SBI FY2025 PAT ₹70,901 cr, GNPA 1.82%; PNB FY2018 GNPA 18.36%.
 - **FY2026 not yet in RBI tables** (2025-26 edition expected around Dec 2026). FY2026 financials must come from annual reports; each fill to be logged under "Gap fills".
 
+## Market capitalisation and Tobin's Q (2026-11-25)
+Script: `src/python/02_build_market_cap.py` → `data/interim/market_cap_fy.csv` (25 panel banks × FY-end, FY2009–FY2025).
+- Shares (crore) = RBI Table 1 paid-up capital (₹ crore) / face value. Face value today and the face-value sub-divisions are in `config.py` (`FACE_VALUE_NOW`, `FV_SPLITS`). Every sub-division is checked to exist in Yahoo's split records. Yahoo also records bonus issues as "splits"; bonuses change paid-up capital, not face value, so they are not FV events.
+- Actual FY-end price = Yahoo close (which is split/bonus adjusted) × product of all later Yahoo split factors. Market cap (₹ crore) = actual FY-end close × shares.
+- Tobin's Q = (market cap + total assets − (capital + reserves)) / total assets.
+- Checks: (1) market cap is continuous across every face-value split (FY ratio 0.75–1.94, while the actual price falls by the split factor). (2) Latest close × FY2025 capital / current face value vs yfinance current market cap for SBI, ICICI, Axis, PNB, BoB: differences −3.3% to +0.1% (all within 5%).
+- **Preference capital:** RBI "Capital" includes perpetual non-cumulative preference shares (mostly held by GoI) for some bank-years, which would overstate the equity share count. Market cap, shares and Tobin's Q are set to NA (39 bank-years, `pref_capital_flag` gives the evidence): Central FY2009–14, Indian FY2009–13, UCO FY2009–13, Punjab & Sind FY2009–21, Bank of Maharashtra FY2009–15, Kotak FY2019–23. Evidence comes from annual-report Schedule 1 text and share-count breaks. These can be filled later from the equity share counts in annual-report Schedule 1. Other bank-years may also contain small preference amounts that are not yet detected.
+- FY2026: NA (RBI capital not yet published; see spec_changes.md).
+
 ## Prices: checks and flags (2026-11-25)
 - Listing-date starts in the Yahoo series: PSB 2010-12-30, IDFC First 2015-11-06 (IDFC Bank listing; panel uses FY2019+ only), RBL 2016-08-31, SBI Cards 2020-03-16, PB Fintech 2021-11-15, Paytm 2021-11-18.
 - Corporate actions recorded by Yahoo (adjusted close accounts for them): HDFC 2011, 2019, 2025-08-26 (1:1 bonus); Kotak 2010, 2015, 2026-01-14; SBI 2014; Canara 2024; Bajaj Finance 2016, 2025; and others (see `splits` column in raw files).
