@@ -7,6 +7,10 @@ from config import FIRMS, INDICES, INTERIM, RAW, fiscal_year
 SRC = RAW / "prices"
 INTERIM.mkdir(parents=True, exist_ok=True)
 EXTREME = 0.30  # |daily simple return| flagged for manual review
+# FY returns set to NA after manual review (see docs/data_notes.md)
+SUSPECT_RET = {
+    ("KVB", 2012): "NA: suspect Yahoo data before May 2011 (unadjusted corporate action, +30% jump on 2011-05-04)",
+}
 
 manifest = pd.read_csv(SRC / "_manifest.csv")
 meta = pd.DataFrame(
@@ -54,6 +58,11 @@ ret_fy = last.loc[(last["fy"] >= 2010) & (last["fy"] <= 2026),
 ret_fy = ret_fy.rename(columns={"ret_fy": "stock_ret_pct"})
 ret_fy["d_start"] = ret_fy["d_start"].dt.strftime("%Y-%m-%d")
 ret_fy["d_end"] = ret_fy["d_end"].dt.strftime("%Y-%m-%d")
+ret_fy["ret_note"] = ""
+for (sid, fy), note in SUSPECT_RET.items():
+    m = (ret_fy["id"] == sid) & (ret_fy["fy"] == fy)
+    assert m.sum() == 1, (sid, fy)
+    ret_fy.loc[m, ["stock_ret_pct", "ret_note"]] = [np.nan, note]
 assert not ret_fy.duplicated(["id", "fy"]).any()
 ret_fy.to_csv(INTERIM / "returns_fy.csv", index=False)
 

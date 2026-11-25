@@ -31,6 +31,7 @@ Script: `src/python/02_clean_rbi.py` → `data/interim/rbi_long.parquet` (all ba
 - 14 daily moves with |return| > 30% are listed in `data/interim/price_flags_extreme.csv`; `returns_fy.csv` carries `n_extreme_days` per firm-FY.
   - Genuine market moves: PSU recapitalisation rally 2017-10-25 (BOB, BOI, Canara, PNB, Union); IndusInd 2020-03-26; Yes Bank 2019-10-03 and March 2020 reconstruction; PB Fintech 2026-09-24 (−36% on 27M shares, cause still to be checked; falls inside the event-study period).
   - **Suspect data: Karur Vysya 2011-05-04 (+30%).** Pre-May-2011 bars have very low volume and prices that look scaled differently; likely an unadjusted corporate action in Yahoo. Affects KVB FY2012 return. Cross-check against NSE bhavcopy before use.
+  - **2026-11-25: KVB FY2012 `stock_ret_pct` set to NA** (`SUSPECT_RET` in `src/python/02_clean_prices.py`; reason in the `ret_note` column of `returns_fy.csv`). Reason: Yahoo series before May 2011 is suspect (unadjusted corporate action), so the FY2012 return (31 Mar 2011 → 30 Mar 2012) straddles the break. KVB FY2011 is kept because its start and end prices both lie in the pre-May-2011 segment; daily KVB prices before 2011-05-04 should not be used.
 - Fiscal-year total return (`stock_ret_pct`, percent) = last adjusted close of FY / last adjusted close of prior FY − 1. Set to NA if the firm was not trading by the start of the FY. Coverage FY2010–FY2026.
 
 ## Gap fills
