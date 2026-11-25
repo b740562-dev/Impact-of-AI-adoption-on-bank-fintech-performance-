@@ -1,8 +1,9 @@
 # Phase 2a two-way FE (docs/spec.md §5): Y_it = b*AI_i,t-1 + g'X_i,t-1 + a_i + d_t + e_it.
-# fixest::feols, SEs clustered by bank; wild cluster bootstrap p-values (Webb weights, 9,999 draws).
+# fixest::feols, SEs clustered by bank; wild cluster restricted bootstrap-t p-values (Webb weights, 9,999 draws,
+# implemented below on FE-demeaned data).
 # AI = ai_kw standardised over the panel (coefficient = effect of 1 SD of ai_kw). Lags 0, 1 (main), 2.
 # Outcomes: ROE, stock return (primary); ROA, Tobin's Q (secondary). Run: Rscript src/R/20_fe.R
-suppressPackageStartupMessages({ library(data.table); library(arrow); library(fixest); library(fwildclusterboot) })
+suppressPackageStartupMessages({ library(data.table); library(arrow); library(fixest) })
 dir.create("results/tables", FALSE, TRUE); dir.create("logs", FALSE)
 sink("logs/fe.log")
 set.seed(20261126)
@@ -14,10 +15,29 @@ p[, `:=`(ai_l0 = ai_kw / sd_kw, ai_l1 = ai_kw_l1 / sd_kw, ai_l2 = ai_kw_l2 / sd_
 ctrl <- "ln_assets_l1 + crar_l1 + ldr_l1 + liquidity_ratio_l1 + gnpa_ratio_l1 + pca_l1"
 outcomes <- c(roe = "ROE (%)", stock_ret_pct = "Stock return (%)", roa = "ROA (%)", tobins_q = "Tobin's Q")
 
-boot_p <- function(m, param) {
-  b <- tryCatch(boottest(m, param = param, clustid = "bank_id", B = 9999, type = "webb"),
-                error = function(e) { message("boottest failed for ", param, ": ", conditionMessage(e)); NULL })
-  if (is.null(b)) NA_real_ else pval(b)
+# Wild cluster restricted (WCR) bootstrap-t, Webb 6-point weights, on FE-demeaned data (fwildclusterboot's boottest
+# fails with current fixest: "non-numeric argument to binary operator"). CR1 cluster-robust t; H0: coefficient = 0.
+cr1_t <- function(X, y, cl, k) {
+  XtXi <- solve(crossprod(X)); b <- XtXi %*% crossprod(X, y); u <- as.vector(y - X %*% b)
+  S <- rowsum(X * u, cl); G <- nrow(S); N <- nrow(X); K <- ncol(X)
+  V <- XtXi %*% crossprod(S) %*% XtXi * (G / (G - 1)) * ((N - 1) / (N - K))
+  b[k] / sqrt(V[k, k])
+}
+boot_p <- function(m, param, B = 9999) {
+  tryCatch({
+    idx <- obs(m)
+    X0 <- model.matrix(m, type = "rhs"); y0 <- model.matrix(m, type = "lhs")
+    fe <- as.data.frame(p[idx, .(bank_id, fy)])
+    dm <- demean(cbind(y = as.vector(y0), X0), f = fe)
+    y <- dm[, 1]; X <- dm[, -1, drop = FALSE]; cl <- p$bank_id[idx]; k <- match(param, colnames(X))
+    t0 <- cr1_t(X, y, cl, k)
+    Xr <- X[, -k, drop = FALSE]; br <- solve(crossprod(Xr), crossprod(Xr, y))
+    fit_r <- as.vector(Xr %*% br); u_r <- y - fit_r
+    g <- as.integer(factor(cl)); G <- max(g)
+    w6 <- c(-sqrt(1.5), -1, -sqrt(0.5), sqrt(0.5), 1, sqrt(1.5))
+    tb <- vapply(seq_len(B), function(i) cr1_t(X, fit_r + u_r * sample(w6, G, TRUE)[g], cl, k), numeric(1))
+    mean(abs(tb) >= abs(t0))
+  }, error = function(e) { message("wild bootstrap failed for ", param, ": ", conditionMessage(e)); NA_real_ })
 }
 row <- function(m, param, y, spec) {
   ct <- coeftable(m)
