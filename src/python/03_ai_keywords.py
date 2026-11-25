@@ -20,6 +20,20 @@ TXT.mkdir(parents=True, exist_ok=True)
 LOW_WORDS_PER_PAGE = 50  # English words per page below this: scanned / Hindi-only file -> NA
 VOCAB_MIN_DOCS = 3
 PRIVATE = {f[0] for f in FIRMS if f[2] == "Private"}
+DROP_OK, DROP_FLAG = 0.15, 0.40  # share of Latin tokens dropped: English-only reports < 15%; > 40% flagged
+# Banking jargon and bank/product names always count as English words in the denominator.
+JARGON = {"casa", "npa", "npas", "gnpa", "nnpa", "crar", "msme", "msmes", "rbi", "upi", "kyc", "ekyc", "nim",
+          "slr", "crr", "nbfc", "nbfcs", "psb", "psbs", "rrb", "rrbs", "lcr", "nsfr", "tier", "basel", "ifsc",
+          "neft", "rtgs", "imps", "atm", "atms", "pos", "sarfaesi", "ibc", "nclt", "drt", "sma", "ecl", "ind",
+          "esop", "esops", "csr", "brsr", "agm", "sebi", "lodr", "irdai", "pfrda", "nabard", "sidbi", "mudra",
+          "pmjdy", "pmsby", "pmjjby", "apy", "shg", "shgs", "jlg", "kcc", "fy", "yoy", "qoq", "bps", "crore",
+          "crores", "lakh", "lakhs",
+          "yono", "imobile", "feddy", "eva", "ipal", "adi", "aditi", "keya", "pihu", "adya", "uday", "uma", "sia",
+          "ira", "lakshmi", "bomy", "fedmobile", "fednet", "indoasis", "baroda", "canara", "kotak", "hdfc",
+          "icici", "axis", "indusind", "yes", "rbl", "dcb", "idfc", "karur", "vysya", "uco", "iob", "boi", "bom",
+          "pnb", "sbi", "bob", "psb", "cub", "sib"}
+for f in FIRMS:
+    JARGON |= {w.lower() for w in WORD.findall(f[1])}
 
 
 def load_text(bank_id, fy, pdf):
@@ -55,7 +69,7 @@ df_count = collections.Counter()
 for (b, fy), (_, text) in docs.items():
     if b in PRIVATE:
         df_count.update({w.lower() for w in WORD.findall(text)})
-vocab = {w for w, n in df_count.items() if n >= VOCAB_MIN_DOCS}
+vocab = {w for w, n in df_count.items() if n >= VOCAB_MIN_DOCS} | JARGON
 print(f"reports loaded: {len(docs)}  English vocabulary (>= {VOCAB_MIN_DOCS} private-bank reports): {len(vocab):,} words")
 
 rows, snippets = [], collections.defaultdict(list)
@@ -72,10 +86,15 @@ for (b, fy), (pages, text) in sorted(docs.items()):
 kw = pd.DataFrame(rows)
 assert not kw.duplicated(["bank_id", "fy"]).any()
 kw["english_share"] = kw["total_words"] / kw["tokens_raw"]
+kw["latin_dropped_share"] = 1 - kw["english_share"]
+kw["drop_flag"] = np.where(kw["latin_dropped_share"] > DROP_FLAG, "Y", "N")
+types = {f[0]: f[2] for f in FIRMS}
+kw.insert(1, "bank_type", kw["bank_id"].map(types))
 kw["low_text"] = np.where(kw["total_words"] < LOW_WORDS_PER_PAGE * kw["pages"], "Y", "N")
 kw["ai_kw"] = np.where(kw["low_text"] == "N", kw["ai_kw_count"] / kw["total_words"] * 10_000, np.nan)
 g = kw.groupby("fy")["ai_kw"]
 kw["ai_kw_z"] = (kw["ai_kw"] - g.transform("mean")) / g.transform("std")
+kw["ai_kw_ln"] = np.where(kw["low_text"] == "N", np.log1p(kw["ai_kw_count"]), np.nan)  # robustness (source paper)
 kw = kw.sort_values(["bank_id", "fy"])
 kw.to_csv(INTERIM / "ai_kw.csv", index=False)
 kw.to_parquet(INTERIM / "ai_keywords.parquet", index=False)
@@ -88,9 +107,15 @@ pd.DataFrame(snip).to_csv(INTERIM / "ai_kw_snippets.csv", index=False)
 # ---- diagnostics ----
 print(f"reports counted: {len(kw)}  load errors: {errors}")
 print("low-text (NA):", kw.loc[kw.low_text == "Y", ["bank_id", "fy", "pages", "total_words"]].to_dict("records"))
-psu = {f[0] for f in FIRMS if f[2] == "PSU"}
-print("median English share of tokens: PSU", kw[kw.bank_id.isin(psu)].english_share.median().round(3),
-      "| Private", kw[kw.bank_id.isin(PRIVATE)].english_share.median().round(3))
+print("\nShare of Latin-script tokens dropped from the denominator, by bank type:")
+print(kw.groupby("bank_type")["latin_dropped_share"].describe(percentiles=[.5, .9]).round(3).to_string())
+priv = kw[kw.bank_type == "Private"]
+print(f"Sanity: English-only (private) reports dropping < {DROP_OK:.0%}: "
+      f"{(priv.latin_dropped_share < DROP_OK).sum()} of {len(priv)}")
+print(priv.loc[priv.latin_dropped_share >= DROP_OK, ["bank_id", "fy", "latin_dropped_share"]].round(3).to_string(index=False))
+print(f"Flagged for manual check (dropping > {DROP_FLAG:.0%}):")
+print(kw.loc[kw.drop_flag == "Y", ["bank_id", "bank_type", "fy", "tokens_raw", "total_words",
+                                   "latin_dropped_share"]].round(3).to_string(index=False))
 print("\nai_kw (per 10,000 English words) by FY:")
 print(kw.groupby("fy")["ai_kw"].describe()[["count", "mean", "50%", "max"]].round(2).to_string())
 print("\nterm totals:", kw[[f"n_{k}" for k, _ in TERMS]].sum().sort_values(ascending=False).to_dict())
