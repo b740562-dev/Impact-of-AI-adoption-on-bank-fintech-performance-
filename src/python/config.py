@@ -42,6 +42,47 @@ FIRMS = [
     ("SBICARD", "SBI Cards and Payment Services", "Fintech", "SBICARD.NS", False, True),
 ]
 
+# Bank names exactly as in RBI Statistical Tables Relating to Banks in India (DBIE export)
+RBI_NAMES = {
+    "STATE BANK OF INDIA": "SBI",
+    "BANK OF BARODA": "BOB",
+    "PUNJAB NATIONAL BANK": "PNB",
+    "CANARA BANK": "CANARA",
+    "UNION BANK OF INDIA": "UNION",
+    "BANK OF INDIA": "BOI",
+    "INDIAN BANK": "INDIAN",
+    "CENTRAL BANK OF INDIA": "CENTRAL",
+    "INDIAN OVERSEAS BANK": "IOB",
+    "UCO BANK": "UCO",
+    "BANK OF MAHARASHTRA": "BOM",
+    "PUNJAB AND SIND BANK": "PSB",
+    "HDFC BANK LTD.": "HDFC",
+    "ICICI BANK LIMITED": "ICICI",
+    "AXIS BANK LIMITED": "AXIS",
+    "KOTAK MAHINDRA BANK LTD.": "KOTAK",
+    "INDUSIND BANK LTD": "INDUSIND",
+    "FEDERAL BANK LTD": "FEDERAL",
+    "YES BANK LTD.": "YES",
+    "RBL BANK LTD": "RBL",
+    "KARUR VYSYA BANK LTD": "KVB",
+    "CITY UNION BANK LIMITED": "CUB",
+    "SOUTH INDIAN BANK LTD": "SIB",
+    "DCB BANK LIMITED": "DCB",
+    "IDFC BANK LIMITED": "IDFCFIRST",  # pre-merger entity; panel keeps FY2019+
+    "IDFC FIRST BANK LIMITED": "IDFCFIRST",
+}
+
+RBI_GROUPS = {
+    "PUBLIC SECTOR BANKS": "PSU",
+    "PRIVATE SECTOR BANKS": "Private",
+    "NATIONALISED BANKS": "Nationalised",
+    "STATE BANK OF INDIA AND ITS ASSOCIATES": "SBI_group",
+    "FOREIGN BANKS": "Foreign",
+    "SMALL FINANCE BANKS": "SFB",
+    "PAYMENTS BANKS": "Payments",
+    "ALL SCHEDULED COMMERCIAL BANKS": "All_SCB",
+}
+
 # index_id, name, Yahoo ticker
 INDICES = [
     ("NIFTY500", "Nifty 500", "^CRSLDX"),
