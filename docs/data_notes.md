@@ -24,6 +24,13 @@ Script: `src/python/02_clean_rbi.py` → `data/interim/rbi_long.parquet` (all ba
 - Spot checks vs reported results: HDFC FY2025 PAT ₹67,347 cr; SBI FY2025 PAT ₹70,901 cr, GNPA 1.82%; PNB FY2018 GNPA 18.36%.
 - **FY2026 not yet in RBI tables** (2025-26 edition expected around Dec 2026). FY2026 financials must come from annual reports; each fill to be logged under "Gap fills".
 
+## Annual reports and `ai_kw` (2026-11-25)
+- Source: BSE annual-report filings (public listing `api.bseindia.com/.../AnnualReport_New/w?scripcode=<code>`, PDFs under `bseindia.com/xml-data/corpfiling/AttachHis/`). Script `src/python/01_download_annual_reports.py`; index of every listing with URL, filing/revision timestamps and the selected file in `data/raw/annual_reports/_index.csv` (gitignored with the PDFs; each PDF has a `.url` sidecar with its source). Re-run the script to rebuild.
+- Selection per bank-FY: latest full English filing. Resubmissions that are Hindi editions, errata or corrigenda are not selected (Union FY2024/FY2025 Hindi editions, Canara FY2023 errata, Federal FY2023 corrigendum).
+- Coverage: 387 of 400 bank-FY cells (FY2011–26). **Missing:** RBL FY2011 and IDFC First FY2011–14 (not yet listed); PNB FY2025, Kotak FY2024, KVB FY2019 and FY2023–26 (not on BSE listing); KVB FY2016 (BSE file is corrupt: zero bytes). IOB FY2013 BSE file is a 1-page document → `ai_kw` NA. To fill from bank IR sites later; log each fill under "Gap fills".
+- `src/python/03_ai_keywords.py` (dictionary in `src/python/ai_terms.py`) → `data/interim/ai_kw.csv` / `ai_keywords.parquet`: raw counts per term, `total_words` (English words, see spec_changes.md), `tokens_raw`, `ai_kw` per 10,000 English words, `ai_kw_z` (z-score within FY). Random matched snippets for false-positive review: `data/interim/ai_kw_snippets.csv`.
+- False-positive rules (all logged in spec_changes.md): "Air India"; "LLMS" (Loan Lifecycle Management System); "LLM" as law degree; acronyms (LLM/NLP/RPA) inside legacy-font Hindi gibberish; "AI" = artificial insemination in livestock CSR programmes (IDFC First FY2026). Remaining known noise: awards ("Best AI & ML Bank"), training mentions and macro commentary are counted, as the dictionary rules imply.
+
 ## Market capitalisation and Tobin's Q (2026-11-25)
 Script: `src/python/02_build_market_cap.py` → `data/interim/market_cap_fy.csv` (25 panel banks × FY-end, FY2009–FY2025).
 - Shares (crore) = RBI Table 1 paid-up capital (₹ crore) / face value. Face value today and the face-value sub-divisions are in `config.py` (`FACE_VALUE_NOW`, `FV_SPLITS`). Every sub-division is checked to exist in Yahoo's split records. Yahoo also records bonus issues as "splits"; bonuses change paid-up capital, not face value, so they are not FV events.

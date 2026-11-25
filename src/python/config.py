@@ -50,6 +50,10 @@ BSE_CODES = {
     "KVB": "590003", "CUB": "532210", "SIB": "532218", "DCB": "532772", "IDFCFIRST": "539437",
 }
 
+BSE_CODES_EVENT_NONBANK = {
+    "BAJFIN": "500034", "BAJFINSV": "532978", "PAYTM": "543396", "PBFINTECH": "543390", "SBICARD": "543066",
+}
+
 AR_FY = (2011, 2026)
 
 # Face value (Rs per share) today, and the Yahoo "splits" records that were face-value sub-divisions
@@ -125,7 +129,8 @@ EVENT_COMPANIES = {
     "Canara Bank": "CANARA", "Bajaj Finance": "BAJFIN", "Bajaj Finserv": "BAJFINSV",
     "One97 Communications (Paytm)": "PAYTM", "PB Fintech": "PBFINTECH", "SBI Cards": "SBICARD",
     "City Union Bank": "CUB", "Yes Bank": "YES", "Indian Bank": "INDIAN", "Federal Bank": "FEDERAL",
-    "Union Bank of India": "UNION",
+    "Union Bank of India": "UNION", "RBL Bank": "RBL", "IDFC First Bank": "IDFCFIRST",
+    "South Indian Bank": "SIB", "Karur Vysya Bank": "KVB", "Bank of India": "BOI",
 }
 
 EVENT_CATEGORIES = {
