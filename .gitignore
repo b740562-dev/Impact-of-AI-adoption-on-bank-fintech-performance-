@@ -12,6 +12,9 @@ data/raw/transcripts/
 data/raw/prices/
 data/raw/rbi/
 data/interim/ar_text/
+data/raw/bse_announcements/
+data/interim/ai_kw_contexts_sample.csv
+AI_events/
 *.pdf
 *.xlsx
 *.xls

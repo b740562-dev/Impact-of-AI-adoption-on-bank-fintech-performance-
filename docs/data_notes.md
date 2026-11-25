@@ -24,6 +24,16 @@ Script: `src/python/02_clean_rbi.py` → `data/interim/rbi_long.parquet` (all ba
 - Spot checks vs reported results: HDFC FY2025 PAT ₹67,347 cr; SBI FY2025 PAT ₹70,901 cr, GNPA 1.82%; PNB FY2018 GNPA 18.36%.
 - **FY2026 not yet in RBI tables** (2025-26 edition expected around Dec 2026). FY2026 financials must come from annual reports; each fill to be logged under "Gap fills".
 
+## BSE corporate announcements (2026-11-25)
+- Source: BSE public announcements listing `api.bseindia.com/BseIndiaAPI/api/AnnSubCategoryGetData/w` (per scrip, quarterly windows, 50 rows/page), attachments from `bseindia.com/xml-data/corpfiling/AttachHis|AttachLive/`. Script `src/python/04_scrape_announcements.py`, 0.7 s between requests. Transient HTTP 400/5xx are retried 3 times with backoff; 401/403/429 stop the run (none occurred). Raw files `data/raw/bse_announcements/{firm}.csv`, `_all.csv`, `pdf/` are gitignored; re-run the script to rebuild.
+- Coverage: 14 event-study firms, 2015-01-01 to 2026-11-25, 27,691 announcements.
+- AI screen: CLAUDE.md dictionary on subject + headline; attachment text (first 6 pages) scanned for press/media-release, launch, partnership, MoU and investment filings. Output `data/interim/events_scraped.csv` (27 matches, 3 already in events.csv: E019, E038, E039). Most attachment-only matches are quarterly results press releases mentioning AI in passing and are not events.
+- New candidate leads from the scrape (not yet in events.csv): HDFC investment in Lentra AI CCDs (2019-11-21 14:39); Paytm–Amadeus AI travel partnership (2023-11-15 15:59); Paytm GIFT City AI-driven remittance plan (2024-01-10 08:36); Paytm–Groq real-time AI partnership (2025-11-05 08:01).
+
+## Quarterly results dates (2026-11-25)
+- `src/python/05_earnings_dates.py` → `data/interim/earnings_dates.csv` from the same BSE pull: first results filing per firm-quarter (BSE category "Result", else results named in the subject, else a board-meeting outcome in a results month: 8 cases, labelled `board_outcome_fallback`). 593 results dates; 4 per firm-year except HDFC FY2018 and FY2022, IndusInd FY2018 (3 each) and partial listing years.
+- `earnings_within_3d` is computed in `02_clean_events.py` (results after 15:30 shifted to the next trading day; ±3 trading days) and written to `data/final/events_clean.csv`; `data/raw/events.csv` is not edited (CLAUDE.md §10). Panel-only banks are not covered (no CAR for them).
+
 ## Annual reports and `ai_kw` (2026-11-25)
 - Source: BSE annual-report filings (public listing `api.bseindia.com/.../AnnualReport_New/w?scripcode=<code>`, PDFs under `bseindia.com/xml-data/corpfiling/AttachHis/`). Script `src/python/01_download_annual_reports.py`; index of every listing with URL, filing/revision timestamps and the selected file in `data/raw/annual_reports/_index.csv` (gitignored with the PDFs; each PDF has a `.url` sidecar with its source). Re-run the script to rebuild.
 - Selection per bank-FY: latest full English filing. Resubmissions that are Hindi editions, errata or corrigenda are not selected (Union FY2024/FY2025 Hindi editions, Canara FY2023 errata, Federal FY2023 corrigendum).
