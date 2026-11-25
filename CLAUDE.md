@@ -21,7 +21,7 @@ and is the effect weaker for public sector (PSU) banks?
 ## 2. Three-phase pipeline
 | Phase | Unit | Sample | Purpose |
 |---|---|---|---|
-| 1. Sector level | bank group × year (PSU, Private) | FY2011–FY2026 | Descriptive / motivating evidence only (~32 obs, not causal) |
+| 1. Sector level | level × year: (a) whole sector (PSU + Private), (b) Private, (c) PSU | FY2011–FY2025 | Descriptive / motivating evidence only (~15 obs per level, not causal) |
 | 2. Firm panel | bank × year | ~25 listed banks, FY2011–FY2026 | Main estimates: FE + staggered DiD |
 | 3. Event study | AI announcement | 14 listed firms | Short-run market reaction (CARs) |
 
@@ -51,15 +51,19 @@ Unbalanced panel is fine. Stock-based variables start at listing date.
 
 ### AI proxies (six)
 Main:
-1. `ai_kw` = AI-term count per 10,000 words in annual report (FE model).
+1. `ai_kw` = AI-term count per 10,000 English words in annual report (FE model). English words = Latin-script
+   tokens that pass the English-vocabulary filter (legacy-font Hindi also extracts as Latin script; see
+   docs/spec_changes.md). Robustness: `ai_kw_ln` = ln(1 + raw AI-term count), as in the source paper.
 2. `post_adopt` = 1 from the FY of the bank's **first deployed AI system** (staggered DiD).
 Robustness:
 3. `ai_patents` = ln(1 + AI patent applications in year). Same search for ALL banks;
    no patent found = 0, never missing. Search: Google Patents / Indian Patent Office by assignee,
    AI classes (CPC G06N) plus AI keywords.
 4. `ai_events_cum` = cumulative count of verified AI events up to FY end.
-5. `digital_idx` = digital banking index from RBI bank-wise mobile banking / digital payment statistics
-   (min-max scaled); describe as a digital-adoption proxy. Check year coverage first.
+5. `fintech_idx` = Fintech index (Variables Selection sheet): equal-weighted average (1/6 each) of
+   (a) bank-wise mobile-banking transaction volume from RBI, min-max scaled 0–1 over all bank-FYs, and
+   (b) feature dummies — mobile app, UPI live, chatbot, voice assistant, video-KYC — each 1 from the FY the
+   feature went live. Report year coverage first; NA where the RBI volume is missing.
 6. `ai_calls` = AI-term count per 10,000 words in earnings-call transcripts (BSE filings); FY22 onward only,
    run as a sub-period robustness check.
 Patents source: Google Patents Public Datasets on BigQuery (free tier) or Google Patents search.
@@ -78,13 +82,17 @@ Also produce a **year-standardised** version (z-score within FY) to handle post-
 
 ### Controls (all lagged one year)
 ln(total assets), CAR (CRAR), loan-to-deposit ratio, liquidity ratio (liquid assets / total assets),
-gross NPA ratio.
-Not used as controls: firm age (collinear with firm + year FE), profit growth (mechanically tied to ROE),
+gross NPA ratio, `pca` (= 1 in bank-FYs under RBI Prompt Corrective Action; entry/exit dates built only
+from RBI press releases, source URLs in docs/data_notes.md, never hardcoded from memory).
+Not used as controls: firm age (collinear with firm + year FE; enters only as baseline age (FY2011) × AI and
+as a DiD covariate), profit growth (mechanically tied to ROE; robustness only),
 GDP and regulation (absorbed by year FE; GDP is used in Phase 1 only).
 
 ### Moderators / shocks
 - Interactions with AI: PSU, COVID (FY2021), demonetisation (FY2017), post-ChatGPT (FY2023+),
-  baseline firm age (age in FY2011), firm size.
+  baseline firm age (age in FY2011), firm size, baseline Z-score.
+- Baseline Z-score per bank = (mean ROA + mean equity/assets) / SD(ROA), over FY2011–FY2015, standardised
+  across banks; NA for banks without FY2011–15 data (IDFC First).
 - Firm-specific dummies: AQR clean-up FY2016–FY2018 × PSU; merger years
   (SBI associates FY2018, BoB FY2020, PNB / Canara / Union / Indian Bank FY2021, HDFC–HDFC Ltd FY2024,
   IDFC First FY2019), Yes Bank reconstruction FY2020.
@@ -94,14 +102,21 @@ Cost-to-income ratio (efficiency channel), gross NPA ratio (credit channel).
 
 ## 5. Models
 ### Phase 1
-Group-year (PSU, Private) ROA / ROE / GNPA vs group-average `ai_kw` and GDP growth. Trend plots
-plus a simple OLS. Describe as descriptive evidence only.
+Three levels: (a) whole sector = panel PSU + private banks combined, (b) private banks, (c) PSU banks.
+Outcomes ROE, ROA, GNPA from RBI group aggregates (sector = PSU + private aggregates summed before ratios).
+AI intensity = total-assets-weighted average of `ai_kw` across the panel banks in that level. Per level:
+- trend chart of `ai_kw` vs ROE, ROA, GNPA, FY2011–FY2025;
+- mean comparison pre-FY2017 (FY2011–FY2016) vs post-FY2017 (FY2017–FY2025);
+- OLS: ROE_t on `ai_kw`_(t−1) + GDP growth + crisis dummies (demonetisation FY2017, AQR FY2016–FY2018,
+  COVID FY2021).
+Describe as descriptive evidence only.
 
 ### Phase 2a: Two-way FE (main for `ai_kw`)
 Y_it = β·AI_i,t-1 + γ'X_i,t-1 + α_i + δ_t + ε_it
 - R `fixest::feols`, SEs clustered by bank. With ~25 clusters, also report **wild cluster bootstrap**
   p-values (Webb weights).
-- Heterogeneity: AI × PSU (the CV claim), plus the interactions listed above.
+- Heterogeneity: AI × PSU (the CV claim), plus the interactions listed above (incl. AI × baseline Z-score,
+  AI × baseline age).
 - Lags 0, 1 and 2 reported; lag 1 is the pre-specified main.
 
 ### Phase 2b: Staggered DiD (main for `post_adopt`)
