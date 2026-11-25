@@ -1,0 +1,7 @@
+firm_id,start,end,label,source,note
+PAYTM,2024-01-31,2024-03-15,Paytm Payments Bank RBI action,https://website.rbi.org.in/web/rbi/-/press-releases/action-against-paytm-payments-bank-ltd-under-section-35a-of-the-banking-regulation-act-1949-1,"RBI action 2024-01-31; end = RBI's extended deadline 2024-03-15 (spec says 'from 2024-01-31' without an end; open-ended would drop all later Paytm events)"
+INDUSIND,2025-03-10,2025-03-31,IndusInd derivative-accounting disclosure,BSE announcement INDUSIND 2025-03-10 18:34 (Reg 30) + analysts call same evening,"Spec: 'Mar 2025'; window = disclosure date to month end"
+BAJFIN,2023-11-15,2024-05-02,RBI ban on Bajaj Finance eCOM / Insta EMI Card,https://www.business-standard.com/finance/news/rbi-lifts-curb-on-bajaj-finance-s-lending-products-ecom-insta-emi-card-124050201373_1.html,"RBI order 2023-11-15; lifted by RBI letter dated 2024-05-02 (company filing)"
+KOTAK,2024-04-24,2025-02-12,RBI embargo on Kotak digital onboarding / new credit cards,https://website.rbi.org.in/documents/d/rbi/pr2038removalofsupervisoryrestrictionskotakmahindrabanklimited,"Section 35A order 2024-04-24; removed 2025-02-12 (RBI press release)"
+BAJFIN,2018-09-01,2018-10-31,IL&FS crisis (NBFC events),spec §5 Phase 3,"NBFC events only (Bajaj Finance, Bajaj Finserv)"
+BAJFINSV,2018-09-01,2018-10-31,IL&FS crisis (NBFC events),spec §5 Phase 3,"NBFC events only"

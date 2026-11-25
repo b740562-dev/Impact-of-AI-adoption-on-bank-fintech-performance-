@@ -54,6 +54,9 @@ p = merge(p, fnd, ["bank_id"], "founding")
 ad = pd.read_csv(INTERIM / "adoption.csv").drop(columns=["bank_type", "first_event_id", "first_event_date"])
 p = merge(p, ad, ["bank_id"], "adoption")
 
+calls = INTERIM / "ai_calls.csv"  # optional proxy 6 (built by 09_transcripts.py)
+if calls.exists():
+    p = merge(p, pd.read_csv(calls)[["bank_id", "fy", "ai_calls"]], ["bank_id", "fy"], "ai_calls")
 p = p.sort_values(["bank_id", "fy"]).reset_index(drop=True)
 g = p.groupby("bank_id")
 # ---- lags (computed on the full grid so FY2011 lags use FY2010 data) ----

@@ -24,6 +24,13 @@ Script: `src/python/02_clean_rbi.py` → `data/interim/rbi_long.parquet` (all ba
 - Spot checks vs reported results: HDFC FY2025 PAT ₹67,347 cr; SBI FY2025 PAT ₹70,901 cr, GNPA 1.82%; PNB FY2018 GNPA 18.36%.
 - **FY2026 not yet in RBI tables** (2025-26 edition expected around Dec 2026). FY2026 financials must come from annual reports; each fill to be logged under "Gap fills".
 
+## Panel, adoption, founding years, crisis windows (2026-11-26)
+- `data/final/panel.parquet` (`src/python/04_build_panel.py`): 392 bank-FYs, 25 banks, FY2011–26 (IDFC First FY2019+). Controls lagged one year; `gname_*` = adoption FY (0 = never treated). Merge diagnostics and missing-value table: `logs/panel.log`.
+- Adoption (`07_build_adoption.py`, `data/interim/adoption.csv`): main = first verified deployed AI event; 15 of 25 banks treated, 10 never-treated (BOI, Indian, Central, IOB, UCO, BoM, PSB, KVB, SIB, DCB), because they have no verified AI event yet. alt2 cutoffs: pooled `ai_kw` median 0.072 and p75 1.196.
+- Founding years: `data/raw/founding_years.csv` (hand-curated with sources; rule = year the bank began under its current legal identity, e.g. SBI 1955, Kotak 2003 banking licence). 14 come from annual-report quotes and 11 from web sources. The Wikipedia API returned HTTP 429 and was not retried.
+- Event-study crisis windows: `data/raw/crisis_windows.csv` with sources. Paytm's end date (2024-03-15, RBI's extended deadline) and IndusInd's window (2025-03-10 to month end) are interpretations of the spec's "from 2024-01-31" and "Mar 2025".
+- Not built yet: `fintech_idx` (needs RBI bank-wise mobile-banking data and feature go-live dates), `ai_patents` (needs BigQuery credentials). `ai_calls`: script `src/python/09_transcripts.py` written, to be run by the user.
+
 ## RBI Prompt Corrective Action (`pca`) (2026-11-26)
 Script `src/python/06_build_pca.py` (requests only) → `data/interim/pca_spells.csv`, `data/interim/pca_bank_fy.csv` (`pca_months` = FY months with ≥15 days under PCA; `pca` = 1 if ≥ 6). Details in `logs/pca.log`; raw BSE hits in `data/raw/pca/` (gitignored).
 
