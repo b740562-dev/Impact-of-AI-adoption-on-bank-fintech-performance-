@@ -8,7 +8,7 @@ present (RBI DBIE); otherwise left NA and reported.
 import numpy as np
 import pandas as pd
 
-from config import FIRMS, INTERIM
+from config import FIRMS, INTERIM, RAW
 
 FY = (2010, 2025)  # FY2010 kept so that ai_kw(t-1) exists for FY2011
 SHOCKS = {"demon": [2017], "aqr": [2016, 2017, 2018], "covid": [2021]}
@@ -59,12 +59,12 @@ assert len(lvl) == n0
 lvl = lvl.sort_values(["level", "fy"])
 lvl["ai_kw_w_lag1"] = lvl.groupby("level")["ai_kw_w"].shift(1)
 
-gdp_path = INTERIM / "gdp_growth.csv"
-if gdp_path.exists():
-    gdp = pd.read_csv(gdp_path)[["fy", "gdp_growth"]]
-    lvl = lvl.merge(gdp, on="fy", how="left", validate="many_to_one")
-else:
-    lvl["gdp_growth"] = np.nan
+gdp_path = RAW / "gdp" / "real_gdp_growth_dbie.csv"  # RBI DBIE, 2011-12 base, constant prices, percent
+gdp = pd.read_csv(gdp_path)
+gdp["fy"] = gdp["year"].str[:4].astype(int) + 1  # "2016-17" -> FY2017
+gdp = gdp.rename(columns={"gdp_growth_constant": "gdp_growth"})[["fy", "gdp_growth"]]
+assert gdp["fy"].is_unique
+lvl = lvl.merge(gdp, on="fy", how="left", validate="many_to_one")
 for k, yrs in SHOCKS.items():
     lvl[k] = lvl["fy"].isin(yrs).astype(int)
 lvl["post_fy2017"] = (lvl["fy"] >= 2017).astype(int)
@@ -76,8 +76,6 @@ out = out[cols]
 assert not out.duplicated(["level", "fy"]).any()
 out.to_csv(INTERIM / "phase1_levels.csv", index=False)
 
-print(out.round(2).to_string(index=False))
-print("\nmissing gdp_growth:", out["gdp_growth"].isna().sum(), "rows",
-      "(data/interim/gdp_growth.csv not found)" if not gdp_path.exists() else "")
+print(f"phase1_levels: {len(out)} rows (3 levels x FY2011-25); missing gdp_growth: {out['gdp_growth'].isna().sum()}")
 print("\nPre (FY2011-16) vs post (FY2017-25) means:")
 print(out.groupby(["level", "post_fy2017"])[["ai_kw_w", "roe", "roa", "gnpa_ratio"]].mean().round(2).to_string())

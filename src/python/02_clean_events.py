@@ -10,6 +10,11 @@ CUTOFF = "15:30"
 
 cand = pd.read_csv(RAW / "events.csv", dtype=str)
 ver = pd.read_csv(RAW / "events_verification.csv", dtype=str)
+# Events found in later research rounds: candidate and verification fields in one hand-curated file.
+add = pd.read_csv(RAW / "events_additions.csv", dtype=str)
+assert not set(add["event_id"]) & set(cand["event_id"]), "addition ids clash with events.csv"
+cand = pd.concat([cand, add.reindex(columns=cand.columns)], ignore_index=True)
+ver = pd.concat([ver, add.reindex(columns=ver.columns)], ignore_index=True)
 assert cand["event_id"].is_unique and ver["event_id"].is_unique
 unknown = set(ver["event_id"]) - set(cand["event_id"])
 assert not unknown, f"verification rows without a candidate in events.csv: {sorted(unknown)}"

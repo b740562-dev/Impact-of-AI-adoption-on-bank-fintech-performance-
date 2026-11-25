@@ -24,6 +24,14 @@ Script: `src/python/02_clean_rbi.py` → `data/interim/rbi_long.parquet` (all ba
 - Spot checks vs reported results: HDFC FY2025 PAT ₹67,347 cr; SBI FY2025 PAT ₹70,901 cr, GNPA 1.82%; PNB FY2018 GNPA 18.36%.
 - **FY2026 not yet in RBI tables** (2025-26 edition expected around Dec 2026). FY2026 financials must come from annual reports; each fill to be logged under "Gap fills".
 
+## GDP growth (Phase 1) (2026-11-25)
+- `data/raw/gdp/real_gdp_growth_dbie.csv`: RBI DBIE report "Components of Gross Domestic Product (Growth Rate)", GDP at market prices, 2011-12 base (back series), constant and current prices, FY2010–FY2026. DBIE Excel export failed server-side ("[object ArrayBuffer]"), so the values were extracted from the rendered report text in the browser (2026-11-25). Phase 1 uses constant-price growth (percent). A 2022-23-base series exists only from FY2024 and is not used.
+
+## Events: research round 2 (2026-11-25)
+- New events from round 2 are in `data/raw/events_additions.csv` (E061–E078; hand-curated research output with sources and verdicts). `data/raw/events.csv` (user's candidate list) is not edited. Verdict updates for existing events are in `data/raw/events_verification.csv`.
+- Status: 78 candidates, 48 verified across 20 firms, 39 CAR-eligible.
+- Unverified first-AI leads for adoption dates (annual-report only, no dated news): Union UVA FAQ chatbot FY2018; PNB PIHU FY2020; BoB Baroda Brainy FY2018; Bank of India BOI Seva 2019-09-07; UCO UMA FY2021; IOB Buddy FY2026; Federal Niki.ai FedMobile bot 2018-01-19 (news only); RBL ChatPay FY2018; Yes mPower 2017-01-05 (news only); Canara CANDI humanoid 2017-07-27 (AR does not say AI); Indian Bank ADYA 2021-04-01 (dated news blocked).
+
 ## BSE corporate announcements (2026-11-25)
 - Source: BSE public announcements listing `api.bseindia.com/BseIndiaAPI/api/AnnSubCategoryGetData/w` (per scrip, quarterly windows, 50 rows/page), attachments from `bseindia.com/xml-data/corpfiling/AttachHis|AttachLive/`. Script `src/python/04_scrape_announcements.py`, 0.7 s between requests. Transient HTTP 400/5xx are retried 3 times with backoff; 401/403/429 stop the run (none occurred). Raw files `data/raw/bse_announcements/{firm}.csv`, `_all.csv`, `pdf/` are gitignored; re-run the script to rebuild.
 - Coverage: 14 event-study firms, 2015-01-01 to 2026-11-25, 27,691 announcements.
