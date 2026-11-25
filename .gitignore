@@ -13,6 +13,7 @@ data/raw/prices/
 data/raw/rbi/
 data/interim/ar_text/
 data/raw/bse_announcements/
+data/raw/pca/
 data/interim/ai_kw_contexts_sample.csv
 AI_events/
 r-lib/
