@@ -54,6 +54,9 @@ p = merge(p, fnd, ["bank_id"], "founding")
 ad = pd.read_csv(INTERIM / "adoption.csv").drop(columns=["bank_type", "first_event_id", "first_event_date"])
 p = merge(p, ad, ["bank_id"], "adoption")
 
+fti = INTERIM / "fintech_idx.csv"  # proxy 5 (built by 08_fintech_index.py)
+if fti.exists():
+    p = merge(p, pd.read_csv(fti)[["bank_id", "fy", "fintech_idx", "mb_volume_fy"]], ["bank_id", "fy"], "fintech_idx")
 calls = INTERIM / "ai_calls.csv"  # optional proxy 6 (built by 09_transcripts.py)
 if calls.exists():
     p = merge(p, pd.read_csv(calls)[["bank_id", "fy", "ai_calls"]], ["bank_id", "fy"], "ai_calls")

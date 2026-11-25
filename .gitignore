@@ -14,6 +14,8 @@ data/raw/rbi/
 data/interim/ar_text/
 data/raw/bse_announcements/
 data/raw/pca/
+data/raw/mobile_banking/
+data/raw/transcripts/
 data/interim/ai_kw_contexts_sample.csv
 AI_events/
 r-lib/
