@@ -54,6 +54,8 @@ Market model, estimation window [−250, −30], Nifty 500 benchmark, N = 31 eve
 - All events: CAR[−1,+1] +0.13 % (Kolari–Pynnönen p = 0.81, Corrado p = 0.49); CAR[−5,+5] −1.28 % (p = 0.46, 0.20).
 - PSU (N = 8): CAR[−5,+5] −2.70 % (KP p = 0.041, Corrado p = 0.047); with Nifty Bank −2.83 % (p = 0.21, 0.09).
 - Private (N = 14), NBFC (N = 4) and fintech (N = 5): no CAR significant at 5 % under either test.
+- Caveat: two Paytm events one trading day apart (E070 2025-10-06, E039 2025-10-07) are both included, so their
+  event windows overlap and the same returns are counted twice (CAR[−1,+1] +4.4 % and +3.1 %).
 
 ## Robustness (FE, per 1 SD of proxy at t−1)
 `ai_kw` on ROE: baseline +0.10 pp (p = 0.86), winsorised +0.11 (p = 0.85), + lagged profit growth +0.27 (p = 0.67),

@@ -52,6 +52,7 @@ Script `src/python/06_build_pca.py` (requests only) → `data/interim/pca_spells
 ## Events: research round 2 (2026-11-25)
 - New events from round 2 are in `data/raw/events_additions.csv` (E061–E078; hand-curated research output with sources and verdicts). `data/raw/events.csv` (user's candidate list) is not edited. Verdict updates for existing events are in `data/raw/events_verification.csv`.
 - Status: 78 candidates, 48 verified across 20 firms, 39 CAR-eligible.
+- Overlapping same-firm events (2026-11-26, `src/python/12_check_events.py`): Paytm E070 (Playback, 2025-10-06) and E039 (AI Soundbox, 2025-10-07) are one trading day apart and both enter the event study; their [−5,+5] windows overlap, so the same Paytm returns are counted twice. Both kept by decision (no rule in the spec); reported as a caveat. Paytm E069/E071/E072 also overlap but are excluded by the earnings screen.
 - Unverified first-AI leads for adoption dates (annual-report only, no dated news): Union UVA FAQ chatbot FY2018; PNB PIHU FY2020; BoB Baroda Brainy FY2018; Bank of India BOI Seva 2019-09-07; UCO UMA FY2021; IOB Buddy FY2026; Federal Niki.ai FedMobile bot 2018-01-19 (news only); RBL ChatPay FY2018; Yes mPower 2017-01-05 (news only); Canara CANDI humanoid 2017-07-27 (AR does not say AI); Indian Bank ADYA 2021-04-01 (dated news blocked).
 
 ## BSE corporate announcements (2026-11-25)
