@@ -1,0 +1,605 @@
+firm_id,results_date,results_time_ist,after_close,fy_reported,quarter_reported,n_filings,source,first_subject
+AXIS,2015-01-16,11:28,N,2015,Q3,1,result_category,"Announces Q3 results & Limited Review Report for the Quarter ended December 31, 2014"
+AXIS,2015-04-29,15:21,N,2015,Q4,1,result_category,"Announces Q4 & FY15 results & Auditors Report for March 31, 2015"
+AXIS,2015-07-24,14:17,N,2016,Q1,1,result_category,"Announces Q1 results & Limited Review Report for the Quarter ended June 30, 2015"
+AXIS,2015-10-27,13:58,N,2016,Q2,1,result_category,"Announces Q2 results & Limited Review Report for the Quarter ended September 30, 2015<BR>"
+AXIS,2016-01-20,16:43,Y,2016,Q3,1,result_category,"Announces Q3 results, Limited Review Report, Results Press Release & Earnings Presentation for the Quarter ended December 31, 2015"
+AXIS,2016-04-26,17:37,Y,2016,Q4,2,result_category,"Announces Q4 & FY16 Results (Standalone & Consolidated), Auditors Report (Standalone) & Results Press Release & Earnings Presentation for the period ended March 31, 2016"
+AXIS,2016-07-22,16:55,Y,2017,Q1,1,result_category,"Announces Q1 results (Standalone), Limited Review Report (Standalone), Results Press Release & Quarterly Earnings Presentation for the Quarter ended June 30, 2016"
+AXIS,2016-10-25,16:57,Y,2017,Q2,1,result_category,"Announces Q2 Results (Standalone). Limited Review Report (Standalone), Results Press Release & Earning Presentation for the Quarter ended September 30, 2016"
+AXIS,2017-01-19,16:24,Y,2017,Q3,1,result_category,"Announces Q3 results (Standalone), Limited Review Report (Standalone) & Earning Presentation for the Quarter ended December 31, 2016"
+AXIS,2017-04-26,17:27,Y,2017,Q4,2,result_category,"Financial Results For Mar 31, 2017"
+AXIS,2017-07-25,16:23,Y,2018,Q1,1,result_category,"Financial Results For Jun 30, 2017"
+AXIS,2017-10-17,16:10,Y,2018,Q2,1,result_category,"Financial Results For September 30, 2017"
+AXIS,2018-01-22,14:00,N,2018,Q3,1,result_category,"Financial Results For Dec 31, 2017"
+AXIS,2018-04-26,18:04,Y,2018,Q4,1,result_category,"Financial Results For Mar 31, 2018"
+AXIS,2018-07-30,17:59,Y,2019,Q1,1,result_category,"Results - Financial Results Jun 30, 2018"
+AXIS,2018-11-02,16:10,Y,2019,Q2,1,result_category,"Financial Results For The Period Ended September 30, 2018"
+AXIS,2019-01-29,16:10,Y,2019,Q3,1,result_category,"Axis Bank Limited Has Submitted To The Exchange, The Financial Results For The Period Ended December 31, 2018."
+AXIS,2019-04-25,16:48,Y,2019,Q4,1,result_category,Audited Financial Results.
+AXIS,2019-07-30,15:48,Y,2020,Q1,1,result_category,"Unaudited Financial Result Of The Bank, For The Quarter Ended 30Th June 2019."
+AXIS,2019-10-22,15:40,Y,2020,Q2,1,result_category,"Unaudited Financial Results Of The Bank, For The Quarter And Half Year Ended 30Th September 2019"
+AXIS,2020-01-22,16:18,Y,2020,Q3,1,result_category,"Unaudited Financial Results Of The Bank, For The Quarter And Nine Months Ended 31St December 2019"
+AXIS,2020-04-28,16:43,Y,2020,Q4,1,result_category,"AUDITED FINANCIAL RESULTS OF THE BANK, FOR THE QUARTER / FINANCIAL YEAR ENDED 31ST MARCH 2020."
+AXIS,2020-07-21,16:54,Y,2021,Q1,1,result_category,OUTCOME OF 208TH BOARD MEETING OF AXIS BANK LIMITED HELD ON 21ST JULY 2020.
+AXIS,2020-10-28,17:54,Y,2021,Q2,1,result_category,"UNAUDITED FINANCIAL RESULTS OF THE BANK, FOR THE QUARTER / HALF YEAR ENDED 30TH SEPTEMBER 2020"
+AXIS,2021-01-27,16:43,Y,2021,Q3,1,result_category,"UNAUDITED FINANCIAL RESULTS OF THE BANK, FOR THE QUARTER AND NINE MONTHS ENDED 31ST DECEMBER 2020."
+AXIS,2021-04-27,16:45,Y,2021,Q4,1,result_category,"AUDITED FINANCIAL RESULTS OF THE BANK, FOR THE QUARTER / FINANCIAL YEAR ENDED 31ST MARCH 2021"
+AXIS,2021-07-26,17:28,Y,2022,Q1,1,result_category,"UNAUDITED FINANCIAL RESULTS OF THE BANK, FOR THE QUARTER ENDED 30TH JUNE 2021"
+AXIS,2021-10-26,16:38,Y,2022,Q2,1,result_category,"UNAUDITED FINANCIAL RESULTS OF THE BANK, FOR THE QUARTER AND HALF YEAR ENDED AS ON   SEPTEMBER 30, 2021."
+AXIS,2022-01-24,16:32,Y,2022,Q3,1,result_category,"UNAUDITED FINANCIAL RESULTS OF THE BANK (STANDALONE AND CONSOLIDATED), FOR THE QUARTER AND NINE MONTHS ENDED DECEMBER 31, 2021."
+AXIS,2022-04-28,16:51,Y,2022,Q4,1,result_category,"OUTCOME OF BOARD MEETING OF AXIS BANK LIMITED ('BANK') HELD ON APRIL 28, 2022"
+AXIS,2022-07-25,16:33,Y,2023,Q1,1,result_category,"Outcome Of Board Meeting Held On July 25, 2022. <BR> <BR>"
+AXIS,2022-10-20,16:53,Y,2023,Q2,1,result_category,"Outcome Of Board Meeting Of Axis Bank Limited Held On October 20, 2022"
+AXIS,2023-01-23,15:47,Y,2023,Q3,1,result_category,Financial Results - Axis Bank Limited
+AXIS,2023-04-27,16:02,Y,2023,Q4,1,result_category,Financial Results
+AXIS,2023-07-26,16:06,Y,2024,Q1,1,result_category,Financial Results
+AXIS,2023-10-25,16:02,Y,2024,Q2,1,result_category,Financial Results
+AXIS,2024-01-23,16:08,Y,2024,Q3,1,result_category,Quarterly Financial Results
+AXIS,2024-04-24,16:29,Y,2024,Q4,1,result_category,Financial Results
+AXIS,2024-07-24,16:12,Y,2025,Q1,1,result_category,Financial Results For Quarter Ended 30.06.2024
+AXIS,2024-10-17,15:46,Y,2025,Q2,1,result_category,Financial Results - Q2FY25
+AXIS,2025-01-16,15:46,Y,2025,Q3,1,result_category,Financial Results - Q3FY25
+AXIS,2025-04-24,16:57,Y,2025,Q4,1,result_category,Audited Financial Results FY25
+AXIS,2025-07-17,15:42,Y,2026,Q1,1,result_category,Financial Results Q1FY26
+AXIS,2025-10-15,15:42,Y,2026,Q2,1,result_category,Financial Results Q2FY26
+AXIS,2026-01-26,13:16,N,2026,Q3,1,result_category,"Results- Quarter Ended December 31, 2025"
+AXIS,2026-04-25,12:35,N,2026,Q4,1,result_category,Results Q4FY26
+AXIS,2026-07-18,11:28,N,2027,Q1,1,result_category,Results Q1 FY27
+AXIS,2026-10-17,12:58,N,2027,Q2,1,result_category,Results Q2FY27
+BAJFIN,2015-01-14,13:34,N,2015,Q3,1,result_category,"Announces Q3 results, Results Press Release & Limited Review Report for the Quarter ended December 31, 2014"
+BAJFIN,2015-05-20,13:22,N,2015,Q4,1,result_category,"Announces Q4 & FY15 results & Results Press Release for the period ended March 31, 2015"
+BAJFIN,2015-07-22,12:00,N,2016,Q1,1,result_category,"Announces Q1 results, Limited Review Report & Results Press Release for the Quarter ended June 30, 2015"
+BAJFIN,2015-10-20,13:12,N,2016,Q2,1,result_category,"Announces Q2 results, Results Press Release & Limited Review Report for the Quarter ended September 30, 2015"
+BAJFIN,2016-02-03,13:45,N,2016,Q3,1,result_category,"Announces Q3 Results (Standalone), Limited Review Report (Standalone) & Results Press Release for the Quarter ended December 31, 2015"
+BAJFIN,2016-05-24,13:32,N,2016,Q4,1,result_category,"Announces Q4 & FY16 Results (Standalone & Consolidated), Form A, Auditors Report (Standalone & Consolidated) & Results Press Release for the period ended March 31, 2016"
+BAJFIN,2016-07-26,11:30,N,2017,Q1,1,result_category,"Announces Q1 results (Standalone), Limited Review Report (Standalone) & Results Press Release for the Quarter ended June 30, 2016"
+BAJFIN,2016-10-27,14:00,N,2017,Q2,1,result_category,"Announces Q2 Results (Standalone), Limited Review Report (Standalone) & Results Press Release for the Quarter ended September 30, 2016"
+BAJFIN,2017-01-30,12:52,N,2017,Q3,1,result_category,"Announces Q3 results (Standalone) & Limited Review Report (Standalone) & Results Press Release for the Quarter ended December 31, 2016"
+BAJFIN,2017-05-17,14:31,N,2017,Q4,1,result_category,"0331,2017"
+BAJFIN,2017-07-19,12:19,N,2018,Q1,1,result_category,Outcome Of Meeting Of Board Of Directors 
+BAJFIN,2017-10-16,13:26,N,2018,Q2,1,result_category,"Financial Results For The Quarter And Half Year Ended September 30, 2017"
+BAJFIN,2018-02-01,14:14,N,2018,Q3,2,result_category,Outcome of Board Meeting
+BAJFIN,2018-05-17,14:04,N,2018,Q4,1,result_category,Annual Standalone And Consolidated Financial Results For The Year Ended 31 March 2018.
+BAJFIN,2018-07-19,12:18,N,2019,Q1,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter Ended 30 June 2018.
+BAJFIN,2018-10-23,13:50,N,2019,Q2,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter And Half Year Ended 30 September 2018.
+BAJFIN,2019-01-29,14:16,N,2019,Q3,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter And Nine Months Ended 31 December 2018
+BAJFIN,2019-05-16,14:28,N,2019,Q4,1,result_category,Audited Standalone And Consolidated Financial Results For The Quarter And Year Ended 31 March 2019
+BAJFIN,2019-07-25,12:20,N,2020,Q1,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter Ended 30 June 2019
+BAJFIN,2019-10-22,13:22,N,2020,Q2,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter And  Half Year Ended 30 September 2019
+BAJFIN,2020-01-29,13:30,N,2020,Q3,2,result_category,Outcome Of Board Meeting Held On 29 January 2020
+BAJFIN,2020-05-19,16:34,Y,2020,Q4,1,result_category,Audited Standalone And Consolidated Financial Results For The Quarter And Year Ended 31 March 2020
+BAJFIN,2020-07-21,12:00,N,2021,Q1,2,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter Ended 30 June 2020
+BAJFIN,2020-10-21,13:27,N,2021,Q2,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter And Half Year Ended 30 September 2020
+BAJFIN,2021-01-20,15:37,Y,2021,Q3,2,result_category,Outcome Of Board Meeting Held On 20 January 2021
+BAJFIN,2021-04-27,17:19,Y,2021,Q4,2,result_category,Outcome Of Board Meeting Held On 27 April 2021
+BAJFIN,2021-07-20,15:21,N,2022,Q1,2,result_category,Outcome Of Board Meeting Held On 20 July 2021.
+BAJFIN,2021-10-26,16:29,Y,2022,Q2,2,result_category,Board Meeting Outcome for Outcome Of Board Meeting Held On 26 October 2021.
+BAJFIN,2022-01-18,17:45,Y,2022,Q3,2,result_category,Board Meeting Outcome for Outcome Of Board Meeting
+BAJFIN,2022-04-26,18:13,Y,2022,Q4,2,result_category,Board Meeting Outcome for Outcome Of Board Meeting Held On 26 April 2022
+BAJFIN,2022-07-27,14:58,N,2023,Q1,2,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter Ended 30 June 2022
+BAJFIN,2022-10-20,15:55,Y,2023,Q2,2,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter And Half Year Ended 30 September 2022
+BAJFIN,2023-01-27,16:02,Y,2023,Q3,2,result_category,Board Meeting Outcome for Outcome Of Board Meeting Held On 27 January 2023
+BAJFIN,2023-04-26,17:37,Y,2023,Q4,1,result_category,Audited Standalone And Consolidated Financial Results For The Quarter And Year Ended 31 March 2023
+BAJFIN,2023-07-26,14:27,N,2024,Q1,2,result_category,Board Meeting Outcome for Outcome Of Board Meeting Held On 26 July 2023
+BAJFIN,2023-10-17,15:53,Y,2024,Q2,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter And Half Year Ended 30 September 2023
+BAJFIN,2024-01-29,16:50,Y,2024,Q3,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter And Nine Months Ended 31 December 2023
+BAJFIN,2024-04-25,18:22,Y,2024,Q4,1,result_category,Audited Standalone And Consolidated Financial Results For The Quarter And Year Ended 31 March 2024
+BAJFIN,2024-07-23,15:41,Y,2025,Q1,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter Ended 30 June 2024
+BAJFIN,2024-10-22,17:36,Y,2025,Q2,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter And Half Year Ended 30 September 2024
+BAJFIN,2025-01-29,17:24,Y,2025,Q3,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter And Nine Months Ended 31 December 2024
+BAJFIN,2025-04-29,18:24,Y,2025,Q4,1,result_category,Audited Standalone And Consolidated Financial Results For The Quarter And Year Ended 31 March 2025
+BAJFIN,2025-07-24,15:52,Y,2026,Q1,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter Ended 30 June 2025
+BAJFIN,2025-11-10,17:20,Y,2026,Q2,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter And Half Year Ended 30 September 2025
+BAJFIN,2026-02-03,17:17,Y,2026,Q3,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter And Nine Months Ended 31 December 2025
+BAJFIN,2026-04-29,16:49,Y,2026,Q4,1,result_category,Audited Standalone And Consolidated Financial Results For The Quarter And Year Ended 31 March 2026
+BAJFIN,2026-07-30,15:27,N,2027,Q1,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter Ended 30 June 2026
+BAJFIN,2026-10-19,17:39,Y,2027,Q2,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter And Half Year Ended 30 September 2026
+BAJFINSV,2015-01-14,15:43,Y,2015,Q3,1,result_category,"Announces Q3 results, Results Press Release & Limited Review Report for the Quarter ended December 31, 2014"
+BAJFINSV,2015-05-20,16:17,Y,2015,Q4,1,result_category,"Announces Q4 & FY15 results & Results Press Release for the period ended March 31, 2015"
+BAJFINSV,2015-07-22,15:41,Y,2016,Q1,1,result_category,"Announces Q1 results, Limited Review Report & Results Press Release for the Quarter ended June 30, 2015"
+BAJFINSV,2015-10-20,15:39,Y,2016,Q2,1,result_category,"Announces Q2 results, Results Press Release & Limited Review Report for the Quarter ended September 30, 2015"
+BAJFINSV,2016-02-03,16:21,Y,2016,Q3,1,result_category,"Announces Q3 Results (Standalone & Consolidated), Limited Review Report (Standalone) & Results Press Release for the Quarter ended December 31, 2015<BR>"
+BAJFINSV,2016-05-24,16:56,Y,2016,Q4,1,result_category,"Announces Q4 & FY16 Results (Standalone & Consolidated), Form A (Standalone & Consolidated), Auditors Report (Standalone & Consolidated) & Results Press Release for the period ended March 31, 2016"
+BAJFINSV,2016-07-26,15:22,N,2017,Q1,1,result_category,"Announces Q1 (Standalone & Consolidated) results, Limited Review Report (Standalone) & Results Press Release for the Quarter ended June 30, 2016"
+BAJFINSV,2016-10-27,16:09,Y,2017,Q2,1,result_category,"Announces Q2 results (Standalone & Consolidated), Limited Review Report (Standalone & Consolidated) & Results Press Release for the Quarter ended September 30, 2016"
+BAJFINSV,2017-01-30,15:39,Y,2017,Q3,1,result_category,"Announces Q3 results (Standalone & Consolidated), Limited Review Report (Standalone & Consolidated) & Results Press Release for the Quarter ended December 31, 2016"
+BAJFINSV,2017-05-17,18:22,Y,2017,Q4,1,result_category,Audited Financial Results For The Year Ended 31 March 2017
+BAJFINSV,2017-07-19,16:05,Y,2018,Q1,1,result_category,Unaudited Financial Results For 30 June 2017
+BAJFINSV,2017-10-16,16:27,Y,2018,Q2,1,result_category,Unaduited Financial Results For The Quarter And Half Year Ended 30 September 2017 - Regulation 30
+BAJFINSV,2018-02-01,16:29,Y,2018,Q3,2,result_category,Outcome of Board Meeting
+BAJFINSV,2018-05-17,17:31,Y,2018,Q4,1,result_category,Annual Standalone And Consolidated Financial Results Along With Audit Report And Press Release For The Year Ended 31 March 2018
+BAJFINSV,2018-07-19,16:25,Y,2019,Q1,1,result_category,Intimation Of Unaudited Standalone And Consolidated Financial Results For The<BR> Quarter Ended 30 June 2018 - Reg 30<BR>
+BAJFINSV,2018-10-23,16:27,Y,2019,Q2,2,result_category,Outcome of Board Meeting
+BAJFINSV,2019-01-29,16:36,Y,2019,Q3,2,result_category,Outcome of Board Meeting
+BAJFINSV,2019-05-16,18:49,Y,2019,Q4,1,result_category,Audited Standalone And Consolidated Financial Results For The Quarter And Year Ended 31 March 2019 Including Recast Audited IND AS Compliant Financial Results For The Corresponding Quarter And Year Ended 31 March 2018 Along With The Audit Report Thereon.
+BAJFINSV,2019-07-25,16:06,Y,2020,Q1,1,result_category,Unaudited Standalone And Consolidated Financial Results For The First Quarter Ended 30 June 2019
+BAJFINSV,2019-10-22,15:55,Y,2020,Q2,2,result_category,Outcome of Board Meeting
+BAJFINSV,2020-01-29,16:21,Y,2020,Q3,2,result_category,Intimation Of Unaudited Standalone And Consolidated Financial Results For The Quarter And Nine-Months Ended 31 December 2019 - Regulation 30<BR> <BR>
+BAJFINSV,2020-05-21,13:29,N,2020,Q4,2,result_category,Outcome Of Board Meeting Of Bajaj Finserv Limited-21 May 2020
+BAJFINSV,2020-07-21,17:06,Y,2021,Q1,1,result_category,Intimation Of Unaudited Standalone And Consolidated Financial Results For The First Quarter Ended 30 June 2020 Along With The Limited Review Reports And Press Release.<BR> <BR> The Meeting Commenced At 3.30 P.M. And Concluded At 4.10 P.M.<BR>
+BAJFINSV,2020-10-21,17:46,Y,2021,Q2,2,result_category,Intimation Of Unaudited Standalone And Consolidated Financial Results For The Second Quarter And Half-Year Ended 30 September 2020-Regulation 30
+BAJFINSV,2021-01-20,17:35,Y,2021,Q3,2,result_category,Intimation Of Unaudited Standalone And Consolidated Financial Results For The Third Quarter And Nine-Months Ended 31 December 2020 - Regulation 30
+BAJFINSV,2021-04-28,12:15,N,2021,Q4,3,result_category,Outcome Of Board Meeting Of Bajaj Finserv Limited Held On 28 April 2021
+BAJFINSV,2021-07-21,12:21,N,2022,Q1,2,result_category,Outcome Of Board Meeting Of Bajaj Finserv Limited Held On 21 July 2021
+BAJFINSV,2021-10-28,12:25,N,2022,Q2,2,result_category,Board Meeting Outcome for Outcome Of Board Meeting Of Bajaj Finserv Limited Held On 28 October 2021
+BAJFINSV,2022-01-20,13:23,N,2022,Q3,2,result_category,Board Meeting Outcome for Outcome Of Board Meeting
+BAJFINSV,2022-04-28,13:43,N,2022,Q4,2,result_category,Board Meeting Outcome for Outcome Of Board Meeting Held On 28 April 2022
+BAJFINSV,2022-07-28,11:59,N,2023,Q1,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter Ended 30 June 2022
+BAJFINSV,2022-10-21,13:18,N,2023,Q2,2,result_category,Board Meeting Outcome for Outcome Of Board Meeting Held For Approval Of Unaudited Standalone And Consolidated Financial Results For The Quarter And Half Year Ended 30 September 2022
+BAJFINSV,2023-01-30,12:56,N,2023,Q3,2,result_category,Board Meeting Outcome for Outcome Of The Meeting Of Board Of Directors Held On 30 January 2023
+BAJFINSV,2023-04-27,13:29,N,2023,Q4,1,result_category,Audited Standalone And Consolidated Financial Results For The Quarter And Year Ended 31 March 2023
+BAJFINSV,2023-07-27,11:47,N,2024,Q1,2,result_category,Board Meeting Outcome for Outcome Of Board Meeting Held On 27 July 2023
+BAJFINSV,2023-10-27,13:13,N,2024,Q2,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter And Half Year Ended 30 September 2023
+BAJFINSV,2024-01-30,12:55,N,2024,Q3,2,result_category,Board Meeting Outcome for Outcome Of Board Meeting Held On 30 January 2024
+BAJFINSV,2024-04-26,14:10,N,2024,Q4,1,result_category,Audited Standalone And Consolidated Financial Results For The Quarter And Year Ended 31 March 2024
+BAJFINSV,2024-07-24,12:16,N,2025,Q1,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter Ended 30 June 2024
+BAJFINSV,2024-10-23,13:37,N,2025,Q2,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter And Half Year Ended 30 September 2024
+BAJFINSV,2025-01-30,13:01,N,2025,Q3,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter And Nine Months Ended 31 December 2024.
+BAJFINSV,2025-04-29,19:51,Y,2025,Q4,1,result_category,Audited Standalone And Consolidated Financial Results For The Quarter And Year Ended 31 March 2025
+BAJFINSV,2025-07-25,12:18,N,2026,Q1,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter Ended 30 June 2025
+BAJFINSV,2025-11-11,13:50,N,2026,Q2,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter And Half Year Ended 30 September 2025.
+BAJFINSV,2026-02-04,13:25,N,2026,Q3,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter And Nine Months Ended 31 December 2025
+BAJFINSV,2026-04-30,14:21,N,2026,Q4,1,result_category,Audited Standalone And Consolidated Financial Results For The Quarter And Year Ended 31 March 2026
+BAJFINSV,2026-07-31,12:02,N,2027,Q1,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter Ended 30 June 2026
+BAJFINSV,2026-11-03,12:59,N,2027,Q2,1,result_category,Unaudited Standalone And Consolidated Financial Results For The Quarter And Half Year Ended 30 September 2026
+BOB,2015-01-30,11:09,N,2015,Q3,1,result_category,"Announces Q3 results & Limited Review Report for the Quarter ended December 31, 2014"
+BOB,2015-05-11,10:50,N,2015,Q4,1,result_category,"Announces Q4 & FY15 results & Auditors Report for the period ended March 31, 2015"
+BOB,2015-07-30,10:52,N,2016,Q1,1,result_category,"Announces Q1 results & Limited Review Report for the Quarter ended June 30, 2015"
+BOB,2015-11-06,09:08,N,2016,Q2,1,result_category,"Announces Q2 results & Limited Review Report for the Quarter ended September 30, 2015"
+BOB,2016-02-13,12:05,N,2016,Q3,2,result_category,"Announces Q3 Results (Standalone) & Limited Review Report (Standalone) for the Quarter ended December 31, 2015"
+BOB,2016-05-13,17:15,Y,2016,Q4,2,result_category,"Announces Q4 & FY16 Results (Standalone & Consolidated), Form A (Standalone & Consolidated) & Auditors Report (Standalone & Consolidated) for the period ended March 31, 2016"
+BOB,2016-08-11,08:56,N,2017,Q1,1,result_category,"Announces Q1 Results (Standalone), Limited Review Report (Standalone) & Results Press Release for the Quarter ended June 30, 2016"
+BOB,2016-11-11,16:47,Y,2017,Q2,1,result_category,"Announces Q2 results (Standalone), Limited Review Report (Standalone) & Results Press Release for the Quarter ended September 30, 2016"
+BOB,2017-02-10,16:42,Y,2017,Q3,1,result_category,"Announces Q3 results (Standalone), Limited Review Report (Standalone) & Results Press Release for the Quarter ended December 31, 2016"
+BOB,2017-05-18,19:34,Y,2017,Q4,1,result_category,Standalone (Audited) And Consolidated (Audited) Financial Results For Quarter/Year Ended On 31.03.2017
+BOB,2017-08-11,16:19,Y,2018,Q1,1,result_category,"Financial Results For Jun 30, 2017"
+BOB,2017-11-14,15:35,Y,2018,Q2,1,result_category,"Financial Result For September 30, 2017"
+BOB,2018-02-09,16:55,Y,2018,Q3,1,result_category,"Financial Results For Dec 31, 2017"
+BOB,2018-05-25,18:18,Y,2018,Q4,1,result_category,"Financial Results For March 31, 2018"
+BOB,2018-07-27,17:20,Y,2019,Q1,1,result_category,"Financial Result For June 30, 2018"
+BOB,2018-10-30,20:34,Y,2019,Q2,1,result_category,"Financial Results For Sept 30, 2018"
+BOB,2019-01-29,17:43,Y,2019,Q3,1,result_category,"Financial Result For Dec 31, 2018"
+BOB,2019-05-22,16:59,Y,2019,Q4,1,result_category,"Financial Results For March 31, 2019"
+BOB,2019-07-25,17:42,Y,2020,Q1,1,result_category,"Financial Results For June 30, 2019"
+BOB,2019-11-08,17:36,Y,2020,Q2,1,result_category,"Financial Results For Sept 30, 2019"
+BOB,2020-01-24,18:12,Y,2020,Q3,1,result_category,"Financial Results For December 31, 2019"
+BOB,2020-06-23,19:03,Y,2020,Q4,1,result_category,"Financial Results For March 31, 2020"
+BOB,2020-08-10,17:23,Y,2021,Q1,1,result_category,"Financial Results For June 30, 2020"
+BOB,2020-10-29,14:24,N,2021,Q2,1,result_category,"Financial Results For Sept. 30, 2020"
+BOB,2021-01-27,15:01,N,2021,Q3,1,result_category,"Financial Results For December 31, 2020"
+BOB,2021-05-29,15:36,Y,2021,Q4,1,result_category,"Financial Results For March 31, 2021"
+BOB,2021-08-07,14:30,N,2022,Q1,1,result_category,"Financial Results For June 30, 2021"
+BOB,2021-11-10,14:25,N,2022,Q2,1,result_category,"Financial Results For September 30, 2021"
+BOB,2022-02-05,14:47,N,2022,Q3,1,result_category,"Financial Results For December 31, 2021"
+BOB,2022-05-13,15:49,Y,2022,Q4,1,result_category,"Financial Results For March 31, 2022 And Press Release"
+BOB,2022-07-30,15:06,N,2023,Q1,1,result_category,"Financial Results For June 30, 2022 And Press Release"
+BOB,2022-11-05,13:11,N,2023,Q2,1,result_category,"Financial Results For September 30, 2022"
+BOB,2023-02-03,13:32,N,2023,Q3,1,result_category,"Financial Results For December 31, 2022"
+BOB,2023-05-16,13:29,N,2023,Q4,1,result_category,"Financial Results For March 31, 2023 & Press Release"
+BOB,2023-08-05,14:08,N,2024,Q1,1,result_category,"Financial Results For June 30, 2023 & Press Release"
+BOB,2023-11-04,13:35,N,2024,Q2,1,result_category,"Financial Results For September 30, 2023"
+BOB,2024-01-31,13:58,N,2024,Q3,1,result_category,Results For Q3 - December 2023
+BOB,2024-05-10,14:52,N,2024,Q4,1,result_category,Audited Results March 2024
+BOB,2024-07-31,16:29,Y,2025,Q1,1,result_category,Financial Results Q1 And Press Release
+BOB,2024-10-25,16:16,Y,2025,Q2,1,result_category,Q2 Results - 30.09.2024
+BOB,2025-01-30,16:23,Y,2025,Q3,1,board_outcome_fallback,Board Meeting Outcome for Q3 Results And Press Release
+BOB,2025-05-06,14:21,N,2025,Q4,1,result_subject,Board Meeting Outcome for Financial Results 31.03.2025
+BOB,2025-07-25,16:31,Y,2026,Q1,2,result_subject,Board Meeting Outcome for Financial Results Q1 2025-26
+BOB,2025-10-31,16:41,Y,2026,Q2,2,result_subject,Board Meeting Outcome for Financial Results Q2- 30Th September 2025
+BOB,2026-01-30,16:47,Y,2026,Q3,1,result_subject,Board Meeting Outcome for Financial Results Q3 2025-26
+BOB,2026-05-08,16:32,Y,2026,Q4,1,result_subject,Board Meeting Outcome for Outcome Of Board Meeting Financial Results 31St March 2026
+BOB,2026-07-24,16:54,Y,2027,Q1,1,result_subject,Board Meeting Outcome for Financial Results Q1
+BOB,2026-10-30,16:26,Y,2027,Q2,1,result_subject,Board Meeting Outcome for Financial Results Q2 - 30.09.2026
+CANARA,2015-02-04,12:56,N,2015,Q3,1,result_category,"Announces Q3 results & Limited Review Report for the Quarter ended December 31, 2014<BR>"
+CANARA,2015-05-25,15:03,N,2015,Q4,2,result_category,"Announces Q4 & FY15 Results & Auditors Report for March 31, 2015"
+CANARA,2015-08-05,13:48,N,2016,Q1,1,result_category,"Announces Q1 results & Limited Review Report for the Quarter ended June 30, 2015"
+CANARA,2015-11-04,14:07,N,2016,Q2,1,result_category,"Announces Q2 results & Limited Review Report for the Quarter ended September 30, 2015"
+CANARA,2016-02-12,14:10,N,2016,Q3,3,result_category,"Announces Q3 Results (Standalone) & Limited Review Report (Standalone) for the Quarter ended December 31, 2015"
+CANARA,2016-05-27,14:49,N,2016,Q4,3,result_category,"Announces Q4 & FY16 Results (Standalone & Consolidated) & Auditors Report (Standalone & Consolidated) for the period ended March 31, 2016"
+CANARA,2016-07-25,15:40,Y,2017,Q1,1,result_category,"Announces Q1 Results (Standalone) & Limited Review Report (Standalone) for the Quarter ended June 30, 2016"
+CANARA,2016-10-26,13:56,N,2017,Q2,1,result_category,"Announces Q2 results (Standalone) & Limited Review Report (Standalone) for the Quarter ended September 30, 2016"
+CANARA,2017-01-20,14:26,N,2017,Q3,2,result_category,"Announces Q3 results (Standalone) & Limited Review Report (Standalone) for the Quarter ended December 31, 2016"
+CANARA,2017-05-08,14:43,N,2017,Q4,1,result_category,Board Meeting - Announcement Of Results - 31.03.2017
+CANARA,2017-07-19,15:49,Y,2018,Q1,1,result_category,Reviewed Financial Results - 30.06.2017 - Canara Bank
+CANARA,2017-10-16,12:15,N,2018,Q2,1,result_subject,Notice Of Board Meeting - Reviewed Financial Results For The Quarter/ Half Year 30.09.2017<BR> 
+CANARA,2018-01-24,15:58,Y,2018,Q3,1,result_category,Reviewed Financial Results - 31.12.2017
+CANARA,2018-04-30,14:37,N,2018,Q4,1,result_subject,Notice Of Board Meeting - Audited Financial Results For The Last Quarter And Year Ended 31.03.2018<BR>
+CANARA,2018-07-25,16:27,Y,2019,Q1,2,result_category,Reviewed Financial Results - 30.06.2018
+CANARA,2018-10-31,15:54,Y,2019,Q2,1,result_category,Reviewed Financial Results For The Quarter/ Half Year Ended On 30.09.2018
+CANARA,2019-01-28,13:14,N,2019,Q3,1,result_category,Reviewed Financial Results For The Third Quarter Ended On 31.12.2018
+CANARA,2019-05-10,14:39,N,2019,Q4,1,result_category,Announcement Of Audited Financial Results (Standalone) For The Fourth Quarter And Year Ended 31.03.2019
+CANARA,2019-07-24,15:00,N,2020,Q1,1,result_category,Board Meeting- Announcement Of Reviewed Financial Results<BR> (Standalone & Consolidated) For The First Quarter Ended 30.06.2019<BR>
+CANARA,2019-11-06,13:56,N,2020,Q2,1,result_category,Board Meeting- Announcement Of Reviewed Financial Results<BR> (Standalone & Consolidated) For The Second Quarter/ Half Year Ended 30.09.2019<BR>
+CANARA,2020-01-23,13:30,N,2020,Q3,1,result_category,Board Meeting- Announcement Of Reviewed Financial Results (Standalone & Consolidated) For The Third Quarter/ Nine Months Ended 31.12.2019<BR>
+CANARA,2020-06-24,16:40,Y,2020,Q4,2,result_category,Announcement Of Audited Financial Results (Standalone & Consolidated) For The Fourth Quarter/ Year Ended 31.03.2020
+CANARA,2020-08-05,16:55,Y,2021,Q1,1,result_category,Board Meeting- Announcement Of Reviewed Financial Results (Standalone) For The First Quarter Ended 30.06.2020
+CANARA,2020-10-29,16:21,Y,2021,Q2,2,result_category,Board Meeting - Announcement Of Reviewed Financial Results (Standalone And Consolidated) For The Second Quarter / Half Year Ended 30.09.2020
+CANARA,2021-01-27,12:44,N,2021,Q3,1,result_category,Board Meeting - Announcement Of Reviewed Financial Results (Standalone And Consolidated) For The Third Quarter / Nine Months Ended 31.12.2020
+CANARA,2021-05-18,13:41,N,2021,Q4,1,result_category,Board Meeting - Announcement Of Audited Financial Results (Standalone And Consolidated) For The Fourth Quarter / Year Ended 31.03.2021
+CANARA,2021-07-27,12:56,N,2022,Q1,2,result_category,Announcement Of Reviewed Financial Results (Standalone & Consolidated) For The First Quarter Ended 30.06.2021
+CANARA,2021-10-26,11:41,N,2022,Q2,1,result_category,Board Meeting Outcome for Board Meeting - Announcement Of Unaudited (Reviewed) Financial Results (Standalone & Consolidated) For The Second Quarter / Half Year Ended 30.09.2021
+CANARA,2022-01-27,12:16,N,2022,Q3,1,result_category,Board Meeting - Announcement Of Unaudited (Reviewed) Financial Results (Standalone & Consolidated) For The Third Quarter / Nine Months Ended 31.12.2021
+CANARA,2022-05-06,12:15,N,2022,Q4,3,result_category,Board Meeting Outcome for Outcome Of Board Meeting - Audited Financial Results (Standalone And Consolidated) For The Fourth Quarter / Year Ended 31.03.2022 And Recommendation Of Dividend
+CANARA,2022-07-25,12:42,N,2023,Q1,2,result_category,Board Meeting Outcome for Outcome Of Board Meeting - Unaudited (Reviewed) Financial Results (Standalone & Consolidated) For The First Quarter / Three Months Ended 30.06.2022
+CANARA,2022-10-20,11:42,N,2023,Q2,2,result_category,Board Meeting Outcome for Outcome Of Board Meeting - Unaudited (Reviewed) Financial Results (Standalone & Consolidated) For The Second Quarter / Half Year Ended 30.09.2022
+CANARA,2023-01-23,11:57,N,2023,Q3,2,result_category,Board Meeting Outcome for Unaudited (Reviewed) Financial Results (Standalone & Consolidated) For The Third Quarter / Nine Months Ended 31.12.2022
+CANARA,2023-05-08,13:17,N,2023,Q4,2,result_category,Outcome Of Board Meeting - Audited Financial Results (Standalone & Consolidated) For The Fourth Quarter / Year Ended 31.03.2023 And Recommendation Of Dividend
+CANARA,2023-07-24,13:09,N,2024,Q1,3,result_category,Outcome Of Board Meeting - Unaudited (Reviewed) Financial Results (Standalone & Consolidated) For The First Quarter / Three Months Ended 30.06.2023
+CANARA,2023-10-26,13:03,N,2024,Q2,3,result_category,Board Meeting Outcome for Outcome Of Board Meeting - Unaudited (Reviewed) Financial Results (Standalone & Consolidated) For The Second Quarter & Half-Year Ended 30.09.2023
+CANARA,2024-01-24,12:39,N,2024,Q3,3,result_subject,"Board Meeting Outcome for Outcome Of Board Meeting - Unaudited (Reviewed) Financial Results (Standalone &
+Consolidated) For The Third Quarter & Nine Months Ended 31.12.2023"
+CANARA,2024-05-08,13:35,N,2024,Q4,4,result_subject,Board Meeting Outcome for Audited Financial Results (Standalone & Consolidated) For The Fourth Quarter / Financial Year Ended 31.03.2024 And Recommendation Of Dividend
+CANARA,2024-07-25,13:17,N,2025,Q1,3,result_subject,Board Meeting Outcome for Outcome Of Board Meeting - Unaudited (Reviewed) Financial Results (Standalone & Consolidated) For The First Quarter / Three Months Ended 30.06.2024
+CANARA,2024-10-29,12:49,N,2025,Q2,3,result_subject,Board Meeting Outcome for Outcome Of Board Meeting - Unaudited (Reviewed) Financial Results (Standalone & Consolidated) For The Second Quarter & Half Year Ended 30.09.2024
+CANARA,2025-01-27,13:33,N,2025,Q3,1,result_category,Outcome Of Board Meeting Of The Bank Held On 27.01.2025
+CANARA,2025-05-08,13:16,N,2025,Q4,2,result_category,Board Meeting Outcome for Outcome Of Board  Meeting - Audited Financial Results ( Standalone & Consolidated) For The Fourth Quarter / Financial  Year Ended 31.03.2025 And Recommendation  Of Dividend.
+CANARA,2025-07-24,13:15,N,2026,Q1,2,result_category,Outcome Of Board Meeting - Integrated Filing (Financial) - Unaudited (Reviewed) Financial Results (Standalone & Consolidated) For The First Quarter/Three Months Ended 30.06.2025
+CANARA,2025-10-30,12:33,N,2026,Q2,2,result_subject,Board Meeting Outcome for Outcome Of Board Meeting - Integrated Filing (Financial) - Unaudited (Reviewed) Financial Results (Standalone And Consolidated) For The Second Quarter And Half Year Ended 30.09.2025
+CANARA,2026-01-29,13:01,N,2026,Q3,2,result_subject,Board Meeting Outcome for Outcome Of Board Meeting - Integrated Filing (Financial) - Unaudited (Reviewed) Financial Results (Standalone & Consolidated) For The Third Quarter & Nine Months Ended 31.12.2025
+CANARA,2026-05-11,13:06,N,2026,Q4,2,result_subject,"Board Meeting Outcome for Audited Financial Results For The FY 31.03.2026
+Declaration Of Dividend"
+CANARA,2026-07-27,12:13,N,2027,Q1,1,result_subject,Board Meeting Outcome for Outcome Of Board Meeting - Integrated Filing (Financial) - Unaudited (Reviewed) Financial Results (Standalone & Consolidated) For The Quarter Ended 30.06.2026
+CANARA,2026-10-14,12:08,N,2027,Q2,2,result_category,Financial Results For The QE 30.09.2026
+HDFC,2015-02-14,11:35,N,2015,Q3,1,result_category,"Announces Q3 results, Results Press Release & Limited Review Report for the Quarter ended December 31, 2014"
+HDFC,2015-04-23,14:47,N,2015,Q4,2,result_category,Announces Q4 & FY15 results & Results Press Release
+HDFC,2015-07-21,11:38,N,2016,Q1,1,result_category,"Announces Q1 results, Results Press Release & Limited Review Report for the Quarter ended June 30, 2015"
+HDFC,2015-10-21,12:46,N,2016,Q2,2,result_category,Announces Q2 results
+HDFC,2016-01-25,14:07,N,2016,Q3,1,result_category,"Announces Q3 results, Limited Review Report & Results Press Release for the Quarter ended December 31, 2015"
+HDFC,2016-04-22,13:11,N,2016,Q4,1,result_category,"Announces Q4 & FY16 Results (Standalone & Consolidated), Auditors Report (Standalone & Consolidated) & Results Press Release for the period ended March 31, 2016"
+HDFC,2016-07-21,11:55,N,2017,Q1,1,result_category,"Announces Q1 results (Standalone), Limited Review Report (Standalone) & Results Press Release for the Quarter ended June 30, 2016"
+HDFC,2016-10-25,12:45,N,2017,Q2,1,result_category,"Announces Q2 Results (Standalone), Limited Review Report (Standalone) & Results Press Release for the Quarter ended September 30, 2016<BR>"
+HDFC,2017-01-24,12:33,N,2017,Q3,1,result_category,"Announces Q3 results (Standalone), Limited Review Report (Standalone) & Results Press Release for the Quarter ended December 31, 2016"
+HDFC,2017-04-21,13:20,N,2017,Q4,1,result_category,Outcome of Board Meeting
+HDFC,2017-10-24,12:43,N,2018,Q2,2,result_category,Financial Result For Quarter And Half Year Ended 30Th September 2017
+HDFC,2018-01-19,11:57,N,2018,Q3,1,result_category,Financial Result For The Quarter Ended 31St December 2017
+HDFC,2018-04-21,17:07,Y,2018,Q4,1,result_category,Financial Results For Quarter And Year Ended March 31 2018
+HDFC,2018-07-21,15:06,N,2019,Q1,1,result_category,Financial Result For Quarter Ended 30Th June 2018
+HDFC,2018-10-20,15:47,Y,2019,Q2,1,result_category,"Financial Results For The Quarter And Half Year Ended 30Th September, 2018"
+HDFC,2019-01-19,15:49,Y,2019,Q3,1,result_category,"Financial Results For The Quarter Ended 31St December, 2018"
+HDFC,2019-04-20,15:33,Y,2019,Q4,1,result_category,Outcome Of Board Meeting Held On 20Th April 2019
+HDFC,2019-07-20,16:00,Y,2020,Q1,1,result_category,"Unaudited Financial Results Of The Bank For The Quarter Ended June 30, 2019"
+HDFC,2019-10-19,16:24,Y,2020,Q2,1,result_category,"Audited Financial Results Of The Bank For The Quarter And Half Year Ended September 30, 2019"
+HDFC,2020-01-18,15:25,N,2020,Q3,2,result_category,"Unaudited Financial Results Of The Bank For The Quarter And Nine Months Ended December 31, 2019"
+HDFC,2020-04-18,14:31,N,2020,Q4,1,result_category,"Outcome Of Board Meeting Held On April 18, 2020"
+HDFC,2020-07-18,12:39,N,2021,Q1,1,result_category,"Unaudited Financial Results Of The Bank For The Quarter Ended June 30, 2020"
+HDFC,2020-10-17,16:24,Y,2021,Q2,1,result_category,"Audited Financial Results Of The Bank For The Quarter And Half Year Ended September 30, 2020"
+HDFC,2021-01-16,16:47,Y,2021,Q3,1,result_category,"Unaudited Financial Results Of The Bank For The Quarter And Nine Months Ended December 31, 2020"
+HDFC,2021-04-17,14:32,N,2021,Q4,1,result_category,"Audited Financial Results Of The Bank For The Quarter & Year Ended March 31, 2021"
+HDFC,2021-07-17,12:53,N,2022,Q1,1,result_category,"Outcome Of The Meeting Of The Board Of Directors Of HDFC Bank Limited ('The Bank') Held On July 17, 2021"
+HDFC,2022-01-15,13:36,N,2022,Q3,1,result_category,"Board Meeting Outcome for Unaudited Financial Results Of The Bank For The Quarter And Nine Months Ended December 31, 2021"
+HDFC,2022-04-16,14:27,N,2022,Q4,1,result_category,"Audited Financial Results Of The Bank For The Quarter And Year Ended March 31, 2022"
+HDFC,2022-07-16,13:34,N,2023,Q1,1,result_category,"Outcome Of The Meeting Of The Board Of Directors Of HDFC Bank Limited Held On July 16, 2022"
+HDFC,2022-10-15,13:49,N,2023,Q2,1,result_category,"Audited Financial Results Of HDFC Bank Limited For The Second Quarter And Half-Year Ended September 30, 2022"
+HDFC,2023-01-14,13:01,N,2023,Q3,2,result_category,"Unaudited Financial Results Of HDFC Bank Limited For The Third Quarter And Nine Months Ended December 31, 2022"
+HDFC,2023-04-15,13:33,N,2023,Q4,1,result_category,"Audited Financial Results Of HDFC Bank Limited For The Year Ended March 31, 2023"
+HDFC,2023-07-17,12:45,N,2024,Q1,1,result_category,"Unaudited Financial Results For The First Quarter Ended June 30, 2023"
+HDFC,2023-10-16,15:51,Y,2024,Q2,1,result_subject,"Board Meeting Outcome for Unaudited Financial Results Of HDFC Bank Limited For The Second Quarter Ended September 30, 2023"
+HDFC,2024-01-16,15:53,Y,2024,Q3,1,result_subject,"Board Meeting Outcome for Unaudited Financial Results Of HDFC Bank Limited For The Third Quarter And Nine Months Ended December 31, 2023"
+HDFC,2024-04-20,14:33,N,2024,Q4,1,result_category,"Audited Financial Results Of HDFC Bank Limited For The Quarter And Year Ended March 31, 2024"
+HDFC,2024-07-20,14:14,N,2025,Q1,2,result_category,"Unaudited Financial Results For The First Quarter Ended June 30, 2024
+"
+HDFC,2024-10-19,14:10,N,2025,Q2,2,result_subject,"Board Meeting Outcome for Unaudited Financial Results Of HDFC Bank Limited (""The Bank"") For The Quarter/Half-Year Ended September 30, 2024"
+HDFC,2025-01-22,14:13,N,2025,Q3,1,result_category,"Unaudited Financial Results Of HDFC Bank Limited (""The Bank"") For The Quarter And Nine-Months Ended December 31, 2024"
+HDFC,2025-04-19,14:58,N,2025,Q4,1,result_category,"Audited Standalone And Consolidated Financial Results Of The Bank For The Quarter And Year Ended March 31, 2025"
+HDFC,2025-07-19,14:59,N,2026,Q1,1,result_subject,"Board Meeting Outcome for Outcome Of The Board Meeting Held On July 19, 2025 - Financial Results, Special Interim Dividend & Bonus"
+HDFC,2025-10-18,14:06,N,2026,Q2,1,board_outcome_fallback,"Board Meeting Outcome for Outcome Of The Board Meeting Held On October 18, 2025"
+HDFC,2026-01-17,14:51,N,2026,Q3,1,board_outcome_fallback,"Board Meeting Outcome for Outcome Of Board Meeting Held On January 17, 2026"
+HDFC,2026-04-18,15:03,N,2026,Q4,1,result_category,"Financial Results Including The Audited Standalone And Consolidated Financial Results Of The Bank For The
+Quarter And Year Ended March 31, 2026"
+HDFC,2026-07-18,14:27,N,2027,Q1,1,result_category,"Unaudited Standalone And Consolidated Financial Results Of The Bank For The Quarter Ended June 30, 2026"
+HDFC,2026-10-17,13:56,N,2027,Q2,1,result_subject,"Board Meeting Outcome for Approval Of Unaudited Standalone And Consolidated Financial Results Of The Bank For The Quarter And Half-Year Ended September 30, 2026"
+ICICI,2015-01-30,14:06,N,2015,Q3,1,result_category,"Announces Q3 results, Results Press Release & Auditors' Report for the Quarter ended December 31, 2014"
+ICICI,2015-04-27,14:23,N,2015,Q4,1,result_category,"Announces Q4 & FY15 results, Results Press Release & Auditors' Report for the period ended March 31, 2015"
+ICICI,2015-07-31,12:14,N,2016,Q1,1,result_category,"Announces Q1 results, Auditor's Report & Results Press Release for the Quarter ended June 30, 2015"
+ICICI,2015-10-30,13:23,N,2016,Q2,1,result_category,"Announces Q2 results, Auditors' Report & Results Press Release for the Quarter ended September 30, 2015"
+ICICI,2016-01-28,15:46,Y,2016,Q3,1,result_category,"Announces Q3 results, Auditors' Report & Results Press Release for the Quarter ended December 31, 2015"
+ICICI,2016-04-29,12:07,N,2016,Q4,3,result_category,"Announces Q4 & FY16 Results (Standalone & Consolidated), Auditors Report (Standalone) & Results Press Release for the period ended March 31, 2016<BR>"
+ICICI,2016-07-29,16:43,Y,2017,Q1,1,result_category,"Announces Q1 (Standalone & Consolidated) results, Auditors' Report (Standalone) & Results Press Release for the Quarter ended June 30, 2016"
+ICICI,2016-11-07,16:13,Y,2017,Q2,1,result_category,"Announces Q2 Results (Standalone & Consolidated) & Auditors Report (Standalone), Limited Review Report (Consolidated) & Results Press Release for the Quarter ended September 30, 2016"
+ICICI,2017-01-31,15:53,Y,2017,Q3,1,result_category,"Announces Q3 results (Standalone & Consolidated), Auditors Report (Standalone) & Results Press Release for the Quarter ended December 31, 2016"
+ICICI,2017-05-03,18:31,Y,2017,Q4,1,result_category,"Financial Results For The Year Ended March 31, 2017"
+ICICI,2017-07-27,17:02,Y,2018,Q1,1,result_category,"Financial Results For The Quarter Ended June 30, 2017"
+ICICI,2017-10-27,16:21,Y,2018,Q2,1,result_category,"Approval Of Accounts For The Quarter And Half-Year Ended September 30, 2017"
+ICICI,2018-01-31,16:30,Y,2018,Q3,1,result_category,"Approval Of Accounts For The Quarter And Nine Months Ended December 31, 2017"
+ICICI,2018-05-07,17:49,Y,2018,Q4,2,result_category,"Financial Results For The Year Ended March 31, 2018"
+ICICI,2018-07-27,17:49,Y,2019,Q1,1,result_category,"Financial Results For The Quarter Ended June 30, 2018"
+ICICI,2018-10-26,16:39,Y,2019,Q2,1,result_category,"Approval Of Accounts For The Quarter And Half-Year Ended September 30, 2018."
+ICICI,2019-01-30,17:31,Y,2019,Q3,1,result_category,"Approval Of Financial Results For The Quarter And Nine Months Ended December 31, 2018."
+ICICI,2019-05-06,16:10,Y,2019,Q4,2,result_category,"Board Meeting Held On May 6, 2019"
+ICICI,2019-07-27,14:59,N,2020,Q1,1,result_category,"Approval Of The Unaudited Financial Results For The Quarter Ended June 30, 2019 <BR>"
+ICICI,2019-10-26,14:31,N,2020,Q2,1,result_category,"Approval Of The Unaudited Financial Results For The Quarter And Half-Year Ended September 30, 2019."
+ICICI,2020-01-25,14:30,N,2020,Q3,1,result_category,"Approval Of The Unaudited Financial Results For The Quarter And Nine Months Ended December 31, 2019"
+ICICI,2020-05-09,16:09,Y,2020,Q4,1,result_category,"Board Meeting - May 9, 2020"
+ICICI,2020-07-25,15:29,N,2021,Q1,1,result_category,"Unaudited Financial Results (Standalone And Consolidated) For The Quarter Ended June 30, 2020"
+ICICI,2020-10-31,15:45,Y,2021,Q2,1,result_category,"Board Meeting Held On October 31, 2020"
+ICICI,2021-01-30,15:11,N,2021,Q3,1,result_category,"Board Meeting Held On January 30, 2021"
+ICICI,2021-04-24,17:59,Y,2021,Q4,2,result_category,"Board Meeting Held On April 24, 2021"
+ICICI,2021-07-24,16:23,Y,2022,Q1,1,result_category,"Unaudited Financial Results (Standalone And Consolidated) For The Quarter Ended June 30, 2021"
+ICICI,2021-10-23,16:02,Y,2022,Q2,1,result_category,"Board Meeting Held On October 23, 2021"
+ICICI,2022-01-22,16:17,Y,2022,Q3,1,result_category,"Board Meeting Held On January 22, 2022"
+ICICI,2022-04-23,16:36,Y,2022,Q4,2,result_category,"Outcome Of Board Meeting Held On April 23, 2022"
+ICICI,2022-07-23,15:06,N,2023,Q1,2,result_category,"Outcome Of Board Meeting Held On July 23, 2022"
+ICICI,2022-10-22,15:36,Y,2023,Q2,1,result_category,"Outcome Of Board Meeting Held On October 22, 2022"
+ICICI,2023-01-21,15:58,Y,2023,Q3,1,result_category,"Outcome Of Board Meeting Held On January 21, 2023"
+ICICI,2023-04-22,15:42,Y,2023,Q4,1,result_category,"Audited Financial Results For The Quarter And Year Ended March 31, 2023"
+ICICI,2023-07-19,16:59,Y,2024,Q1,3,result_subject,"Call With Media On Financial Results For The Quarter Ended June 30, 2023"
+ICICI,2023-10-18,17:56,Y,2024,Q2,3,result_subject,"Call With Media On Financial Results For The Quarter And Six Months Ended September 30, 2023"
+ICICI,2024-01-17,12:37,N,2024,Q3,2,result_subject,"Call With Media On Financial Results For The Quarter And Nine Months Ended December 31, 2023"
+ICICI,2024-04-24,19:52,Y,2024,Q4,2,result_subject,"Call With Media On Financial Results For The Quarter And Financial Year Ended March 31, 2024"
+ICICI,2024-07-23,13:19,N,2025,Q1,2,result_subject,"Call With Media On Financial Results For The Quarter Ended June 30, 2024"
+ICICI,2024-10-22,17:35,Y,2025,Q2,2,result_subject,"Call With Media On Financial Results For The Quarter And Six Months Ended September 30, 2024
+"
+ICICI,2025-01-25,14:28,N,2025,Q3,1,result_category,"Financial Results (Standalone And Consolidated) For The Quarter And Nine Months Ended December 31, 2024"
+ICICI,2025-04-15,20:45,Y,2025,Q4,2,result_subject,"Call With Media On Financial Results For The Quarter And Financial Year Ended March 31, 2025"
+ICICI,2025-07-14,18:31,Y,2026,Q1,2,result_subject,"Call With Media On Financial Results For The Quarter Ended June 30, 2025"
+ICICI,2025-10-14,13:13,N,2026,Q2,2,result_subject,"Call With Media On Financial Results For The Quarter And Six Months Ended September 30,  2025"
+ICICI,2026-01-13,17:51,Y,2026,Q3,2,result_subject,"Call With Media On Financial Results For The Quarter And Nine Months Ended December 31, 2025"
+ICICI,2026-04-13,19:08,Y,2026,Q4,2,result_subject,"Call With Media On Financial Results For The Quarter And Financial Year Ended March 31, 2026"
+ICICI,2026-07-14,18:08,Y,2027,Q1,2,result_subject,"Call With Media On Financial Results For The Quarter And Financial Year Ended June 30, 2026."
+ICICI,2026-10-12,17:51,Y,2027,Q2,2,result_subject,"Call With Media On Financial Results For The Quarter And Six Months Ended September 30, 2026"
+INDUSIND,2015-01-13,13:40,N,2015,Q3,1,result_category,"Announces Q3 results & Limited Review Report for the Quarter ended December 31, 2014"
+INDUSIND,2015-04-16,13:49,N,2015,Q4,1,result_category,"Announces Q4 & FY15 results & Auditors' Report for the period ended March 31, 2015"
+INDUSIND,2015-07-13,13:51,N,2016,Q1,1,result_category,"Announces Q1 results & Limited Review Report for the Quarter ended June 30, 2015"
+INDUSIND,2015-10-09,13:57,N,2016,Q2,1,result_category,"Announces Q2 results & Limited Review Report for the Quarter ended September 30, 2015"
+INDUSIND,2016-01-12,14:05,N,2016,Q3,1,result_category,"Announces Q3 results & Limited Review Report for the Quarter ended December 31, 2015"
+INDUSIND,2016-04-21,14:02,N,2016,Q4,3,result_category,Announces Q4 & FY16 Results (Standalone)
+INDUSIND,2016-07-11,14:24,N,2017,Q1,2,result_category,Announces Q1 (Standalone) results
+INDUSIND,2016-10-12,14:04,N,2017,Q2,2,result_category,Announces Q2 results (Standalone)
+INDUSIND,2017-01-10,15:14,N,2017,Q3,2,result_category,Announces Q3 results
+INDUSIND,2017-04-06,13:29,N,2017,Q4,1,result_subject,"Audited Financial Results - For The Year Ended March 31, 2017"
+INDUSIND,2017-10-12,13:41,N,2018,Q2,1,result_category,Outcome of Board Meeting
+INDUSIND,2018-01-11,13:41,N,2018,Q3,1,result_category,Outcome of Board Meeting
+INDUSIND,2018-04-19,13:24,N,2018,Q4,1,result_category,"Results Financial Results For The Quarter And Year Ended March 31, 2018"
+INDUSIND,2018-07-10,13:18,N,2019,Q1,2,result_category,Board Meeting-Outcome of Board Meeting
+INDUSIND,2018-10-15,13:37,N,2019,Q2,1,result_category,"Results-Financial Results For September 30, 2018"
+INDUSIND,2019-01-09,14:20,N,2019,Q3,2,result_category,Outcome of Board Meeting
+INDUSIND,2019-05-22,13:11,N,2019,Q4,2,result_category,Outcome of Board Meeting
+INDUSIND,2019-07-12,14:10,N,2020,Q1,1,result_category,"Outcome Of Board Meeting And Financial Results For Quarter Ended June 30, 2019"
+INDUSIND,2019-10-10,14:22,N,2020,Q2,2,result_category,Outcome of Board Meeting
+INDUSIND,2020-01-14,13:40,N,2020,Q3,2,result_category,"Unaudited Financial Results And Limited Review Report - For The Quarter And Nine-Month Period Ended December 31, 2019"
+INDUSIND,2020-04-27,16:33,Y,2020,Q4,3,result_category,"Outcome - Audited Financial Results For The  Quarter And Year Ended March 31, 2020<BR>"
+INDUSIND,2020-07-28,16:51,Y,2021,Q1,3,result_category,"Unaudited Financial Results And Limited Review Report - For The Quarter Ended June 30, 2020."
+INDUSIND,2020-10-30,17:08,Y,2021,Q2,2,result_category,"Outcome Of Board Meeting - Unaudited Financial Results For Quarter And Half Year Ended September 30, 2020"
+INDUSIND,2021-01-29,16:12,Y,2021,Q3,2,result_category,"Results - Financial Results For Quarter Ended December 31, 2020"
+INDUSIND,2021-04-30,18:34,Y,2021,Q4,2,result_category,"Outcome - Audited Financial Results For The Quarter And Year Ended March 31, 2021"
+INDUSIND,2021-07-27,16:42,Y,2022,Q1,2,result_category,"Results Financial Quarter Ended June 30, 2021"
+INDUSIND,2021-10-27,17:00,Y,2022,Q2,2,result_category,"Board Meeting Outcome for Unaudited Financial Results (Standalone And Consolidated) And Limited Review Report For Quarter And Half-Year Ended September 30, 2021"
+INDUSIND,2022-01-29,14:53,N,2022,Q3,2,result_category,"Board Meeting Outcome for Disclosure Under Regulations 30, 33 And 52 Of SEBI (Listing Obligations And Disclosure Requirements) Regulations, 2015 ('SEBI Listing Regulations'') - Outcome Of The Board Meeting"
+INDUSIND,2022-04-29,17:30,Y,2022,Q4,2,result_category,"Audited Financial Results Of The Bank (Standalone And Consolidated) For The Quarter And Financial Year Ended March 31, 2022"
+INDUSIND,2022-07-20,16:13,Y,2023,Q1,2,result_category,"Board Meeting Outcome for Outcome Of The Board Meeting- Unaudited Financial Results And Limited Review Report For The Quarter Ended June 30, 2022."
+INDUSIND,2022-10-19,16:39,Y,2023,Q2,2,result_category,"Board Meeting Outcome for Disclosure Under Regulations 30, 33 And 52 Of SEBI (Listing Obligations And Disclosure Requirements) Regulations, 2015 ('SEBI Listing Regulations'') - Outcome Of The Board Meeting"
+INDUSIND,2023-01-18,15:44,Y,2023,Q3,2,result_category,"Board Meeting Outcome for Outcome Of The Board Meeting - Unaudited Standalone And Consolidated Financial Results For The Third Quarter And Nine Months Ended December 31, 2022"
+INDUSIND,2023-04-24,14:19,N,2023,Q4,2,result_category,"Board Meeting Outcome for Outcome Of The Meeting Of The Board Of Directors Of The Bank - Audited Financial Results Of The Bank (Standalone And Consolidated) For The Quarter And Financial Year Ended March 31, 2023 And Payment Of Dividend, For The Financial Year 2022-23."
+INDUSIND,2023-07-18,15:37,Y,2024,Q1,2,result_category,"Board Meeting Outcome for Outcome Of The Meeting Of The Board Of Directors Of Indusind Bank Limited For Approval Of Unaudited Standalone And Consolidated Financial Results For The First Quarter Ended June 30, 2023"
+INDUSIND,2023-10-18,15:41,Y,2024,Q2,2,result_subject,"Board Meeting Outcome for Outcome Of The Meeting Of Board Of Directors Of Indusind Bank Limited (The Bank) For Approval Of The Unaudited Standalone And Consolidated Financial Results For The Quarter And Half-Year Ended September 30, 2023"
+INDUSIND,2024-01-18,15:58,Y,2024,Q3,3,result_category,"Outcome Of The Meeting Of Board Of Directors Of Indusind Bank Limited (The Bank) For Approval Of Unaudited Standalone And Consolidated Financial Results For The First Quarter Ended June 30, 2023"
+INDUSIND,2024-04-25,15:53,Y,2024,Q4,1,result_category,"Audited Standalone And Consolidated Financial Results Of The Bank For The Quarter And Financial Year Ended March 31, 2024"
+INDUSIND,2024-07-26,15:31,Y,2025,Q1,1,result_category,"Unaudited Standalone And Consolidated Financial Results For The Quarter Ended June 30, 2024"
+INDUSIND,2024-10-24,15:33,Y,2025,Q2,2,result_category,"Unaudited Consolidated And Standalone Financial Results For The Quarter And Half Year Ended September 30, 2024"
+INDUSIND,2025-01-31,15:37,Y,2025,Q3,1,result_category,"Unaudited Standalone And Consolidated Financial Results For The Quarter And Nine-Months Ended December 31, 2024"
+INDUSIND,2025-05-21,18:31,Y,2025,Q4,1,result_category,"Audited Standalone And Consolidated Financial Results For The Quarter And Financial Year Ended March 31, 2025"
+INDUSIND,2025-07-28,17:28,Y,2026,Q1,1,result_category,"Unaudited Consolidated And Standalone Financial Results For The Quarter Ended June 30, 2025"
+INDUSIND,2025-10-18,15:17,N,2026,Q2,1,result_category,"Financial Results For Quarter Ended September 30, 2025"
+INDUSIND,2026-01-23,15:57,Y,2026,Q3,1,result_category,"Financial Results For The Quarter And Nine Months Ended December 31, 2025"
+INDUSIND,2026-04-24,16:34,Y,2026,Q4,1,result_category,"Financial Results For The Year Ended March 31, 2026"
+INDUSIND,2026-07-22,16:14,Y,2027,Q1,1,result_category,Financial Result For June 30 2026
+INDUSIND,2026-10-23,15:58,Y,2027,Q2,1,result_category,"Outcome Of The Board Meeting - Unaudited Consolidated And Standalone Financial Results For The Quarter And Half Year Ended September 30, 2026"
+KOTAK,2015-01-20,11:47,N,2015,Q3,1,result_category,"Announces Q3 results, Earning Updates, Results Press Release & Limited Review Report for the Quarter ended December 31, 2014"
+KOTAK,2015-05-05,13:56,N,2015,Q4,1,result_category,"Announces Q4 & FY15 results, Results Press Release, Earnings Update & Auditors' Report for the period ended March 31, 2015"
+KOTAK,2015-07-30,15:49,Y,2016,Q1,1,result_category,"Announces Q1 results, Limited Review Report, Results Press Release & Earnings Update for the Quarter ended June 30, 2015"
+KOTAK,2015-10-30,12:53,N,2016,Q2,1,result_category,"Announces Q2 results, Limited Review Report, Results Press Release & Earnings Update for the Quarter ended September 30, 2015"
+KOTAK,2016-01-18,13:03,N,2016,Q3,1,result_category,"Announces Q3 results, Limited Review Report, Results Press Release & Earnings Update for the Quarter ended December 31, 2015"
+KOTAK,2016-05-11,14:13,N,2016,Q4,1,result_category,"Announces Q4 & FY16 Results (Standalone & Consolidated), Auditors Report (Standalone & Consolidated), Results Press Release & Earnings Update for the period ended March 31, 2016"
+KOTAK,2016-07-21,13:17,N,2017,Q1,1,result_category,"Announces Q1 results (Standalone & Consolidated), Limited Review Report (Standalone & Consolidated), Results Press Release & Earnings Update for the Quarter ended June 30, 2016"
+KOTAK,2016-10-25,12:53,N,2017,Q2,1,result_category,"Announces Q2 results (Standalone & Consolidated), Limited Review Report (Standalone & Consolidated), Results Press Release & Earnings Update Presentation for the Quarter ended September 30, 2016"
+KOTAK,2017-01-25,13:03,N,2017,Q3,1,result_category,"Announces Q3 results (Standalone & Consolidated), Limited Review Report (Standalone & Consolidated), Earnings Update Presentation & Press Release for the Quarter ended December 31, 2016"
+KOTAK,2017-04-27,13:33,N,2017,Q4,2,result_subject,"Standalone & Consolidated Financial Results, Auditors Report, Results Press Release, Result Presentation for March 31, 2017"
+KOTAK,2017-07-20,10:40,N,2018,Q1,1,result_category,Financial Result Q118
+KOTAK,2017-10-25,13:07,N,2018,Q2,1,result_category,Financial Results Q218
+KOTAK,2018-01-19,12:42,N,2018,Q3,1,result_category,Financial Results FYQ318 Updates<BR>
+KOTAK,2018-04-30,13:58,N,2018,Q4,1,result_category,Financial Results For The Year Ended 31St March 2018<BR>
+KOTAK,2018-07-19,12:34,N,2019,Q1,1,result_category,Financial Results FYQ119 Updates<BR>
+KOTAK,2018-10-24,12:46,N,2019,Q2,1,result_category,Financial Results Q2FY19 30-09-2018
+KOTAK,2019-01-21,12:38,N,2019,Q3,1,result_category,Financial Results Q3FY19  31.12.2018
+KOTAK,2019-04-30,14:25,N,2019,Q4,1,result_category,"Financial Results For The Year Ended March 31, 2019"
+KOTAK,2019-07-22,16:42,Y,2020,Q1,1,result_category,"June 30, 2019"
+KOTAK,2019-10-22,13:57,N,2020,Q2,1,result_category,"Financial Results - September 30, 2019"
+KOTAK,2020-01-20,13:32,N,2020,Q3,1,result_category,"Results - Financial Results Dec 31, 2019"
+KOTAK,2020-05-13,12:28,N,2020,Q4,1,result_category,"Financial Results For The Year Ended March 31, 2020<BR>"
+KOTAK,2020-07-27,13:54,N,2021,Q1,1,result_category,Unaudited Financial Results Of Kotak Mabindra Bank Limited Standalone And Unaudited Consolidated Financial Results For Tbe Quarter Ended 30Th June 2020
+KOTAK,2020-10-26,13:17,N,2021,Q2,1,result_category,Unaudited Standalone And Consolidated Financial Results Of Kotak Mahindra Bank Limited For The Quarter And Half Year Ended 30Th September 2020.
+KOTAK,2021-01-25,13:40,N,2021,Q3,2,result_category,"Unaudited Standalone And Unaudited Consolidated Financial Results Of The Bank For The Quarter And Nine Months Ended December 31, 2020."
+KOTAK,2021-05-03,13:15,N,2021,Q4,1,result_category,"Financial Results For Quarter And Year Ended Mar 31, 2021"
+KOTAK,2021-07-26,13:41,N,2022,Q1,1,result_category,"Unaudited Standalone And Consolidated Financial Results Of The Bank For The Quarter Ended June 30, 2021 And Intimation Of Record Date For The Purpose Of Dividend On Equity Shares For FY 2020-21."
+KOTAK,2021-10-26,12:55,N,2022,Q2,1,result_category,"Unaudited Standalone And Consolidated Financial Results Of The Bank For The Quarter (Q2) And Half Year Ended September 30, 2021."
+KOTAK,2022-01-28,12:44,N,2022,Q3,1,result_category,"Unaudited Consolidated And Standalone Financial Results Of Kotak Mahindra Bank Limited For The Quarter (Q3) And Nine Months Ended December 31, 2021."
+KOTAK,2022-05-04,13:19,N,2022,Q4,1,result_category,"Consolidated And Standalone Financial Results Of Kotak Mahindra Bank Limited For The Quarter (Q4) And  Year Ended March 31, 2022.<BR>"
+KOTAK,2022-07-23,11:53,N,2023,Q1,1,result_category,"(I) Consolidated And Standalone Unaudited Financial Results Of Kotak Mahindra Bank Limited (""Bank"") For The Quarter (Q1) Ended June 30, 2022"
+KOTAK,2022-10-22,12:33,N,2023,Q2,2,result_category,"Results - Financial Results For September 30, 2022"
+KOTAK,2023-01-21,13:10,N,2023,Q3,1,result_category,"Results - Financial Results For December 31, 2022 <BR>"
+KOTAK,2023-04-29,14:24,N,2023,Q4,2,result_category,"Consolidated And Standalone Audited Financial Results For The Financial Year Ended March 31, 2023"
+KOTAK,2023-07-22,12:40,N,2024,Q1,1,result_category,"Board Meeting Outcome for Outcome Of Board Meeting - Consolidated And Standalone Unaudited Financial Results Of The Bank For The Quarter Ended June 30, 2023"
+KOTAK,2023-10-21,12:09,N,2024,Q2,1,result_category,"Consolidated And Standalone Unaudited Financial<BR> Results Of The Bank For The Quarter And Half-Year Ended September 30, 2023"
+KOTAK,2024-01-20,12:30,N,2024,Q3,2,result_subject,Board Meeting Outcome for Outcome Of Board Meeting- Financial Results
+KOTAK,2024-05-04,12:29,N,2024,Q4,1,result_subject,"Board Meeting Outcome for Outcome Of Board Meeting - Consolidated And Standalone Audited Financial Results
+For The Financial Year Ended March 31, 2024"
+KOTAK,2024-07-20,13:27,N,2025,Q1,2,result_subject,"Board Meeting Outcome for Outcome Of Board Meeting - Consolidated And Standalone Unaudited Financial Results For The Quarter Ended June 30, 2024"
+KOTAK,2024-10-19,12:13,N,2025,Q2,1,result_category,"Quarter And Half Year Ended September 30, 2024"
+KOTAK,2025-01-18,13:02,N,2025,Q3,2,result_subject,"Board Meeting Outcome for Consolidated And Standalone Unaudited Financial Results For The Quarter And Nine Months Ended December 31, 2024"
+KOTAK,2025-05-03,14:04,N,2025,Q4,1,result_subject,"Board Meeting Outcome for Outcome Of Board Meeting - Consolidated And Standalone Audited Financial Results
+For The Financial Year Ended March 31, 2025"
+KOTAK,2025-07-26,13:04,N,2026,Q1,2,result_subject,"Board Meeting Outcome for Outcome Of Board Meeting - Consolidated And Standalone Unaudited Financial Results Of The Bank For The Quarter Ended June 30, 2025"
+KOTAK,2025-10-25,12:19,N,2026,Q2,2,result_subject,"Board Meeting Outcome for Outcome Of Board Meeting - Consolidated And Standalone Unaudited Financial Results For The Quarter And Half-Year Ended September 30, 2025"
+KOTAK,2026-01-24,14:18,N,2026,Q3,2,result_subject,"Board Meeting Outcome for Outcome Of Board Meeting - Consolidated And Standalone Unaudited Financial Results Of The Bank For The Quarter And Nine Months Ended December 31, 2025"
+KOTAK,2026-05-02,14:59,N,2026,Q4,2,result_subject,"Board Meeting Outcome for Outcome Of Board Meeting - Consolidated And Standalone Audited Financial Results 
+Of The Bank For The Financial Year Ended March 31, 2026"
+KOTAK,2026-07-18,12:40,N,2027,Q1,2,result_subject,"Board Meeting Outcome for Outcome Of Board Meeting - Consolidated And Standalone Unaudited Financial Results Of The Bank For The Quarter Ended June 30, 2026"
+KOTAK,2026-10-24,13:14,N,2027,Q2,2,result_subject,"Board Meeting Outcome for Outcome Of Board Meeting - Consolidated And Standalone Unaudited Financial Results Of The Bank For The Quarter And Half-Year Ended September 30, 2026"
+PAYTM,2021-11-27,09:49,N,2022,Q2,3,result_category,"Financial Results For The Quarter And Half Year Ended September 30, 2021"
+PAYTM,2022-02-04,22:41,Y,2022,Q3,1,result_category,"Financial Results For The Quarter And Nine Months Ended December 31, 2021"
+PAYTM,2022-05-20,21:41,Y,2022,Q4,1,result_category,"Financial Results For The Quarter And Year Ended March 31, 2022"
+PAYTM,2022-08-05,20:47,Y,2023,Q1,2,result_category,"Financial Results For The Quarter Ended June 30, 2022"
+PAYTM,2022-11-07,21:10,Y,2023,Q2,2,result_category,"Financial Results For The Quarter And Half-Year Ended September 30, 2022"
+PAYTM,2023-02-03,21:48,Y,2023,Q3,2,result_category,"Financial Results For The Quarter And Nine Months Ended December 31, 2022"
+PAYTM,2023-05-05,21:12,Y,2023,Q4,2,result_category,"Financial Results For The Quarter And Year Ended March 31, 2023"
+PAYTM,2023-07-21,22:12,Y,2024,Q1,2,result_category,"Financial Results For Quarter Ended June 30, 2023<BR>"
+PAYTM,2023-10-20,17:32,Y,2024,Q2,2,result_category,"Financial Results For The Quarter & Half Year Ended September 30, 2023"
+PAYTM,2024-01-19,16:45,Y,2024,Q3,2,result_category,"Financial Results For The Quarter & Nine Months Ended December 31, 2023"
+PAYTM,2024-05-22,09:12,N,2024,Q4,2,result_category,"Financial Results For The Quarter & Year Ended March 31, 2024"
+PAYTM,2024-07-19,11:03,N,2025,Q1,2,result_category,"Financial Results For The Quarter Ended June 30, 2024"
+PAYTM,2024-10-22,10:44,N,2025,Q2,2,result_category,"Financial Results For The Quarter & Half Year Ended September 30, 2024"
+PAYTM,2025-01-20,10:32,N,2025,Q3,2,result_subject,"Board Meeting Outcome for Financial Results For The Quarter & Nine Months Ended December 31, 2024"
+PAYTM,2025-05-06,16:50,Y,2025,Q4,1,result_category,"Financial Results For The Quarter And Financial Year Ended March 31, 2025"
+PAYTM,2025-07-22,15:58,Y,2026,Q1,2,result_category,"Consolidated And Standalone Unaudited Financial Results For The Quarter Ended June 30, 2025 
+"
+PAYTM,2025-11-04,21:40,Y,2026,Q2,1,result_category,"Unaudited Standalone And Consolidated Financial Results For The Quarter And Half Year Ended September 30, 2025."
+PAYTM,2026-01-29,19:07,Y,2026,Q3,1,result_category,"Unaudited Standalone And Consolidated Financial Results  Of The Company For The Quarter And Nine Months Ended December 31, 2025."
+PAYTM,2026-05-06,20:22,Y,2026,Q4,1,result_category,"Financial Results For The Quarter And Financial Year Ended March 31, 2026"
+PAYTM,2026-07-20,22:05,Y,2027,Q1,1,result_category,"Unaudited Standalone And Consolidated Financial Results  Of The Company For The Quarter Ended June 30, 2026."
+PAYTM,2026-10-26,20:48,Y,2027,Q2,1,result_category,"Unaudited Standalone And Consolidated Financial Results For The Quarter And Half Year Ended September 30, 2026."
+PBFINTECH,2022-02-07,22:45,Y,2022,Q3,2,result_category,"Outcome Of Board Meeting - Financial Results For The Quarter And Nine Months Ended     December 31, 2021"
+PBFINTECH,2022-05-27,21:34,Y,2022,Q4,2,result_category,"Outcome Of Board Meeting - Financial Results For The Quarter And Year Ended March 31, 2022"
+PBFINTECH,2022-08-10,16:47,Y,2023,Q1,1,result_category,"Outcome Of Board Meeting - Financial Results For The Quarter Ended June 30, 2022"
+PBFINTECH,2022-11-07,17:03,Y,2023,Q2,1,result_category,"Outcome Of Board Meeting - Financial Results For The Quarter And Half Year Ended September 30, 2022"
+PBFINTECH,2023-02-10,17:00,Y,2023,Q3,1,result_category,"Outcome Of Board Meeting - Financial Results For The Quarter And Nine Months Ended December 31, 2022"
+PBFINTECH,2023-05-22,17:59,Y,2023,Q4,3,result_category,Financial Results For FY 2022-23
+PBFINTECH,2023-08-07,19:17,Y,2024,Q1,1,result_category,"Outcome Of The Board Meeting - Financial Results For The Quarter Ended June 30, 2023"
+PBFINTECH,2023-11-04,19:10,Y,2024,Q2,1,result_category,"Outcome Of The Board Meeting - Financial Results For The Quarter And Half Year Ended September 30, 2023"
+PBFINTECH,2024-01-30,16:58,Y,2024,Q3,2,result_category,"Outcome Of The Board Meeting Held On Tuesday, January 30, 2024 - Financial Results For The Quarter And Nine Months Ended December 31, 2023"
+PBFINTECH,2024-05-07,18:08,Y,2024,Q4,2,result_category,"Outcome Of The Board Meeting - Audited Financial Results For The Quarter And Year Ended March 31, 2024"
+PBFINTECH,2024-08-06,18:37,Y,2025,Q1,1,result_category,"Financial Results For The Quarter Ended June 30, 2024
+
+"
+PBFINTECH,2024-11-05,20:25,Y,2025,Q2,1,result_category,"Financial Results For The Quarter And Half Year Ended September 30, 2024"
+PBFINTECH,2025-01-30,17:38,Y,2025,Q3,1,result_category,"Financial Results For The Quarter And Nine Months Ended December 31, 2024"
+PBFINTECH,2025-05-15,21:21,Y,2025,Q4,1,result_category,"Financial Results For The Quarter And Year Ended March 31, 2025"
+PBFINTECH,2025-07-31,20:52,Y,2026,Q1,1,result_category,"Financial Results For The Quarter Ended June 30, 2025"
+PBFINTECH,2025-10-29,17:05,Y,2026,Q2,1,result_category,"Financial Results For The Quarter And Half Year Ended September 30, 2025"
+PBFINTECH,2026-02-02,17:49,Y,2026,Q3,1,result_category,"Financial Results For Quarter And Nine Months Ended December 31, 2025"
+PBFINTECH,2026-05-06,17:22,Y,2026,Q4,1,result_category,"Financial Results For The Quarter And Year Ended March 31, 2026"
+PBFINTECH,2026-08-05,18:01,Y,2027,Q1,1,result_category,"Financial Results For The Quarter Ended June 30, 2026"
+PBFINTECH,2026-10-30,18:02,Y,2027,Q2,1,result_category,"Financial Results For The Quarter And Half Year Ended September 30, 2026"
+PNB,2015-02-03,11:47,N,2015,Q3,2,result_category,Announces Q3 results
+PNB,2015-05-08,12:18,N,2015,Q4,1,result_category,"Announces Q4 & FY15 results & Auditors Report for the period ended March 31, 2015"
+PNB,2015-07-28,12:29,N,2016,Q1,1,result_category,"Announces Q1 results & Limited Review for the Quarter ended June 30, 2015"
+PNB,2015-11-06,12:13,N,2016,Q2,1,result_category,"Announces Q2 results & Limited Review Report for the Quarter ended September 30, 2015"
+PNB,2016-02-09,12:04,N,2016,Q3,1,result_category,"Announces Q3 Results (Standalone) & Limited Review Report (Standalone) for the Quarter ended December 31, 2015"
+PNB,2016-05-18,12:30,N,2016,Q4,1,result_category,"Announces Q4 & FY16 Results (Standalone & Consolidated), Form A (Consolidated) & Auditors Report (Standalone & Consolidated) for the period ended March 31, 2016"
+PNB,2016-07-28,12:35,N,2017,Q1,1,result_category,"Announces Q1 results (Standalone) & Limited Review Report (Standalone) for the Quarter ended June 30, 2016"
+PNB,2016-11-05,12:08,N,2017,Q2,1,result_category,"Announces Q2 Results (Standalone) & Limited Review Report (Standalone) for the Quarter ended September 30, 2016<BR>"
+PNB,2017-02-07,12:10,N,2017,Q3,1,result_category,"Announces Q3 results (Standalone) & Limited Review Report (Standalone) for the Quarter ended December 31, 2016"
+PNB,2017-05-16,13:01,N,2017,Q4,1,result_category,Standalone (Audited) And Consolidated (Audited) Financial Results For Quarter/Year Ended 31.03.2017
+PNB,2017-08-02,11:07,N,2018,Q1,2,result_category,Reviewed Unaudited Fiancial Results Of The Bank For The 1St Quarter Ended 30.06.2017
+PNB,2017-11-03,12:28,N,2018,Q2,1,result_category,Board Of Directors Has Approved Reviewed/Unaudited Financial Results Of The Bank For Sept 2017
+PNB,2018-02-06,12:23,N,2018,Q3,1,result_category,Outcome of Board Meeting
+PNB,2018-05-15,15:17,N,2018,Q4,1,result_category,Audited Financial Results (Standalone & Consolidated) For The Quarter/Year Ended 31.03.2018
+PNB,2018-08-07,12:38,N,2019,Q1,1,result_category,Financial Results For Quarter Ended 30.06.2018<BR>
+PNB,2018-11-02,12:29,N,2019,Q2,1,result_category,Financial Results September 30.09.2018
+PNB,2019-02-05,12:30,N,2019,Q3,1,result_category,Financial Results - Qtr 3 Of FY 2018-19
+PNB,2019-05-28,13:29,N,2019,Q4,1,result_category,Financial Results Financial Year Ended 31.03.2019
+PNB,2019-07-26,13:18,N,2020,Q1,1,result_category,Financial Results Ended June 30 2019
+PNB,2019-11-05,13:44,N,2020,Q2,1,result_category,Outcome Of The Board Meeting - Approval Of Financial Results
+PNB,2020-02-04,13:44,N,2020,Q3,1,result_category,Q3_FY_2020_Financial_Results
+PNB,2020-06-19,22:32,Y,2020,Q4,2,result_category,Intimation Of Financial Results Quarter/Year Ended 31.03.2020
+PNB,2020-08-21,22:04,Y,2021,Q1,1,result_category,Outcome Of The Board Meeting - Approval Of Financial Results Quarter Ended 30.06.2020
+PNB,2020-11-02,17:07,Y,2021,Q2,1,result_category,"Outcome Of The Board Meeting - Approval Of Unaudited/Reviewed Financial Results For The Quarter/Half Year Ended 30Th September, 2020."
+PNB,2021-02-05,18:38,Y,2021,Q3,1,result_category,"Outcome Of The Board Meeting - Approval Of Unaudited/Reviewed Financial Results For The Quarter/Nine Months Ended 31St December, 2020."
+PNB,2021-06-04,19:42,Y,2021,Q4,1,result_category,Outcome Of The Board Meeting - Approval Of Financial Results
+PNB,2021-08-02,17:21,Y,2022,Q1,1,result_category,"Outcome Of The Board Meeting - Approval Of Unaudited/Reviewed Financial Results For The Quarter Ended 30Thjune, 2021."
+PNB,2021-10-27,19:52,Y,2022,Q2,2,result_category,"Outcome Of The Board Meeting - Approval Of Unaudited/Reviewed Financial<BR> Results For The Quarter/ Half Year Ended 30Th September, 2021."
+PNB,2022-01-27,18:23,Y,2022,Q3,2,result_category,"Outcome Of The Board Meeting - Approval Of Unaudited/Reviewed Financial Results For The Quarter/ Nine Months Period Ended 31St December, 2021."
+PNB,2022-05-11,20:13,Y,2022,Q4,1,result_category,Outcome Of The Board Meeting
+PNB,2022-07-28,19:40,Y,2023,Q1,1,result_category,Board Meeting Outcome for Outcome Of The Board Meeting.
+PNB,2022-11-01,13:54,N,2023,Q2,1,result_category,Outcome Of Board Meeting Financial Results 30.09.2022
+PNB,2023-01-30,14:33,N,2023,Q3,1,result_category,Outcome Of The Board Meeting - Financial Results For The Quarter/Nine Months Ended 31.12.2022
+PNB,2023-05-19,14:58,N,2023,Q4,1,result_category,Financial Results For The Quarter/Financial Year Ended <BR> 31.03.2023
+PNB,2023-07-26,13:26,N,2024,Q1,1,result_category,Results For The Quarter Ended 30.06.2023
+PNB,2023-10-26,13:40,N,2024,Q2,2,result_category,Outcome Of The Board Meeting- Financial Results - Quarter/Half Year Ended 30.09.2023
+PNB,2024-01-25,14:20,N,2024,Q3,2,result_category,Financial Results For The Quarter/Nine Months Ended 31.12.2023
+PNB,2024-05-09,13:47,N,2024,Q4,2,result_subject,Board Meeting Outcome for Audited Financial Results For The Quarter/Year Ended 31.03.2024
+PNB,2024-07-27,15:26,N,2025,Q1,1,result_category,"Outcome Of Board Meeting Under Regulation 30 And 51Of SEBI LODR Regulations, 2015"
+PNB,2024-10-28,13:57,N,2025,Q2,1,result_category,Outcome Of Board Meeting Under Regulation 30 And 51 Of SEBI LODR Regulations 2015
+PNB,2025-01-31,13:16,N,2025,Q3,1,board_outcome_fallback,"Board Meeting Outcome for Outcome Of Board Meeting Under Regulation 30 And 51 Of SEBI (LODR) Regulations, 2015"
+PNB,2025-05-07,18:00,Y,2025,Q4,1,result_category,Results For FY 2024-25
+PNB,2025-07-30,15:40,Y,2026,Q1,1,result_subject,Integrated Filing- Financial Results For The Quarter Ended 30.06.2025
+PNB,2025-10-18,15:20,N,2026,Q2,1,result_subject,Integrated Filing- Financial Results Of The Bank For The Quarter/Half-Year Ended 30.09.2025
+PNB,2026-01-19,13:52,N,2026,Q3,1,board_outcome_fallback,Board Meeting Outcome for Outcome Of Board Meeting Under Regulation 30 And 51 Of SEBI (LODR) Regulations 2015
+PNB,2026-05-05,12:56,N,2026,Q4,1,board_outcome_fallback,Board Meeting Outcome for Outcome Of Board Meeting Under Regulation 30 And 51 Of SEBI (LODR) Regulations 2015
+PNB,2026-07-18,12:33,N,2027,Q1,1,board_outcome_fallback,"Board Meeting Outcome for Outcome Of Board Meeting Under Regulation 30 And 51 Of SEBI (LODR) Regulations, 2015 "
+PNB,2026-10-16,16:23,Y,2027,Q2,1,board_outcome_fallback,Board Meeting Outcome for Outcome Of Board Meeting
+SBI,2015-02-13,12:03,N,2015,Q3,2,result_category,"Announces Standalone Q3 results & Limited Review Report for the Quarter ended December 31, 2014"
+SBI,2015-05-22,13:13,N,2015,Q4,1,result_category,"Announces Q4 & FY15 results & Auditors' Report for the period ended March 31, 2015"
+SBI,2015-08-11,12:29,N,2016,Q1,1,result_category,"Announces Q1 results & Limited Review Report for the Quarter ended June 30, 2015"
+SBI,2015-11-06,12:11,N,2016,Q2,1,result_category,"Announces Q2 results & Limited Review Report for the Quarter ended September 30, 2015"
+SBI,2016-02-11,13:07,N,2016,Q3,1,result_category,"Announces Q3 Results (Standalone & Consolidated) & Limited Review Report (Standalone) for the Quarter ended December 31, 2015"
+SBI,2016-05-27,13:02,N,2016,Q4,1,result_category,"Announces Q4 & FY16 Results (Standalone & Consolidated), Form A (Standalone & Consolidated) & Auditors Report (Standalone & Consolidated) for the period ended March 31, 2016"
+SBI,2016-08-12,12:29,N,2017,Q1,2,result_category,"Announces Q1 Results (Standalone & Consolidated) & Limited Review Report (Standalone) Results Press Release for the Quarter ended June 30, 2016"
+SBI,2016-11-11,12:38,N,2017,Q2,1,result_category,"Announces Q2 Results (Standalone & Consolidated) & Limited Review Report (Standalone & Consolidated) for the Quarter ended September 30, 2016"
+SBI,2017-02-10,12:55,N,2017,Q3,1,result_category,"Announces Q3 results (Standalone & Consolidated) & Limited Review Report (Standalone & Consolidated) for the Quarter ended December 31, 2016"
+SBI,2017-05-19,12:15,N,2017,Q4,1,result_category,Financial Results For The Year Quarter/Ended 31.03.2017
+SBI,2017-08-11,13:03,N,2018,Q1,1,result_category,Financial Results For The Quarter Ended 30.06.2017
+SBI,2017-11-10,12:47,N,2018,Q2,1,result_category,Financial Results For The Quarter/Half Year Ended 30.09.2017
+SBI,2018-02-09,17:44,Y,2018,Q3,1,result_category,Unaudited Financial Results For The Quarter/Nine Months Ended 31.12.2017
+SBI,2018-05-22,13:57,N,2018,Q4,1,result_category,Audited Financial Results For The Year/Quarter Ended 31.03.2018
+SBI,2018-08-10,13:59,N,2019,Q1,1,result_category,Financial Result For Quarter Ended 30.06.2018
+SBI,2018-11-05,15:15,N,2019,Q2,1,result_category,Financial Results For The Quarter/Half Year Ended 30.09.2018
+SBI,2019-02-01,13:40,N,2019,Q3,1,result_category,Financial Results For Quarter Ended 31.12.2018
+SBI,2019-05-10,13:50,N,2019,Q4,1,result_category,Financial Results For 31.03.2019
+SBI,2019-08-02,13:48,N,2020,Q1,1,result_category,Financial Results For The Quarter Ended 30.06.2019.
+SBI,2019-10-25,13:51,N,2020,Q2,1,result_category,Quarterly/Half Yearly Financial Results For The Quarter/Half Year Ended 30.09.2019
+SBI,2020-01-31,13:41,N,2020,Q3,1,result_category,Submission Of Financial Results U
+SBI,2020-06-05,14:13,N,2020,Q4,1,result_category,Financial Results Under Regulation 33
+SBI,2020-07-31,13:35,N,2021,Q1,1,result_category,Financial Result For Quarter Ended 30Th June 20.
+SBI,2020-11-04,13:42,N,2021,Q2,1,result_category,Financial Results As On 30.09.2020
+SBI,2021-02-04,13:38,N,2021,Q3,1,result_category,"Quarterly / 9 Months Financial Results Of SBI As On 31St December, 2020 Under Regulations 33 And 30 Of SEBI LODR, 2015."
+SBI,2021-05-21,13:45,N,2021,Q4,1,result_category,Financial Results For The Year Ended 31.03.2021
+SBI,2021-08-04,13:36,N,2022,Q1,1,result_category,Unaudited Financial Result For 30.06.2021
+SBI,2021-11-03,13:42,N,2022,Q2,1,result_category,Financial Result For The Period Ended 30.09.2021
+SBI,2022-02-05,13:31,N,2022,Q3,1,result_category,Unaudited Financial Results For The Quarter And Nine Month Ended 31.12.2021.
+SBI,2022-05-13,13:23,N,2022,Q4,2,result_category,Financial Results For Year Ended 31.03.2022
+SBI,2022-08-06,13:18,N,2023,Q1,2,result_category,"FINANCIAL RESULTS FOR THE QUARTER ENDED 30Th JUNE ,2022"
+SBI,2022-11-05,13:34,N,2023,Q2,1,result_category,"FINANCIAL RESULTS FOR THE QUARTER AND HALF YEAR ENDED<BR> 30Th SEPTEMBER, 2022"
+SBI,2023-02-03,15:42,Y,2023,Q3,2,result_category,"FINANCIAL RESULTS FOR THE QUARTER AND NINE MONTHS ENDED<BR> 31St DECEMBER, 2022"
+SBI,2023-05-18,13:42,N,2023,Q4,2,result_category,Audited Financial Results For Quarter And Year Ended 31.03.2023
+SBI,2023-08-04,13:23,N,2024,Q1,2,result_category,Board Meeting Outcome for OUTCOME OF BOARD MEETING FINANCIAL RESULTS FOR THE QUARTER ENDED 30TH JUNE 2023<BR>
+SBI,2023-11-04,13:58,N,2024,Q2,1,result_category,Financial Results For September 2023
+SBI,2024-02-03,13:36,N,2024,Q3,1,result_category,"Financial Results For Quarter And Nine Months Ended December 31, 2023"
+SBI,2024-05-09,13:56,N,2024,Q4,1,result_category,Audited Financial Results For The Quarter And Year Ended 31.03.2024
+SBI,2024-08-03,13:28,N,2025,Q1,2,result_subject,Board Meeting Outcome for Outcome Of Board Meeting - Financial Results And Fund Raising
+SBI,2024-11-08,13:37,N,2025,Q2,2,result_subject,Board Meeting Outcome for Financial Results For The Quarter And Half Year Ended 30.09.2024
+SBI,2025-02-06,14:09,N,2025,Q3,2,result_subject,Board Meeting Outcome for Unaudited Reviewed Financial Results (Standalone And Consolidated) Of The Bank For The Quarter And 9 Months Ended 31 Dec 2024
+SBI,2025-05-03,14:17,N,2025,Q4,2,result_subject,Board Meeting Outcome for Audited Financial Results For The Quarter And Year Ended 31.03.2025
+SBI,2025-08-08,13:14,N,2026,Q1,2,result_subject,Board Meeting Outcome for Financial Results For The Quarter Ended 30.06.2025
+SBI,2025-11-04,13:28,N,2026,Q2,2,result_subject,Board Meeting Outcome for Financial Results For The Quarter And Half Year Ended 30.09.2025
+SBI,2026-02-07,13:30,N,2026,Q3,3,result_category,"Standalone & Consolidated Financial Results, Limited Review Report for December 31, 2025"
+SBI,2026-05-08,13:55,N,2026,Q4,2,result_subject,Board Meeting Outcome for Outcome Of Board Meeting Held On 08.05.2026 For Financial Results And Dividend
+SBI,2026-08-07,13:45,N,2027,Q1,2,result_subject,Board Meeting Outcome for Financial Results Of The Bank Along With The Limited Review Report For The Quarter Ended 30.06.2026
+SBI,2026-11-03,13:49,N,2027,Q2,2,result_subject,Board Meeting Outcome for Financial Result For The Quarter Ended 30.09.2026
+SBICARD,2020-05-08,14:56,N,2020,Q4,1,result_category,"Audited Financial Results For The Quarter/Year Ended March 31, 2020"
+SBICARD,2020-07-20,15:21,N,2021,Q1,1,result_category,"Unaudited Financial Results For The Quarter Ended June 30, 2020;"
+SBICARD,2020-10-22,14:54,N,2021,Q2,1,result_category,"Unaudited Financial Results For The Quarter And The Half Year Ended September 30, 2020"
+SBICARD,2021-01-21,17:39,Y,2021,Q3,1,result_category,"Unaudited Financial Results For The Quarter And The Nine Months Ended December 31, 2020"
+SBICARD,2021-04-26,15:44,Y,2021,Q4,2,result_category,Audited Financial Results For The Quarter And The Year Ended 31.3.2021
+SBICARD,2021-07-23,16:21,Y,2022,Q1,1,result_category,"Unaudited Financial Results For The Quarter Ended June 30, 2021"
+SBICARD,2021-10-28,15:26,N,2022,Q2,3,result_category,"Unaudited Financial Results For The Quarter And The Half Year Ended September 30, 2021"
+SBICARD,2022-01-24,16:40,Y,2022,Q3,1,result_category,"Unaudited Financial Results Of The Company For The Quarter And The Nine Months Ended December 31, 2021"
+SBICARD,2022-04-29,15:31,Y,2022,Q4,3,result_category,Audited Financial Results For The Quarter And The Year Ended 31.3.2022
+SBICARD,2022-07-28,14:00,N,2023,Q1,2,result_category,"Unaudited Financial Results Of The Company For The Quarter Ended June 30, 2022"
+SBICARD,2022-10-27,19:26,Y,2023,Q2,2,result_category,"Unaudited Financial Results For The Quarter And The Half Year Ended September 30, 2022"
+SBICARD,2023-01-24,14:16,N,2023,Q3,1,result_category,"Unaudited Financial Results Of The Company For The Quarter And The Nine Months Ended December 31, 2022"
+SBICARD,2023-04-28,17:43,Y,2023,Q4,1,result_category,Audited Financial Results For The Quarter And The Year Ended 31.3.2023
+SBICARD,2023-07-28,15:56,Y,2024,Q1,2,result_category,"Unaudited Financial Results Of The Company For The Quarter Ended June 30, 2023"
+SBICARD,2023-10-27,18:11,Y,2024,Q2,1,result_category,"Unaudited Financial Results Of The Company For The Quarter And The Half Year Ended September 30, 2023"
+SBICARD,2024-01-25,17:32,Y,2024,Q3,1,result_category,"Unaudited Financial Results Of The Company For The Quarter And The Nine Months Ended December 31, 2023"
+SBICARD,2024-04-26,18:12,Y,2024,Q4,1,result_category,"Audited Financial Results Of The Company For The Quarter And The Year Ended March 31, 2024"
+SBICARD,2024-07-26,18:51,Y,2025,Q1,1,result_category,"Unaudited Financial Results Of The Company For The Quarter Ended June 30, 2024"
+SBICARD,2024-10-29,15:15,N,2025,Q2,1,result_category,"Unaudited Financial Results Of The Company For The Quarter And The Half Year Ended September 30, 2024"
+SBICARD,2025-01-28,17:55,Y,2025,Q3,1,result_category,"Unaudited Financial Results Of The Company For The Quarter And The Nine Months Ended December 31, 2024"
+SBICARD,2025-04-24,19:07,Y,2025,Q4,2,result_category,"Audited Financial Results Of The Company For The Quarter And The Year Ended March 31, 2025"
+SBICARD,2025-07-25,17:24,Y,2026,Q1,2,result_category,"Unaudited Financial Results Of The Company For The Quarter Ended June 30, 2025"
+SBICARD,2025-10-24,18:00,Y,2026,Q2,2,result_category,"Unaudited Financial Results Of The Company For The Quarter And The Half Year Ended September 30, 2025"
+SBICARD,2026-01-28,18:42,Y,2026,Q3,2,result_category,"Unaudited Financial Results Of The Company For The Quarter And The Nine Months Ended December 31, 2025"
+SBICARD,2026-04-27,14:40,N,2026,Q4,2,result_subject,"Board Meeting Outcome for Outcome Of Board Meeting Held On April 27, 2026 - Audited Financial Results Of The Company For The Quarter And The Year Ended March 31, 2026"
+SBICARD,2026-07-24,16:19,Y,2027,Q1,2,result_subject,"Board Meeting Outcome for Outcome Of Board Meeting Held On July 24, 2026 - Unaudited Financial Results Of The Company For The Quarter Ended June 30, 2026"
+SBICARD,2026-10-23,14:36,N,2027,Q2,2,result_subject,"Board Meeting Outcome for Outcome Of Board Meeting Held On October 23, 2026 - Unaudited Financial Results Of The Company For The Quarter And The Half Year Ended September 30, 2026"
