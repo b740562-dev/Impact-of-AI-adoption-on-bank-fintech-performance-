@@ -57,6 +57,9 @@ p = merge(p, ad, ["bank_id"], "adoption")
 fti = INTERIM / "fintech_idx.csv"  # proxy 5 (built by 08_fintech_index.py)
 if fti.exists():
     p = merge(p, pd.read_csv(fti)[["bank_id", "fy", "fintech_idx", "mb_volume_fy"]], ["bank_id", "fy"], "fintech_idx")
+pat = INTERIM / "patents.csv"  # proxy 3 (built by 11_patents.py)
+if pat.exists():
+    p = merge(p, pd.read_csv(pat)[["bank_id", "fy", "ai_patents", "n_ai_patent_apps"]], ["bank_id", "fy"], "patents")
 calls = INTERIM / "ai_calls.csv"  # optional proxy 6 (built by 09_transcripts.py)
 if calls.exists():
     p = merge(p, pd.read_csv(calls)[["bank_id", "fy", "ai_calls"]], ["bank_id", "fy"], "ai_calls")
