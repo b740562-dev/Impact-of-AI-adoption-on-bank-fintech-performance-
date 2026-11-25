@@ -83,8 +83,10 @@ Also produce a **year-standardised** version (z-score within FY) to handle post-
 
 ### Controls (all lagged one year)
 ln(total assets), CAR (CRAR), loan-to-deposit ratio, liquidity ratio (liquid assets / total assets),
-gross NPA ratio, `pca` (= 1 in bank-FYs under RBI Prompt Corrective Action; entry/exit dates built only
-from RBI press releases, source URLs in docs/data_notes.md, never hardcoded from memory).
+gross NPA ratio, `pca` (= 1 if the bank was under RBI Prompt Corrective Action for ≥ 6 months of the FY;
+`pca_months` 0–12 also saved; exits from RBI press releases, entries from the bank's BSE/NSE filing quoting
+RBI's letter, cross-checked with the March 2018 PIB release, else entry "on or before" PIB date with
+`entry_inferred` = 1; source URLs in docs/data_notes.md; never hardcoded from memory).
 Not used as controls: firm age (collinear with firm + year FE; enters only as baseline age (FY2011) × AI and
 as a DiD covariate), profit growth (mechanically tied to ROE; robustness only),
 GDP and regulation (absorbed by year FE; GDP is used in Phase 1 only).

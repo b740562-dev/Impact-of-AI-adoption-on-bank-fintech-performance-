@@ -1,0 +1,6 @@
+bank_id,entry_date,entry_basis,entry_filing_date,entry_source,entry_inferred,in_pib_2018,exit_date,exit_source
+BOI,2017-12-19,RBI letter date quoted in filing,2017-12-20,https://www.bseindia.com/xml-data/corpfiling/AttachHis/ce89c4a8-8151-46f1-a078-d499288a7806.pdf,0,1,2019-01-31,https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=46165
+BOM,2018-03-16,on or before PIB release (no filing found),,https://www.pib.gov.in/newsite/PrintRelease.aspx?relid=177591,1,1,2019-01-31,https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=46165
+UCO,2017-05-05,RBI letter date quoted in filing,2017-05-12,https://www.bseindia.com/xml-data/corpfiling/AttachHis/883d37e8-88da-451b-b8c9-eb915150f675.pdf,0,1,2021-09-08,https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=52198
+IOB,2015-10-05,filing date (letter date not stated),2015-10-05,BSE announcement 2015-10-05T19:22 (Updates),0,1,2021-09-29,https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=52318
+CENTRAL,2017-06-13,RBI letter date quoted in filing,2017-06-14,https://www.bseindia.com/xml-data/corpfiling/AttachHis/82cd3df6-cc69-4858-92d0-b873fe9118df.pdf,0,1,2022-09-20,https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=54395

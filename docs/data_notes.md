@@ -24,6 +24,20 @@ Script: `src/python/02_clean_rbi.py` → `data/interim/rbi_long.parquet` (all ba
 - Spot checks vs reported results: HDFC FY2025 PAT ₹67,347 cr; SBI FY2025 PAT ₹70,901 cr, GNPA 1.82%; PNB FY2018 GNPA 18.36%.
 - **FY2026 not yet in RBI tables** (2025-26 edition expected around Dec 2026). FY2026 financials must come from annual reports; each fill to be logged under "Gap fills".
 
+## RBI Prompt Corrective Action (`pca`) (2026-11-26)
+Script `src/python/06_build_pca.py` (requests only) → `data/interim/pca_spells.csv`, `data/interim/pca_bank_fy.csv` (`pca_months` = FY months with ≥15 days under PCA; `pca` = 1 if ≥ 6). Details in `logs/pca.log`; raw BSE hits in `data/raw/pca/` (gitignored).
+
+| Bank | Entry | Entry basis / source | Exit | Exit source (RBI press release) |
+|---|---|---|---|---|
+| Bank of India | 2017-12-19 | RBI letter date quoted in BSE filing of 2017-12-20: https://www.bseindia.com/xml-data/corpfiling/AttachHis/ce89c4a8-8151-46f1-a078-d499288a7806.pdf | 2019-01-31 | https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=46165 |
+| Bank of Maharashtra | 2018-03-16 (`entry_inferred` = 1) | No BSE filing found (2015–18 search); entry "on or before" PIB release: https://www.pib.gov.in/newsite/PrintRelease.aspx?relid=177591 | 2019-01-31 | https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=46165 |
+| UCO Bank | 2017-05-05 | RBI letter date quoted in BSE filing of 2017-05-12: https://www.bseindia.com/xml-data/corpfiling/AttachHis/883d37e8-88da-451b-b8c9-eb915150f675.pdf | 2021-09-08 | https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=52198 |
+| Indian Overseas Bank | 2015-10-05 | IOB BSE announcement 2015-10-05 19:22 ("RBI has initiated a Prompt Corrective Action on the Bank"); letter date not stated, filing date used; no attachment | 2021-09-29 | https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=52318 |
+| Central Bank of India | 2017-06-13 | RBI letter date quoted in BSE filing of 2017-06-14: https://www.bseindia.com/xml-data/corpfiling/AttachHis/82cd3df6-cc69-4858-92d0-b873fe9118df.pdf | 2022-09-20 | https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=54395 |
+
+- Cross-check: all five banks appear in the PIB release of 2018-03-16 (eleven PSBs under PCA).
+- Caveats: BOM's true entry is likely earlier than the PIB date (no filing found on BSE; NSE not searched). IOB's 2015 entry predates RBI's revised PCA framework (April 2017); the spell is treated as continuous until the 2021 exit.
+
 ## GDP growth (Phase 1) (2026-11-25)
 - `data/raw/gdp/real_gdp_growth_dbie.csv`: RBI DBIE report "Components of Gross Domestic Product (Growth Rate)", GDP at market prices, 2011-12 base (back series), constant and current prices, FY2010–FY2026. DBIE Excel export failed server-side ("[object ArrayBuffer]"), so the values were extracted from the rendered report text in the browser (2026-11-25). Phase 1 uses constant-price growth (percent). A 2022-23-base series exists only from FY2024 and is not used.
 
