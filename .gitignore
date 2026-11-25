@@ -1,0 +1,42 @@
+# Secrets
+.env
+*.env
+credentials*.json
+*service-account*.json
+*.pem
+*.key
+
+# Large raw downloads (re-downloadable; sources logged in docs/data_notes.md)
+data/raw/annual_reports/
+data/raw/transcripts/
+data/raw/prices/
+data/raw/rbi/
+*.pdf
+*.xlsx
+*.xls
+*.zip
+
+# Keep the hand-curated events file
+!data/raw/events.csv
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Claude local settings
+.claude/settings.local.json
