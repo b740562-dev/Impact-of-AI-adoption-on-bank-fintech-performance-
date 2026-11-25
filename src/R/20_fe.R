@@ -15,7 +15,8 @@ ctrl <- "ln_assets_l1 + crar_l1 + ldr_l1 + liquidity_ratio_l1 + gnpa_ratio_l1 + 
 outcomes <- c(roe = "ROE (%)", stock_ret_pct = "Stock return (%)", roa = "ROA (%)", tobins_q = "Tobin's Q")
 
 boot_p <- function(m, param) {
-  b <- tryCatch(boottest(m, param = param, clustid = "bank_id", B = 9999, type = "webb"), error = function(e) NULL)
+  b <- tryCatch(boottest(m, param = param, clustid = "bank_id", B = 9999, type = "webb"),
+                error = function(e) { message("boottest failed for ", param, ": ", conditionMessage(e)); NULL })
   if (is.null(b)) NA_real_ else pval(b)
 }
 row <- function(m, param, y, spec) {

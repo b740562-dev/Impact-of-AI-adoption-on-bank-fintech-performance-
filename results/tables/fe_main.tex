@@ -1,0 +1,39 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccc}
+   \tabularnewline \midrule \midrule
+   Dependent Variables:   & roe             & stock\_ret\_pct   & roa             & tobins\_q\\   
+   Model:                 & (1)             & (2)               & (3)             & (4)\\  
+   \midrule
+   \emph{Variables}\\
+   ai\_l1                 & 0.1305          & -1.718            & 0.0141          & -0.0060\\   
+                          & (0.7322)        & (4.384)           & (0.0457)        & (0.0055)\\   
+   ln\_assets\_l1         & -5.610$^{*}$    & -30.93$^{***}$    & -0.3796$^{**}$  & -0.0994$^{***}$\\   
+                          & (2.950)         & (10.33)           & (0.1824)        & (0.0340)\\   
+   crar\_l1               & 0.1575          & 1.857             & 0.0218          & -0.0031\\   
+                          & (0.3406)        & (1.437)           & (0.0217)        & (0.0031)\\   
+   ldr\_l1                & -0.1797$^{***}$ & -0.8282$^{**}$    & -0.0157$^{***}$ & -0.0007\\   
+                          & (0.0490)        & (0.3253)          & (0.0029)        & (0.0008)\\   
+   liquidity\_ratio\_l1   & -0.5052$^{***}$ & -1.763$^{**}$     & -0.0322$^{***}$ & 0.0006\\   
+                          & (0.1493)        & (0.7269)          & (0.0109)        & (0.0012)\\   
+   gnpa\_ratio\_l1        & -1.744$^{***}$  & -0.7716           & -0.1047$^{***}$ & -0.0085$^{***}$\\   
+                          & (0.2745)        & (0.5740)          & (0.0145)        & (0.0017)\\   
+   pca\_l1                & 8.004$^{**}$    & -7.910            & 0.4277$^{**}$   & 0.0102\\   
+                          & (3.641)         & (5.045)           & (0.1886)        & (0.0169)\\   
+   \midrule
+   \emph{Fixed-effects}\\
+   bank\_id               & Yes             & Yes               & Yes             & Yes\\  
+   fy                     & Yes             & Yes               & Yes             & Yes\\  
+   \midrule
+   \emph{Fit statistics}\\
+   Observations           & 336             & 353               & 336             & 306\\  
+   R$^2$                  & 0.68746         & 0.61561           & 0.75104         & 0.87745\\  
+   Within R$^2$           & 0.32771         & 0.11005           & 0.29891         & 0.26916\\  
+   \midrule \midrule
+   \multicolumn{5}{l}{\emph{Clustered (bank\_id) standard-errors in parentheses}}\\
+   \multicolumn{5}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+
