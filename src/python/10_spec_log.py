@@ -26,8 +26,10 @@ for r in fe.itertuples():
                 f"{r.spec}; controls(t−1); bank + FY FE; SE clustered by bank | {fmt(r.estimate)} | SE {fmt(r.se)}, "
                 f"p={fmt(r.p_cluster)}, wild p={fmt(r.p_wild)} | |")
 dd = pd.read_csv(T / "did_results.csv")
+if "sample" not in dd.columns:
+    dd["sample"] = "all banks"
 for r in dd[dd["term"].isin(["overall ATT", "ATT"])].itertuples():
-    rows.append(f"| {D} | src/R/21_did.R | {r.outcome} | post_adopt ({r.adoption}) | {r.n_units} banks | {r.estimator}; "
+    rows.append(f"| {D} | src/R/21_did.R | {r.outcome} | post_adopt ({r.adoption}) | {r.n_units} banks, {r.sample} | {r.estimator}; "
                 f"not-yet-treated; x = baseline age, baseline ln assets | {fmt(r.estimate)} | SE {fmt(r.se)}, p={fmt(r.p)} | "
                 f"event-time rows in did_results.csv |")
 rb = pd.read_csv(T / "robustness.csv")
