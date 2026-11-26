@@ -55,6 +55,22 @@ Script `src/python/06_build_pca.py` (requests only) → `data/interim/pca_spells
 - Overlapping same-firm events (2026-11-26, `src/python/12_check_events.py`): Paytm E070 (Playback, 2025-10-06) and E039 (AI Soundbox, 2025-10-07) are one trading day apart and both enter the event study; their [−5,+5] windows overlap, so the same Paytm returns are counted twice. Both kept by decision (no rule in the spec); reported as a caveat. Paytm E069/E071/E072 also overlap but are excluded by the earnings screen.
 - Unverified first-AI leads for adoption dates (annual-report only, no dated news): Union UVA FAQ chatbot FY2018; PNB PIHU FY2020; BoB Baroda Brainy FY2018; Bank of India BOI Seva 2019-09-07; UCO UMA FY2021; IOB Buddy FY2026; Federal Niki.ai FedMobile bot 2018-01-19 (news only); RBL ChatPay FY2018; Yes mPower 2017-01-05 (news only); Canara CANDI humanoid 2017-07-27 (AR does not say AI); Indian Bank ADYA 2021-04-01 (dated news blocked).
 
+## AI capability index (`ai_capability`, proxy 3) (2026-11-26)
+- `src/python/13_ai_capability.py` on the extracted annual-report text (`data/interim/ar_text/`, 387 reports); output
+  `data/interim/ai_capability.parquet`; manual-check snippets in `logs/ai_capability_snippets.csv` (gitignored; re-run
+  the script to regenerate). Bank-FYs without a report (13) are NA, not 0.
+- Coding refinements after reading the first snippet file (before any estimate): matches are dropped when (a) the same
+  sentence describes a past or external role ("prior to", "former", "he was", "served as"; e.g. Yes Bank FY2020 bio of
+  SBI's former CDO); (b) a lab is a school/CSR lab (students, schools, CSR within 150 characters; e.g. Federal FY2025
+  "AI lab setup at Edava"); (c) a committee belongs to the IBA, RBI, government or a ministry, or is the renamed
+  "IT and Digital Strategy Committee" (Axis; = IT Strategy Committee, excluded by spec); (d) an "analytics unit/team"
+  is a treasury, portfolio, risk, market, HR or performance analytics unit (e.g. HDFC Treasury Analytics, Yes portfolio
+  analytics). "Chief Data Management Officer" (PNB) counts as a data leader.
+- Known remaining noise (kept, visible in the snippets): mentions in award text; a combined board committee whose remit
+  includes digital banking (Federal "Customer Service, Marketing Strategy & Digital Banking Committee"); a subsidiary's
+  CoE in the parent's report (HDFC ERGO, FY2024).
+- Distribution (383 panel bank-FYs): 0 = 261, 1 = 75, 2 = 38, 3 = 7, 4 = 2. Mean 0.37 (PSU) and 0.56 (private).
+
 ## AI patents (`ai_patents`) (2026-11-26)
 - Source: Google Patents Public Data, `patents-public-data.patents.publications`, queried in BigQuery Studio (sandbox,
   project bank-ai-patents; 238 GB scanned) because the organisation blocks service-account keys. Query text:

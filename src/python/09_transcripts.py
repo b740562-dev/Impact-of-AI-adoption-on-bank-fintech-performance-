@@ -45,15 +45,23 @@ for b, code in BSE_CODES.items():
     if cache.exists():
         lst = pd.read_csv(cache, dtype=str).fillna("")
     else:
-        hits = []
+        hits, complete = [], True
         for a in pd.date_range("2021-04-01", pd.Timestamp.today(), freq="QS"):
             frm, to = a.strftime("%Y%m%d"), (a + pd.offsets.QuarterEnd(0)).strftime("%Y%m%d")
             page = 1
             while True:
-                r = get(API.format(page=page, frm=frm, to=to, code=code))
-                if r is None:
+                j = None
+                for attempt in range(3):  # BSE sometimes answers 200 with an HTML/empty body
+                    r = get(API.format(page=page, frm=frm, to=to, code=code))
+                    try:
+                        j = r.json() if r is not None else None
+                        break
+                    except ValueError:
+                        time.sleep(20 * (attempt + 1))
+                if j is None:
+                    complete = False
+                    print(f"{b} list incomplete: {frm}-{to} page {page}", file=log, flush=True)
                     break
-                j = r.json()
                 t = j.get("Table", [])
                 hits += [x for x in t if "transcript" in f"{x.get('NEWSSUB', '')} {x.get('HEADLINE', '')}".lower()]
                 total = int((j.get("Table1") or [{"ROWCNT": 0}])[0]["ROWCNT"])
@@ -63,7 +71,8 @@ for b, code in BSE_CODES.items():
                 page += 1
         lst = pd.DataFrame([{"dissem": x.get("DissemDT") or x.get("NEWS_DT"), "subject": x.get("NEWSSUB", ""),
                              "attachment": x.get("ATTACHMENTNAME", "")} for x in hits])
-        lst.to_csv(cache, index=False)
+        if complete:  # an incomplete list is used this run but not cached, so a re-run fetches it again
+            lst.to_csv(cache, index=False)
     for r in lst.itertuples():
         if not r.attachment:
             continue

@@ -1,5 +1,6 @@
 # Robustness (docs/spec.md §5): winsorised outcomes (1/99), lagged profit growth control, year-standardised ai_kw,
-# ai_kw_ln, drop merger years, and other proxies (ai_events_cum; ai_patents / fintech_idx / ai_calls when present).
+# ai_kw_ln, drop merger years, and other proxies (ai_events_cum; ai_capability / fintech_idx / ai_calls when present;
+# ai_patents is skipped when it has no variation).
 # Main FE spec: outcome ~ AI(t-1) + controls(t-1) | bank + FY, SEs clustered by bank. Run: Rscript src/R/40_robustness.R
 suppressPackageStartupMessages({ library(data.table); library(arrow); library(fixest) })
 dir.create("results/tables", FALSE, TRUE)
@@ -7,7 +8,11 @@ p <- as.data.table(read_parquet("data/final/panel.parquet"))
 std <- function(x) x / sd(x, na.rm = TRUE)
 wins <- function(x) { q <- quantile(x, c(.01, .99), na.rm = TRUE); pmin(pmax(x, q[1]), q[2]) }
 p[, `:=`(ai_l1 = std(ai_kw_l1), ai_z_l1 = ai_kw_z_l1, ai_ln_l1 = std(ai_kw_ln_l1), ev_l1 = std(ai_events_cum_l1))]
-for (v in c("fintech_idx", "ai_patents", "ai_calls")) if (v %in% names(p)) p[, (paste0(v, "_l1")) := std(shift(get(v))), by = bank_id]
+for (v in c("fintech_idx", "ai_patents", "ai_capability", "ai_calls")) if (v %in% names(p)) {
+  setorder(p, bank_id, fy)
+  p[, (paste0(v, "_l1")) := shift(get(v)), by = bank_id]        # lag within bank
+  p[, (paste0(v, "_l1")) := std(get(paste0(v, "_l1")))]          # per 1 pooled SD (was within-bank SD: bug, fixed 2026-11-26)
+}
 ctrl <- "ln_assets_l1 + crar_l1 + ldr_l1 + liquidity_ratio_l1 + gnpa_ratio_l1 + pca_l1"
 specs <- list(
   "baseline" = list(ai = "ai_l1", data = p, extra = ""),
@@ -17,7 +22,7 @@ specs <- list(
   "ai_kw_ln = ln(1+count)" = list(ai = "ai_ln_l1", data = p, extra = ""),
   "drop merger years" = list(ai = "ai_l1", data = p[merger_year == 0], extra = ""),
   "ai_events_cum" = list(ai = "ev_l1", data = p, extra = ""))
-for (v in c("fintech_idx", "ai_patents")) {
+for (v in c("fintech_idx", "ai_capability", "ai_patents")) {
   a <- paste0(v, "_l1")
   if (!a %in% names(p)) next
   if (isTRUE(sd(p[[a]], na.rm = TRUE) > 0)) specs[[v]] <- list(ai = a, data = p, extra = "")

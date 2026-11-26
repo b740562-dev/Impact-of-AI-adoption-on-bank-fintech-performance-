@@ -60,6 +60,10 @@ if fti.exists():
 pat = INTERIM / "patents.csv"  # proxy 3 (built by 11_patents.py)
 if pat.exists():
     p = merge(p, pd.read_csv(pat)[["bank_id", "fy", "ai_patents", "n_ai_patent_apps"]], ["bank_id", "fy"], "patents")
+cap = INTERIM / "ai_capability.parquet"  # proxy 3 (built by 13_ai_capability.py); NA where no annual report
+if cap.exists():
+    p = merge(p, pd.read_parquet(cap)[["bank_id", "fy", "ai_capability", "cap_lead", "cap_lab", "cap_committee", "cap_team"]],
+              ["bank_id", "fy"], "ai_capability")
 calls = INTERIM / "ai_calls.csv"  # optional proxy 6 (built by 09_transcripts.py)
 if calls.exists():
     p = merge(p, pd.read_csv(calls)[["bank_id", "fy", "ai_calls"]], ["bank_id", "fy"], "ai_calls")

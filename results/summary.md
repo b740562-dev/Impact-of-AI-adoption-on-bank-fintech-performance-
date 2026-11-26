@@ -7,7 +7,9 @@ Status as of 2026-11-26 (tags `day2-panel`, `day3-results`). All estimated speci
 results are unchanged by them: all new events fall in FY2026 or later and enter only with a one-year lag (beyond the
 panel). Phase 3 is unaffected (the new events are panel-only banks). (2) `ai_calls` (transcripts) is not yet in the panel. (3) `ai_patents` is dropped: the pre-specified Google Patents
 search finds 0 AI patent applications for all 25 banks (1 filing in total), so the proxy has no variation
-(`docs/spec_changes.md`).
+(`docs/spec_changes.md`); it is replaced by `ai_capability` (0–4 index from annual reports), not yet estimated.
+(4) Bug fixed in `40_robustness.R`: `fintech_idx` was scaled by each bank's own SD instead of the pooled SD, so the
+`fintech_idx` numbers below are superseded once the script is re-run.
 
 ## Data
 - Verified AI events: 54 of 88 candidates, across 25 firms; 39 CAR-eligible; 31 used in the event study after
