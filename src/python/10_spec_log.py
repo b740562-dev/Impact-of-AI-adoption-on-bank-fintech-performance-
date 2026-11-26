@@ -41,11 +41,16 @@ for r in pc.itertuples():  # POST-HOC (docs/spec_changes.md 2026-11-26)
     rows.append(f"| {D} | src/R/22_psu_check.R (POST-HOC) | {r.outcome} | `ai_l1:psu` (per 1 SD, t−1) | n={r.n} | "
                 f"{r.spec}; controls(t−1); cluster bank | {fmt(r.interaction)} | SE {fmt(r.se_int)}, p={fmt(r.p_int)}, "
                 f"wild p={fmt(r.p_int_wild)} | PSU slope {fmt(r.psu_slope)} (p={fmt(r.p_psu)}) |")
+dp = pd.read_csv(T / "did_posthoc.csv") if (T / "did_posthoc.csv").exists() else pd.DataFrame()
+for r in (dp[dp["term"] == "overall ATT"].itertuples() if len(dp) else []):  # POST-HOC (docs/spec_changes.md 2026-11-26)
+    rows.append(f"| {D} | src/R/23_did_posthoc.R (POST-HOC) | {r.outcome} | post_adopt (gname_main) | {r.n_treated} treated, "
+                f"{r.n_control_never} never/late | {r.spec}; x = {r.xformla} | {fmt(r.estimate)} | SE {fmt(r.se)}, p={fmt(r.p)} | "
+                f"joint pre p={fmt(r.pretrend_wald_p)}; leads in did_posthoc.csv |")
 ev = pd.read_csv(T / "event_study_tests.csv")
 for r in ev.itertuples():
     rows.append(f"| {D} | src/R/30_event_study.R | CAR{r.window} (%) | AI announcement | {r.group}, N={r.N} | "
                 f"market model [−250,−30], benchmark {r.benchmark} | mean {fmt(r.mean_car_pct, 2)}% | "
-                f"KP-BMP p={fmt(r.p_kp)}, Corrado p={fmt(r.p_corrado)} | r̄={fmt(r.rbar)} |")
+                f"KP-BMP p={fmt(r.p_kp)}, Corrado p={fmt(r.p_corrado)} | r̄={fmt(r.rbar)}; POST-HOC same-firm overlap rule applied (E039 dropped) |")
 
 text = LOG.read_text(encoding="utf-8")
 if BEGIN in text:
@@ -53,4 +58,4 @@ if BEGIN in text:
 block = "\n".join([BEGIN] + rows + [END]) + "\n"
 LOG.write_text(text + block, encoding="utf-8")
 print(f"spec_log: {len(rows)} generated rows (FE {len(fe)}, DiD {len(dd[dd.term.isin(['overall ATT', 'ATT'])])}, "
-      f"robustness {len(rb)}, PSU check {len(pc)}, event study {len(ev)})")
+      f"robustness {len(rb)}, PSU check {len(pc)}, DiD post-hoc {len(dp[dp.term == 'overall ATT']) if len(dp) else 0}, event study {len(ev)})")

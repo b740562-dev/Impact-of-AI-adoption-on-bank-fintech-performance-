@@ -60,6 +60,15 @@ tests <- function(r, sub, label) {
 }
 
 main_ev <- ev[excluded == ""]
+# POST-HOC overlap rule (docs/spec_changes.md 2026-11-26): same-firm events whose [-5,+5] windows overlap
+# (<= 10 trading days apart) -> keep only the earlier one.
+cal0 <- sort(unique(px[id == "NIFTY500", date]))
+setorder(main_ev, firm_id, event_trade_date); main_ev[, k := findInterval(event_trade_date, cal0)]
+main_ev[, keep := { kk <- k; ok <- rep(TRUE, .N); last <- -Inf
+  for (j in seq_len(.N)) { if (kk[j] - last <= 10) ok[j] <- FALSE else last <- kk[j] }; ok }, by = firm_id]
+cat("overlap rule dropped:", paste(main_ev[keep == FALSE, event_id], collapse = ", "), "\n")
+overlap_dropped <- main_ev[keep == FALSE, event_id]
+main_ev <- main_ev[keep == TRUE][, c("k", "keep") := NULL]
 all_out <- list()
 for (bench in c("NIFTY500", "NIFTYBANK")) {
   r <- run(bench, main_ev)
@@ -82,4 +91,5 @@ fwrite(tab, "results/tables/event_study_tests.csv")
 sink()
 print(tab[group == "All" | grepl("type:", group), .(benchmark, group, window, N, mean_car_pct = round(mean_car_pct, 2),
                                                     p_kp = round(p_kp, 3), p_corrado = round(p_corrado, 3))])
+cat("overlap rule (post-hoc) dropped:", paste(overlap_dropped, collapse = ", "), "\n")
 cat("details: logs/event_study.log; tables: results/tables/event_study_tests.csv\n")

@@ -13,8 +13,8 @@ search finds 0 AI patent applications for all 25 banks (1 filing in total), so t
 SD; the numbers below are from the corrected run (earlier: ROE +1.59 pp, stock return +12.71 %, p = 0.040).
 
 ## Data
-- Verified AI events: 54 of 88 candidates, across 25 firms; 39 CAR-eligible; 31 used in the event study after
-  excluding earnings (±3 trading days) and crisis windows.
+- Verified AI events: 54 of 88 candidates, across 25 firms; 39 CAR-eligible; 30 used in the event study after
+  excluding earnings (±3 trading days) and crisis windows and applying the post-hoc same-firm overlap rule.
 - Firm panel: 392 bank-FYs, 25 banks, FY2011–FY2026 (accounting variables to FY2025). Main adoption definition:
   19 of 25 banks treated within the window (5 of them in FY2026, when only stock returns are observed);
   6 never-treated (Central, UCO, BoM, KVB, DCB; Indian Bank adopts in FY2027).
@@ -46,7 +46,6 @@ clustered by bank (25 clusters); wild cluster bootstrap p (Webb, 9,999 draws). E
   +0.77 (p = 0.24), +0.58 (p = 0.52). ROA, Tobin's Q and stock-return interactions are not significant except stock
   return with bank trends (−14.3 %, p = 0.041).
 - Other interactions are in `results/tables/fe_results.csv`. AI × baseline age on ROE is +1.99 pp (p = 0.033).
-  AI × demonetisation on stock return is −161 % (p = 0.012) and is identified from a single FY.
 
 ## Phase 2b: staggered DiD (`post_adopt`, effect of post_adopt = 1)
 Callaway–Sant'Anna (not-yet-treated controls, x = baseline age and baseline ln assets) and Sun–Abraham:
@@ -62,14 +61,29 @@ Callaway–Sant'Anna (not-yet-treated controls, x = baseline age and baseline ln
   Stock return e = −9 to −1: −12.9 to +28.6 %, none significant (p ≥ 0.23); the longer leads now reach e = −14, and
   e = −11 (−51.7 %, p = 0.001) and e = −10 (+39.8 %, p = 0.005) are individually significant, with opposite signs.
 - Post-hoc, excluding Yes Bank: ROE −21.1 pp (p = 0.036); stock return −34.8 % (p = 0.012).
+- **Post-hoc** parallel-trends diagnostics (`src/R/23_did_posthoc.R`, `results/tables/did_posthoc.csv`; main adoption).
+  Motivation: the late / never-treated group is mostly PSU banks, whose ROE fell to about −10.7 % (FY2018) and
+  recovered to about +12.9 % (FY2025).
+  - (a) CS, private banks only (not-yet-treated + never-treated private controls): ROE −3.27 pp (SE 5.82, p = 0.57;
+    10 treated, 3 never/late-treated: DCB, KVB, SIB); stock return −36.3 % (SE 12.5, p = 0.004; 11 treated, 2 never-treated).
+    Leads: ROE e = −7 to −1 range −2.7 to +2.0 pp, three individually significant (e = −7 −1.7, e = −6 −2.7, e = −4 +2.0);
+    stock return e = −7 to −1 range −9.1 to +20.1 %, none significant. CS joint pre-test p < 0.001 for both outcomes.
+  - (b) Sun–Abraham, bank FE + PSU × FY FE (all banks): ROE −2.48 pp (SE 1.23, p = 0.043; 14 treated, 11
+    never/late-treated); stock return −15.8 % (SE 5.8, p = 0.006; 19 treated, 6 never-treated). Leads: ROE six of 13
+    significant, all negative (e = −12 to −8 between −6.3 and −12.2 pp; e = −5 −4.4 pp), e = −4 to −2 between −2.3 and
+    +0.7 pp; stock return one of 14 significant (e = −13, +25.9 %), e = −5 to −2 between +0.9 and +6.0 %. Joint lead test
+    not computable (more lead coefficients than the 25 clusters; clustered VCOV rank-deficient).
 
 ## Phase 3: event study (CARs)
-Market model, estimation window [−250, −30], Nifty 500 benchmark, N = 31 events:
-- All events: CAR[−1,+1] +0.13 % (Kolari–Pynnönen p = 0.81, Corrado p = 0.49); CAR[−5,+5] −1.28 % (p = 0.46, 0.20).
-- PSU (N = 8): CAR[−5,+5] −2.70 % (KP p = 0.041, Corrado p = 0.047); with Nifty Bank −2.83 % (p = 0.21, 0.09).
-- Private (N = 14), NBFC (N = 4) and fintech (N = 5): no CAR significant at 5 % under either test.
-- Caveat: two Paytm events one trading day apart (E070 2025-10-06, E039 2025-10-07) are both included, so their
-  event windows overlap and the same returns are counted twice (CAR[−1,+1] +4.4 % and +3.1 %).
+Market model, estimation window [−250, −30], Nifty 500 benchmark, N = 30 events (after the post-hoc overlap rule):
+- All events: CAR[−1,+1] +0.03 % (Kolari–Pynnönen p = 0.84, Corrado p = 0.58); CAR[−5,+5] −1.41 % (p = 0.40, 0.16).
+- PSU (N = 8): CAR[−5,+5] −2.70 % (KP p = 0.035, Corrado p = 0.047); with Nifty Bank −2.83 % (p = 0.18, 0.09).
+- Private (N = 14), NBFC (N = 4) and fintech (N = 4): no CAR significant at 5 % under either test. Fintech
+  CAR[−1,+1] −0.18 % (p = 0.98), CAR[−5,+5] −1.50 % (p = 0.60).
+- **Post-hoc** overlap rule (`docs/spec_changes.md`): of same-firm events with overlapping [−5,+5] windows only the
+  earlier is kept, so Paytm E039 (2025-10-07) is dropped and E070 (2025-10-06, CAR[−1,+1] +4.4 %) kept. Before the
+  rule (N = 31): all events CAR[−1,+1] +0.13 % (KP p = 0.81), CAR[−5,+5] −1.28 % (p = 0.46); PSU CAR[−5,+5] KP p = 0.041;
+  fintech (N = 5) CAR[−1,+1] +0.48 % (p = 0.74), CAR[−5,+5] −0.68 % (p = 0.82).
 
 ## Robustness (FE, per 1 SD of proxy at t−1)
 `ai_kw` on ROE: baseline +0.10 pp (p = 0.86), winsorised +0.11 (p = 0.85), + lagged profit growth +0.27 (p = 0.67),
