@@ -4,27 +4,28 @@ Source: Google Patents Public Datasets on BigQuery (`patents-public-data.patents
 AI patent = CPC class G06N* OR a CLAUDE.md dictionary term in the English title/abstract.
 Applications are counted once (distinct application_number) by filing date -> FY.
 
-Setup (once): Google Cloud project with the BigQuery API enabled, then either
-  gcloud auth application-default login         (no key file), or
-  a service-account key JSON with GOOGLE_APPLICATION_CREDENTIALS=<path> in .env
-and GCP_PROJECT=<your-project-id> in .env (.env is gitignored; never commit keys).
-Run:  python 11_patents.py --dry-run   (prints bytes the query would scan; free tier = 1 TB/month)
-      python 11_patents.py --run       (executes; writes data/interim/patents.csv, logs/patents.log)
+Route A, no credentials (used when the organisation blocks service-account keys):
+      python 11_patents.py --sql        writes src/sql/patents_query.sql (pattern inlined); paste it into
+                                        BigQuery Studio, run it, save results as CSV
+      python 11_patents.py --from-csv <exported.csv>   copies it to data/raw/patents_bigquery_raw.csv and builds output
+Route B, API: Google Cloud project with BigQuery enabled, `gcloud auth application-default login` or a service-account
+key (GOOGLE_APPLICATION_CREDENTIALS in .env), and GCP_PROJECT in .env (.env is gitignored; never commit keys).
+      python 11_patents.py --dry-run   (prints bytes the query would scan; free tier = 1 TB/month)
+      python 11_patents.py --run       (executes)
+Output: data/interim/patents.csv, logs/patents.log.
 """
 import os
 import re
+import shutil
 import sys
 
 import numpy as np
 import pandas as pd
-from dotenv import load_dotenv
-from google.cloud import bigquery
 
 from ai_terms import count_terms
 from config import FIRMS, INTERIM, RAW
 
 ROOT = RAW.parent.parent
-load_dotenv(ROOT / ".env")
 LOG = ROOT / "logs" / "patents.log"
 LOG.parent.mkdir(exist_ok=True)
 PANEL = [f[0] for f in FIRMS if f[4]]
@@ -47,17 +48,34 @@ FROM `patents-public-data.patents.publications` p, UNNEST(p.assignee_harmonized)
 WHERE REGEXP_CONTAINS(UPPER(a.name), @pattern) AND p.filing_date >= 20090401
 """
 
-client = bigquery.Client(project=os.environ.get("GCP_PROJECT"))
-cfg = bigquery.QueryJobConfig(query_parameters=[bigquery.ScalarQueryParameter("pattern", "STRING", PATTERN)])
-if "--run" not in sys.argv:
-    dry = client.query(SQL, job_config=bigquery.QueryJobConfig(dry_run=True, use_query_cache=False,
-                                                               query_parameters=cfg.query_parameters))
-    print(f"dry run: query would scan {dry.total_bytes_processed / 1e9:.1f} GB (free tier 1,000 GB/month). "
-          f"Re-run with --run to execute.")
+RAW_CSV = RAW / "patents_bigquery_raw.csv"  # gitignored raw pull
+if "--sql" in sys.argv:
+    assert "'" not in PATTERN
+    out_sql = ROOT / "src" / "sql" / "patents_query.sql"
+    out_sql.parent.mkdir(exist_ok=True)
+    out_sql.write_text(SQL.replace("@pattern", f"r'{PATTERN}'").strip() + "\n", encoding="utf-8")
+    print(f"SQL written: {out_sql}")
     sys.exit(0)
+if "--from-csv" in sys.argv:
+    src = sys.argv[sys.argv.index("--from-csv") + 1]
+    shutil.copyfile(src, RAW_CSV)
+    df = pd.read_csv(RAW_CSV, dtype={"application_number": str, "publication_number": str})
+    df["cpc_g06n"] = df["cpc_g06n"].astype(str).str.lower().eq("true")
+else:
+    from dotenv import load_dotenv
+    from google.cloud import bigquery
 
-df = client.query(SQL, job_config=cfg).to_dataframe()
-df.to_csv(RAW / "patents_bigquery_raw.csv", index=False)  # gitignored raw pull
+    load_dotenv(ROOT / ".env")
+    client = bigquery.Client(project=os.environ.get("GCP_PROJECT"))
+    cfg = bigquery.QueryJobConfig(query_parameters=[bigquery.ScalarQueryParameter("pattern", "STRING", PATTERN)])
+    if "--run" not in sys.argv:
+        dry = client.query(SQL, job_config=bigquery.QueryJobConfig(dry_run=True, use_query_cache=False,
+                                                                   query_parameters=cfg.query_parameters))
+        print(f"dry run: query would scan {dry.total_bytes_processed / 1e9:.1f} GB (free tier 1,000 GB/month). "
+              f"Re-run with --run to execute.")
+        sys.exit(0)
+    df = client.query(SQL, job_config=cfg).to_dataframe()
+    df.to_csv(RAW_CSV, index=False)
 df["bank_id"] = df["assignee"].map(lambda n: next((b for b, p in ASSIGNEE.items() if re.search(p, str(n).upper())), None))
 df = df[df["bank_id"].notna()].copy()
 text = (df["title"].fillna("") + " " + df["abstract"].fillna(""))
