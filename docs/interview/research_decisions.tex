@@ -412,4 +412,245 @@ fonts and English-only private reports, without biasing PSU AI intensity downwar
 AI~$\times$~PSU interaction and its caveat, and the event-study null with the PSU benchmark sensitivity.}
 \end{description}
 
+\clearpage
+\section{Question bank: everything an interviewer could ask}
+A broad list of questions grouped by theme. Each has a short \emph{cue}: the point your answer should make, with the
+section above that has the detail. Practise saying each answer in under a minute.
+
+\newcommand{\Q}[2]{\item #1\\{\small\textcolor{qcol}{Cue:} #2}}
+\newenvironment{qlist}{\begin{enumerate}[leftmargin=*,itemsep=4pt,label=\arabic*.,resume=qb]}{\end{enumerate}}
+
+\subsection*{A. Motivation and the big picture}
+\begin{qlist}
+\Q{Explain your project in two minutes to a non-economist.}{Do banks that use more AI earn more or get valued higher? I
+measured AI use six ways for 25 Indian banks over 15 years and compared banks before and after they adopted AI. (\S1)}
+\Q{Why is this question important, and for whom?}{Banks are spending heavily on AI; regulators (RBI) and investors want
+to know whether it pays off, and whether state-owned banks can keep up with private ones.}
+\Q{Why India, and why banks?}{A large, fast-digitising banking system with a clean PSU/private split, a single
+regulator and public bank-wise data from RBI.}
+\Q{Why compare PSU and private banks?}{Different ownership, incentives, hiring rules and tech budgets; the hypothesis was
+that PSU banks convert AI into performance less effectively.}
+\Q{What is your hypothesis, and what did you find?}{Positive effect, weaker for PSU. Found: no average effect of AI
+intensity; the PSU interaction is positive (opposite sign), with a caveat. (\S7)}
+\Q{What is new compared with existing work?}{Multi-proxy measurement of bank AI adoption from public Indian data,
+verified deployment dates, and a pre-specified analysis plan with all estimates logged.}
+\Q{What would change your conclusion?}{Clean pre-trends in the DiD, more post-adoption years, or direct data on AI
+spending/use.}
+\Q{What is the one-line takeaway?}{AI talk and AI announcements have not yet shown up in Indian banks' profitability or
+returns; digital infrastructure is priced by the market.}
+\end{qlist}
+
+\subsection*{B. Banking and finance domain knowledge}
+\begin{qlist}
+\Q{Define ROE and ROA. Why use average equity?}{ROE = PAT / average equity; ROA = PAT / average assets. Averages avoid
+distortion from capital infusions during the year. (\S4)}
+\Q{What is Tobin's Q and how did you measure it for banks?}{(Market cap + total liabilities) / total assets; book
+liabilities proxy their market value. (\S4)}
+\Q{What are gross NPAs, CRAR and the loan-to-deposit ratio?}{Bad loans as \% of advances; capital as \% of
+risk-weighted assets; loans as \% of deposits. All used as lagged controls. (\S6)}
+\Q{What was the Asset Quality Review (AQR) and why does it matter for you?}{RBI's 2015--16 review forced banks,
+especially PSU banks, to recognise hidden bad loans; it crushed PSU profits in FY2016--18, a major confounder.}
+\Q{What is Prompt Corrective Action (PCA)?}{RBI restrictions on weak banks (lending, branch expansion, dividends); five
+panel PSU banks were under PCA around 2017--2021, so it is a control. (\S6)}
+\Q{How did demonetisation and COVID affect banks?}{Demonetisation (FY2017) caused a deposit surge and a digital-payments
+push; COVID (FY2021) brought moratoria and provisioning. Both are moderators and absorbed by year effects.}
+\Q{What happened to Yes Bank in 2020?}{RBI moratorium and SBI-led reconstruction; FY2020 ROE about $-67.5\%$, which is
+why I checked results without it. (\S8)}
+\Q{Why did PSU banks merge in 2019--2021, and how do mergers affect your data?}{Government consolidation; merged banks'
+ratios jump mechanically, so merger-year dummies and a drop-merger-years check are used.}
+\Q{What is UPI and why include it in a digital index?}{India's real-time payment system; a bank going live on UPI is a
+basic digital capability. (\S5, \var{fintech\_idx})}
+\Q{How would AI actually raise bank profits?}{Lower operating cost (automation, chatbots), better credit decisions
+(lower NPAs), fraud detection, cross-selling. These are the planned mediators (cost-to-income, NPAs).}
+\Q{Why might AI \emph{not} raise profits in the short run?}{High fixed costs, slow adoption, competition passes gains to
+customers, and benefits may show up only after several years.}
+\end{qlist}
+
+\subsection*{C. Data and sample}
+\begin{qlist}
+\Q{Where does every variable come from?}{RBI DBIE bank-wise tables (financials), Yahoo adjusted prices, BSE/NSE filings
+(announcements, transcripts, earnings dates), annual reports, RBI press releases (PCA), RBI mobile-banking data.}
+\Q{Why only free data? Wouldn't Prowess be better?}{Reproducibility; anyone can rebuild it. Cost: constructed market
+cap and no tech-staff data. (\S2)}
+\Q{How many banks, years and observations?}{25 banks, FY2011--FY2026, 392 bank-years, unbalanced; accounting to FY2025.}
+\Q{Why does the accounting data stop at FY2025?}{RBI's FY2026 tables were not yet published; I did not mix sources.}
+\Q{How did you handle missing data?}{Left as NA and logged; never imputed or invented.}
+\Q{Give an example of a data error you caught.}{Preference capital inflating share counts (set to NA); Hindi-font text
+inflating word counts; cover-letter transcripts counted as transcripts; a within-bank SD scaling bug.}
+\Q{How did you build market capitalisation?}{Paid-up capital / face value $\times$ FY-end price, split-adjusted,
+checked within 5\% of Yahoo for 5 banks. (\S4)}
+\Q{How did you make sure merges were correct?}{Assertions on row counts and unique bank $\times$ year keys after every
+merge, with diagnostics logged.}
+\Q{Why is IDFC First only from FY2019?}{It was formed by the IDFC Bank--Capital First merger; earlier years are a
+different entity.}
+\Q{How did you handle the fiscal year?}{Indian FY (April--March) everywhere, including stock returns and events.}
+\end{qlist}
+
+\subsection*{D. Measuring AI adoption}
+\begin{qlist}
+\Q{How do you define AI adoption?}{Six proxies: annual-report AI intensity, first verified deployment, cumulative
+events, fintech index, AI-capability index, earnings-call AI intensity. (\S5)}
+\Q{Isn't a keyword count just measuring hype or AI-washing?}{Partly; hence year fixed effects, the within-year
+standardised version, and comparison with verified deployments.}
+\Q{Show me your dictionary. Why those terms?}{Standard AI vocabulary (AI, ML, NLP, GenAI, LLM, chatbot, RPA, computer
+vision, predictive analytics); fixed before estimation.}
+\Q{How did you deal with false positives?}{Case-sensitive acronyms, prose-context rule, exclusions (Air India, LL.M,
+LLMS, artificial insemination), found by auditing matches before estimating.}
+\Q{Why normalise per 10,000 words, and why English words only?}{Reports differ in length; Hindi legacy fonts extract as
+gibberish and would deflate PSU intensity. (\S5)}
+\Q{Is RPA really AI?}{It is in the pre-specified dictionary, but it is rule-based automation; I did not use RPA alone to
+date adoption under the strict rule.}
+\Q{How did you verify an AI event?}{Primary source plus dated news; awards, talks and interviews excluded; 54 of 88
+candidates verified.}
+\Q{Why ``first deployed'' rather than first announced?}{Deployment is real adoption; announcements and MoUs are in the
+Alt~1 robustness check.}
+\Q{Why did you drop patents?}{Zero AI patent applications for every bank-year; logged before building a replacement.}
+\Q{How is the AI-capability index built, and how did you avoid false matches?}{Four report-based indicators (leader,
+lab/CoE, committee, team) with designed exclusions (CIO/CTO, IT Strategy Committee, external bodies, CSR labs). (\S5)}
+\Q{Why equal weights in the fintech index?}{Follows Hamdouni (2025); avoids arbitrary weights. Cost: treats a scaled
+volume and a dummy as equally important.}
+\Q{Why use earnings-call transcripts, and what went wrong?}{They capture management attention. Several banks file only
+a cover letter linking to the transcript, so those files were excluded rather than counted as zero AI talk.}
+\Q{Which proxy do you trust most?}{Verified deployment for timing; keyword intensity for coverage; none alone.}
+\end{qlist}
+
+\subsection*{E. Econometrics: fixed effects}
+\begin{qlist}
+\Q{Write down your main model and interpret $\beta$.}{$Y_{it}=\beta\,\text{AI}_{i,t-1}+\gamma'X_{i,t-1}+\alpha_i+
+\delta_t+\varepsilon_{it}$; $\beta$ = change in ROE (pp) per 1 SD more AI intensity than the same bank's average,
+relative to other banks that year. (\S7)}
+\Q{What do bank and year fixed effects control for, and what do they not?}{Time-invariant bank traits and common
+shocks; not bank-specific trends or shocks correlated with AI.}
+\Q{Why cluster by bank? Why not by year or two-way?}{Errors are correlated within a bank over time; with 16 years,
+two-way clustering would have too few year clusters.}
+\Q{What is a wild cluster bootstrap and why Webb weights?}{Resamples residual signs by cluster to get reliable
+$p$-values with few clusters; Webb's 6-point weights work better than Rademacher with very few clusters.}
+\Q{Why did you write your own bootstrap?}{The package failed with the current \var{fixest}; I implemented the
+restricted (WCR) version on demeaned data and checked it reproduces sensible $p$-values.}
+\Q{Why lag AI by one year? Why report lags 0 and 2?}{Effects take time and lagging reduces reverse causality; other lags
+show sensitivity. Lag 1 was pre-specified.}
+\Q{Interpret the AI~$\times$~PSU coefficient. What is the PSU slope?}{Private slope $-3.20$ pp; PSU slope = private
+slope + interaction $\approx +1.2$ pp per SD (the sum; its own SE needs a separate test).}
+\Q{Is the PSU result driven by the post-AQR recovery?}{Possibly; year effects are common to all banks, so a PSU-specific
+recovery can load on the interaction. Next check: PSU $\times$ year effects.}
+\Q{How many tests did you run, and how do you handle multiple testing?}{All 172 estimates are logged; I report
+everything and treat isolated significant results (e.g.\ demonetisation interaction) as fragile.}
+\Q{What is reverse causality here and how do you address it?}{Profitable banks can afford AI and write more about it.
+Lags, fixed effects and the DiD on dated deployments help but do not fully solve it.}
+\Q{Why not use an instrument?}{No credible instrument: anything that shifts AI adoption (tech budgets, management) also
+affects profits directly.}
+\Q{Why not include firm age as a control?}{It is collinear with bank + year fixed effects.}
+\end{qlist}
+
+\subsection*{F. Econometrics: difference-in-differences}
+\begin{qlist}
+\Q{What is the problem with two-way FE DiD under staggered adoption?}{Already-treated units act as controls, giving
+``forbidden comparisons'' and possibly negative weights when effects vary over time (Goodman-Bacon decomposition).}
+\Q{Explain Callaway--Sant'Anna in plain words.}{Estimate a separate effect for each adoption cohort and year against
+banks not yet treated, then average them.}
+\Q{Never-treated vs not-yet-treated controls?}{Not-yet-treated uses more banks; my never-treated group is six mostly
+weak PSU banks.}
+\Q{What is the parallel-trends assumption, and does it hold?}{Treated and control banks would have moved together
+without adoption. For ROE, three significant pre-period estimates say it is doubtful.}
+\Q{Why do CS and Sun--Abraham differ so much ($-23.9$ vs $-6.9$ pp)?}{Different weighting of cohorts and comparison
+groups; with few cohorts and an outlier bank, the estimates are sensitive. I report both.}
+\Q{Why did you exclude Yes Bank, and isn't that cherry-picking?}{It is post-hoc and labelled so; the pre-specified
+estimate stays the headline. The result barely changes ($-21.1$ pp).}
+\Q{What are the covariates in the DiD and why?}{Baseline age and baseline ln(assets): adoption timing depends on size
+and age, so conditional parallel trends is more plausible.}
+\Q{How would you improve the DiD?}{More post-years, more verified dates for late adopters, HonestDiD-style sensitivity
+bounds for pre-trend violations.}
+\end{qlist}
+
+\subsection*{G. Event study}
+\begin{qlist}
+\Q{Walk me through an event study.}{Estimate normal returns from a market model over [$-250,-30$], compute abnormal
+returns around the event, sum into CARs, test across events. (\S9)}
+\Q{Why the market model and not CAPM or Fama--French?}{Standard for short windows; factor models add little over a few
+days and Indian factor data are less standard.}
+\Q{Why two benchmarks?}{Nifty 500 = market; Nifty Bank = sector. A result that survives only one may be sector
+co-movement.}
+\Q{Why BMP, Kolari--Pynnönen and Corrado tests?}{Event-induced volatility (BMP), cross-correlated events on shared dates
+(KP), non-normal returns (Corrado rank).}
+\Q{How did you choose the event date?}{First public announcement; after 15:30 IST it moves to the next trading day.}
+\Q{Why exclude events near earnings releases and crisis windows?}{Confounding news would dominate a small AI effect.}
+\Q{How many events did you use and why so few?}{54 verified, 39 eligible, 31 after exclusions; strict two-source rule.}
+\Q{What about overlapping events for the same firm?}{Two Paytm events one day apart are both kept (no rule removes
+them) and flagged as a caveat.}
+\Q{Why could markets react negatively to AI news?}{Costs without near-term revenue, doubts on execution (PSU), or news
+already priced in (leakage).}
+\Q{Is the PSU CAR result robust?}{No; significant against Nifty 500 (KP $p=0.041$) but not Nifty Bank.}
+\end{qlist}
+
+\subsection*{H. Interpreting the results}
+\begin{qlist}
+\Q{Your main proxy is null. Is the project a failure?}{No: a well-measured null with tight-enough intervals is
+informative; it says AI talk has not yet translated into returns.}
+\Q{Why do proxies give different signs?}{They measure different things (talk, events, infrastructure, capability);
+banks with many announcements were not the most profitable in this period.}
+\Q{Is the \var{fintech\_idx} stock-return effect causal?}{No; it is a robustness association (+11.96\% per SD,
+$p=0.025$) that could reflect overall digital leadership.}
+\Q{Why is \var{ai\_events\_cum} negative?}{Event intensity is driven by large private banks and PSU announcement waves
+in years of weak returns; it is an association, not a causal effect.}
+\Q{What is the economic magnitude of your PSU interaction?}{+4.39 pp ROE per SD of AI intensity, large relative to
+typical ROE of 10--15\%, which is why I am cautious.}
+\Q{Statistical vs economic significance: give an example from your results.}{The demonetisation interaction is
+``significant'' but identified from one year; the fintech index effect is economically large and modestly significant.}
+\Q{How do your results compare with what you expected?}{Expected positive and weaker for PSU; found null and stronger
+(or recovering) PSU.}
+\end{qlist}
+
+\subsection*{I. Robustness, integrity and reproducibility}
+\begin{qlist}
+\Q{What robustness checks did you run and why each?}{Winsorising, profit-growth control, year-standardised \var{ai\_kw},
+ln(1+count), dropping merger years, alternative proxies. (\S10)}
+\Q{How did you avoid specification searching?}{Fixed spec first; changes logged before re-running; all estimates kept.}
+\Q{Give an example of a decision you changed and why.}{PCA entry dates (RBI does not publish entry releases); the patent
+proxy (no variation); the transcript cover-letter exclusion.}
+\Q{Could someone else reproduce your results?}{Yes: public data, scripts for every step, source URLs logged, public Git
+history.}
+\Q{What did you do when a tool or package failed?}{Replaced the wild-bootstrap package with my own implementation; used
+the BigQuery web console when service-account keys were blocked.}
+\Q{How did you validate your text-mining?}{Match audits and snippet files for manual checking; precision fixes before
+estimation.}
+\end{qlist}
+
+\subsection*{J. Limitations and extensions}
+\begin{qlist}
+\Q{What is the biggest weakness of your study?}{Identification: adoption is not random and coincides with the bad-loan
+cycle and bank type.}
+\Q{What would you do with six more months?}{Mediation (cost-to-income, NPAs), PSU $\times$ year effects, media-tone
+controls, hand-collected deployment dates, more post-adoption years.}
+\Q{What data would you most like to have?}{Bank-level IT/AI spending and tech headcount.}
+\Q{Does this generalise beyond India?}{Partly; the PSU/private contrast and disclosure-based measurement apply to other
+emerging markets with state-owned banks.}
+\Q{What would a regulator take from this?}{No evidence yet that AI announcements improve bank performance; supervision
+should focus on actual deployment and risk.}
+\end{qlist}
+
+\subsection*{K. Tools and implementation}
+\begin{qlist}
+\Q{Why Python for data and R for estimation?}{Python for scraping, PDF parsing and text; R's \var{fixest} and \var{did}
+are the reference estimators.}
+\Q{How did you extract text from annual-report PDFs?}{PyMuPDF, normalised whitespace and hyphenation, cached per
+report.}
+\Q{How did you collect announcements and transcripts?}{BSE public APIs, cached and resume-safe; stop on 401/403/429.}
+\Q{How did you query patents?}{Google Patents Public Data on BigQuery (238 GB scanned, free tier).}
+\Q{How did you manage versions?}{Git with a commit per task, milestone tags, secrets and large files excluded.}
+\end{qlist}
+
+\subsection*{L. About you and the process}
+\begin{qlist}
+\Q{What was your role vs your supervisor's?}{Answer honestly about what you designed, decided and built.}
+\Q{What was the hardest decision you made?}{E.g.\ keeping the strict verification rule even though it reduced events
+below the target.}
+\Q{What did you learn?}{Measurement is most of the work; pre-specification makes inconvenient results easier to report.}
+\Q{How did you manage a 72-hour sprint?}{Daily gates, fallbacks fixed in advance (report true event counts, drop
+proxies whose source fails), commit after every task.}
+\Q{Your CV says ``70+ events''---how many do you have?}{Report the true number: 54 verified (88 candidates), per the
+pre-set fallback rule. Update the CV line to match.}
+\Q{If you started again, what would you do differently?}{Collect deployment dates and transcripts from bank websites
+earlier; plan the patent proxy with a feasibility check first.}
+\end{qlist}
+
 \end{document}
