@@ -29,6 +29,15 @@ logs/
 # Keep the hand-curated events file
 !data/raw/events.csv
 
+# LaTeX build files
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
 # Python
 __pycache__/
 *.pyc

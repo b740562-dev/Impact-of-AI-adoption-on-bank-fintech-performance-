@@ -1,0 +1,415 @@
+\documentclass[10.5pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2cm]{geometry}
+\usepackage{array,longtable,booktabs}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+\definecolor{head}{HTML}{1F3A5F}
+\definecolor{qcol}{HTML}{7A2E0E}
+\newcommand{\var}[1]{\texttt{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\setlist{itemsep=2pt,topsep=3pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\renewcommand{\arraystretch}{1.25}
+
+% two-column decision table: left = what I did, right = why and the trade-off
+\newenvironment{decisions}{%
+  \begin{longtable}{L{0.36\textwidth} L{0.58\textwidth}}
+  \toprule
+  \textcolor{head}{\textbf{What I did}} & \textcolor{head}{\textbf{Why, and what it costs (trade-off)}}\\
+  \midrule\endhead}{%
+  \end{longtable}}
+\newcommand{\row}[2]{#1 & #2\\ \midrule}
+
+% interview questions
+\newenvironment{qa}{\par\noindent\textcolor{qcol}{\textbf{Likely interview questions}}\begin{description}[font=\normalfont\itshape,leftmargin=0pt,style=nextline]}{\end{description}}
+\newcommand{\q}[2]{\item[``#1'']#2}
+
+\title{\textbf{AI Adoption and the Performance of Indian Banks}\\[3pt]
+\large Research decisions, trade-offs and reasoning --- interview preparation}
+\author{Research project under Prof.\ Paras Sachdeva, DMS, IIT Delhi}
+\date{Status as of 26 November 2026 (results in \texttt{results/summary.md}, every estimate in \texttt{results/spec\_log.md})}
+
+\begin{document}
+\maketitle
+
+\section*{How to use this document}
+Each section has a side-by-side table: the decision on the left, the reasoning and its cost on the right, followed by
+the questions an interviewer is most likely to ask, with short answers in the first person. Numbers are copied from the
+logged results; units are stated as in the project (ROE/ROA in percentage points, pp; stock return in percent, \%).
+
+\section{The question and the one-paragraph pitch}
+\textbf{Research question.} Does AI adoption improve the financial performance and market value of Indian banks, and is
+the effect weaker for public sector (PSU) banks?
+
+\textbf{Pitch.} I built a three-level design: (1) sector-level descriptive trends, (2) a bank-by-year panel of 25
+listed banks, FY2011--FY2026, estimated with two-way fixed effects and staggered difference-in-differences, and (3) an
+event study of 31 usable AI announcements across 14 listed banks, NBFCs and fintechs. I measured AI adoption six ways
+(annual-report text, verified first deployment, event counts, a fintech index, an AI-capability index, earnings-call
+text) because no single public measure of bank AI use exists in India. The analysis plan was written before
+estimation, every deviation was logged with a date and reason before re-running, and every estimate --- including the
+nulls --- is in the specification log.
+
+\textbf{Headline findings (stated carefully).}
+\begin{itemize}
+\item Annual-report AI intensity (\var{ai\_kw}) has no detectable average effect on ROE (+0.13 pp per SD, $p=0.86$) or
+  stock returns ($-1.72\%$, $p=0.70$).
+\item The AI~$\times$~PSU interaction on ROE is positive (+4.39 pp, $p=0.007$, wild-bootstrap $p=0.007$) --- the
+  \emph{opposite} sign to the hypothesis that the effect is weaker for PSU banks.
+\item Staggered DiD gives large negative ATTs (ROE $-23.9$ pp; stock return $-37.2\%$), but with significant ROE
+  pre-trends and a small, unbalanced never-treated group, so I do not read them as causal.
+\item AI announcements produce no average abnormal return; PSU announcements show $-2.70\%$ CAR[$-5,+5$] against the
+  Nifty 500 (Kolari--Pynnönen $p=0.041$), not robust to the Nifty Bank benchmark.
+\end{itemize}
+
+\section{Overall design}
+\begin{decisions}
+\row{Three phases: sector level (descriptive), firm panel (main), event study (market reaction).}
+{Each level answers a different question: long-run trend (sector), within-bank performance effects (panel), and how
+investors price the news on the day (event study). Triangulation matters because each level is weak alone. Cost: more
+work and more places for inconsistency, so every phase uses the same fiscal-year convention, firm IDs and event file.}
+\row{Phase 1 (sector) is \emph{descriptive only}.}
+{There are only 14--15 group-year observations per level. Any OLS at that size is underpowered and cannot separate AI
+from the cleanup of bad loans (AQR), demonetisation or COVID. I say this upfront rather than over-claim.}
+\row{Wrote a fixed analysis spec before estimation; every change logged in \var{spec\_changes.md} with date and reason
+\emph{before} re-running; every estimate (incl.\ nulls) in \var{spec\_log.md}.}
+{Protects against specification searching (``garden of forking paths''). With six proxies, four outcomes and several
+interactions, something will be significant by chance; logging everything lets a reader count the tests. Cost: I
+cannot quietly drop an awkward result --- which is the point.}
+\row{Free, public data only (RBI DBIE, BSE/NSE filings, Yahoo prices, annual reports).}
+{Fully reproducible and auditable; anyone can re-download. Cost: no CMIE Prowess, so some variables (market cap,
+employee/tech data) had to be constructed, and some proxies (patents) turned out to have no usable data.}
+\end{decisions}
+\begin{qa}
+\q{Why not just run one regression?}{Because the three questions are different. The panel tells me about accounting
+and annual returns; the event study isolates the short-run price reaction to the news itself, where identification is
+cleaner; the sector view shows the big picture but is not causal.}
+\q{How do you know you didn't p-hack?}{The spec was fixed first, every change was logged before re-running, and the
+spec log holds all 172 estimated rows, including the null ones. The one post-hoc analysis (excluding Yes Bank) is
+labelled post-hoc everywhere and the pre-specified estimate stays the headline.}
+\end{qa}
+
+\section{Samples and time frame}
+\begin{decisions}
+\row{Panel: 25 listed banks (12 PSU, 13 private), FY2011--FY2026; IDFC First only from FY2019 (post-merger).
+Unbalanced panel, 392 bank-years.}
+{Banks share one regulator (RBI), one accounting framework and one data source (RBI bank-wise tables), so ROE and
+controls are comparable. NBFCs and fintechs report under different rules and are excluded from the panel. Cost: 25
+clusters is few for inference (handled with the wild bootstrap).}
+\row{Event study: 14 fixed firms (5 private banks, 4 PSU banks, 2 NBFCs, 3 fintechs).}
+{The market reaction can be measured for any listed firm, so the event study can include the firms most active in AI
+(Paytm, PB Fintech, Bajaj Finance). Razorpay and PhonePe are unlisted, so qualitative only.}
+\row{Fiscal year = 1 April to 31 March (FY2017 = Apr 2016--Mar 2017).}
+{Matches Indian bank reporting and RBI tables, so accounting and stock-return years line up.}
+\row{Accounting outcomes end FY2025; stock returns run to FY2026.}
+{RBI's FY2026 bank-wise tables were not yet published. I did not fill them from other sources, to keep one consistent
+source. Logged as a spec change.}
+\end{decisions}
+\begin{qa}
+\q{Why exclude NBFCs and fintechs from the panel?}{Different regulation, capital rules and accounting; their ROE is not
+comparable with banks', and RBI's bank-wise tables do not cover them. They stay in the event study, where only
+returns are needed.}
+\q{Isn't 25 banks too small?}{It is most of the listed Indian banking sector by assets, but it is few clusters, so I
+report wild cluster bootstrap $p$-values and treat borderline results cautiously.}
+\end{qa}
+
+\section{Outcomes and how they were built}
+\begin{decisions}
+\row{Primary outcomes: ROE = PAT / average equity $\times100$; annual stock total return (1 Apr--31 Mar) from
+adjusted close. Secondary: ROA and Tobin's Q.}
+{ROE is what bank management and analysts target; stock return captures what the market expects. Using average equity
+avoids distortion from large capital infusions (common for PSU banks). Adjusted close already includes dividends and
+splits, so no separate dividend add-on (avoids double counting).}
+\row{Market cap built as (paid-up capital / face value) $\times$ FY-end price; face-value splits taken from split
+records; cross-checked against Yahoo's current market cap (must be within 5\%).}
+{No free historical market-cap series exists. Cost: bank-years where RBI's paid-up capital includes preference capital
+(government-held, for some PSU banks and Kotak) would overstate shares, so those 39 bank-years are set to NA rather than
+guessed.}
+\row{Tobin's Q = (market cap + total liabilities) / total assets.}
+{Standard approximation for banks (book liabilities $\approx$ market value). Cost: noisy; reported as secondary.}
+\row{Suspicious data set to NA, never patched (e.g.\ KVB FY2012 return, unreliable Yahoo data before May 2011).}
+{Rule: never invent data; every missing value is logged. A wrong number is worse than a missing one.}
+\end{decisions}
+\begin{qa}
+\q{Why is ROE primary and not ROA?}{ROE is the return to shareholders and the bank's headline target; ROA is reported
+as secondary. Results are reported for all four outcomes so the choice does not hide anything.}
+\q{How did you get market capitalisation without Prowess?}{Shares outstanding from RBI paid-up capital divided by face
+value, adjusted for splits, times the FY-end price, validated against Yahoo within 5\% for 5 banks. Where preference
+capital contaminated the share count, I set the value to missing.}
+\end{qa}
+
+\section{Measuring AI adoption: six proxies}
+\subsection*{Why six}
+There is no administrative data on bank AI use in India. Each proxy captures a different facet (talk, deployment,
+announcements, digital infrastructure, organisational capability, management attention) and each has a different
+bias. If results agree across proxies, that is evidence; if they disagree, that is informative too.
+
+\subsection*{Proxy 1: annual-report AI intensity (\var{ai\_kw}) --- main proxy for the FE model}
+\begin{decisions}
+\row{AI-term count per 10,000 words of the annual report, from a fixed dictionary (artificial intelligence, machine
+learning, NLP, chatbot, GenAI, RPA, \ldots, and ``AI'' as an uppercase standalone token).}
+{Available for almost every bank-year (387 of 400 reports), consistent across banks, and scriptable. Cost: it measures
+\emph{disclosure}, not use; banks can talk about AI without using it (``AI-washing'').}
+\row{``AI'' matched case-sensitively; acronyms (LLM, NLP, RPA) only in ordinary lowercase prose; exclusions for
+``Air India'', law degrees (LL.M), ``LLMS'' (a loan-management system) and livestock ``artificial insemination (AI)''.}
+{A match audit before any results found real false positives: e.g.\ 100 spurious ``LLM'' hits in one PNB report from a
+legacy Hindi font. Fixing the dictionary before estimation keeps it a measurement decision, not a result-driven one.}
+\row{Denominator = \emph{English} words only (tokens found in at least 3 private-bank reports, plus a banking-jargon
+whitelist). AI terms are counted on the raw text.}
+{Bilingual PSU reports in legacy Hindi fonts extract as Latin-script gibberish, inflating PSU word counts and biasing
+PSU AI intensity \emph{downwards}. The whitelist stops words like CASA, GNPA, UPI being dropped. Sanity check reported:
+English-only reports should drop under 15\% of tokens; above 40\% is flagged.}
+\row{Robustness versions: year-standardised (z-score within FY) and $\ln(1+\text{count})$.}
+{After ChatGPT (FY2023+) every bank mentions AI more; the within-year z-score asks ``which bank talks about AI more
+than its peers \emph{that year}''. $\ln(1+\text{count})$ matches the source paper.}
+\end{decisions}
+
+\subsection*{Proxy 2: first deployed AI system (\var{post\_adopt}) --- main proxy for the DiD}
+\begin{decisions}
+\row{Adoption year = FY of the bank's first \emph{verified, deployed} AI system.}
+{Deployment is closer to real adoption than talk. Alternatives kept as robustness: Alt~1 = first AI event of any type
+(incl.\ partnerships); Alt~2 = first FY \var{ai\_kw} crosses and stays above the pooled median / 75th percentile.}
+\row{Strict verification: every event needs a primary source (exchange filing, bank press release or annual report)
+\emph{and} a dated news report. Awards, conference talks and executive interviews are not events.}
+{Dates drive the DiD, so a wrong date contaminates the treatment. A single press release can be PR; two independent
+sources fix the date. Cost: 88 candidates gave 54 verified events, below the 70+ target; I report the true count.}
+\row{Strict rule kept even when it left banks never-treated (e.g.\ Bank of Maharashtra's 2023 ML model had a bank
+release but news that did not name the model).}
+{Applying the rule the same way to every bank matters more than maximising treated banks. Result: 19 of 25 banks
+treated, 6 never-treated (Central, UCO, BoM, KVB, DCB; Indian Bank adopts in FY2027, after the window).}
+\row{Adoption after the last panel year coded as never-treated within the window.}
+{A bank first treated in FY2027 contributes no post-period data; coding it as treated would create a cohort with no
+treated observations.}
+\end{decisions}
+
+\subsection*{Proxies 3--6 (robustness)}
+\begin{decisions}
+\row{\var{ai\_events\_cum}: cumulative verified AI events up to FY end.}
+{Captures intensity of adoption, not just the first event. Cost: depends on media coverage, which is higher for large
+private banks.}
+\row{\var{fintech\_idx}: equal-weighted (1/6 each) RBI mobile-banking volume (min--max scaled) + 5 feature dummies
+(mobile app, UPI, chatbot, voice assistant, video-KYC), following Hamdouni (2025, IJFS).}
+{Measures digital infrastructure that AI builds on, from a regulator's data. Cost: feature go-live years come from the
+first annual-report mention, which can be off by up to a year; it is a digital-adoption proxy, not AI per se.}
+\row{\var{ai\_patents} (pre-specified) \textbf{dropped}; replaced by \var{ai\_capability}.}
+{The pre-specified Google Patents search found 0 AI patent applications for all 25 banks (1 filing in total, 400 of 400
+bank-years zero). A constant cannot be estimated. Kept as a descriptive fact: Indian banks buy AI, they do not patent
+it. Logged as a spec change before building the replacement.}
+\row{\var{ai\_capability} = sum of 4 annual-report indicators (0--4): dedicated digital/data/AI leader; AI/analytics/
+innovation lab or CoE; digital/AI/data committee; in-house data-science/analytics team. As observed per report, no
+carry-forward.}
+{Closest available measure of ``innovative capability'' when R\&D and tech-staff data do not exist. Exclusions are
+designed in: CIO/CTO/CISO (every bank has them), the RBI-mandated IT Strategy Committee, risk/audit committees,
+external bodies (IBA, ministries), school CSR labs, and treasury/risk ``analytics units''. These refinements were made
+after reading match snippets but before any estimate.}
+\row{\var{ai\_calls}: AI terms per 10,000 words in earnings-call transcripts, FY2022 onward only.}
+{Management's unscripted attention to AI. Cost: transcripts are only filed on BSE from about 2021, so it is a
+sub-period check.}
+\end{decisions}
+\begin{qa}
+\q{Isn't counting AI words just measuring hype?}{Partly, which is why it is one of six proxies. I control for the
+general rise with year fixed effects, add a within-year standardised version, and compare it with verified deployments.
+The keyword measure finds no average effect, which is at least consistent with talk not translating into returns.}
+\q{Why was your patent proxy dropped --- isn't that convenient?}{It was dropped because it had literally no variation:
+zero AI patents for every bank-year. I logged the drop and the zero share before building the replacement, and I kept
+the replacement's definition fixed before estimating it. It turned out null anyway (ROE $-0.57$ pp, $p=0.57$).}
+\q{Why does Hindi text matter for a keyword count?}{PSU reports are bilingual and older ones use non-Unicode Hindi fonts
+that extract as Latin gibberish. Counting those as words would make PSU banks look less AI-intensive. Using an
+English-word denominator removes that bias.}
+\q{Why insist on a news source if you have the bank's own filing?}{The filing proves the event; the dated news proves
+\emph{when} the market learned it. For the DiD and event study, the date is the treatment.}
+\end{qa}
+
+\section{Controls and moderators}
+\begin{decisions}
+\row{Controls, all lagged one year: ln(total assets), capital adequacy (CRAR), loan-to-deposit ratio, liquidity
+ratio, gross NPA ratio, and \var{pca} (RBI Prompt Corrective Action).}
+{Lagging avoids the control being an outcome of the same year's AI use (bad control / simultaneity). PCA directly
+restricts lending and expansion of weak PSU banks (2017--2021), so leaving it out would confound PSU results.}
+\row{Not controls: firm age, profit growth, GDP.}
+{Age is collinear with bank + year fixed effects; profit growth is mechanically tied to ROE; GDP is absorbed by year
+fixed effects (used only in Phase 1). Age enters as baseline age $\times$ AI and as a DiD covariate.}
+\row{PCA coded from primary sources only: exits from RBI press releases, entries from the bank's own exchange filing
+quoting RBI's letter, cross-checked with the March 2018 PIB release; \var{pca}=1 if under PCA for $\ge$6 months of the
+FY.}
+{RBI does not issue press releases for PCA entries, so the original ``RBI press releases only'' rule could not date
+entries; I changed the rule, logged it, and saved every URL. Nothing was coded from memory.}
+\row{Moderators: PSU, COVID (FY2021), demonetisation (FY2017), post-ChatGPT (FY2023+), baseline age, size, baseline
+Z-score (FY2011--15).}
+{Tests whether AI helps more for riskier, older, or state-owned banks and in shock years. Cost: many interactions, so I
+report them all and do not cherry-pick.}
+\end{decisions}
+\begin{qa}
+\q{Why lag the controls?}{Same-year NPA or capital could themselves respond to AI (e.g.\ better credit scoring lowers
+NPAs). Controlling for them would absorb part of the effect I want to measure.}
+\q{Why is PCA important for this question?}{Five panel PSU banks were under PCA; they could not grow loans, which hits
+ROE independently of AI. Without the control, PSU comparisons would mix AI with regulatory restrictions.}
+\end{qa}
+
+\section{Phase 2a: two-way fixed effects (main model for \var{ai\_kw})}
+\[ Y_{it} = \beta\,\text{AI}_{i,t-1} + \gamma' X_{i,t-1} + \alpha_i + \delta_t + \varepsilon_{it} \]
+\begin{decisions}
+\row{Bank fixed effects $\alpha_i$ and year fixed effects $\delta_t$; R \var{fixest::feols}.}
+{Bank FE remove time-invariant differences (ownership, franchise, management culture); year FE remove economy-wide
+shocks (demonetisation, COVID, rate cycles, the general AI trend). Identification comes from a bank's AI intensity
+rising faster or slower than other banks' in the same year. Cost: only within-bank variation is used.}
+\row{Lag 1 is the pre-specified main; lags 0 and 2 reported.}
+{AI should affect performance with a delay, and a lag reduces reverse causality (profitable banks can afford AI). Lag 0
+stock return is significant (+8.19\%, wild $p=0.039$) but lag 1 is the pre-registered headline, so I do not promote
+lag 0 after seeing it.}
+\row{SEs clustered by bank; wild cluster bootstrap $p$-values (restricted, Webb 6-point weights, 9,999 draws).}
+{With 25 clusters, conventional clustered SEs over-reject. Webb weights are designed for few clusters. The R package
+for this failed with the current \var{fixest}, so I implemented the bootstrap myself on fixed-effect-demeaned data.}
+\row{Effects reported per 1 SD of the proxy.}
+{Makes proxies with different scales comparable (1 SD of \var{ai\_kw} = 1.47 AI terms per 10,000 words).}
+\end{decisions}
+\textbf{Results (lag 1, per 1 SD).} ROE +0.13 pp ($p=0.86$); stock return $-1.72\%$ ($p=0.70$); ROA +0.01 pp
+($p=0.76$); Tobin's Q $-0.006$ ($p=0.29$). AI~$\times$~PSU on ROE +4.39 pp (SE 1.49, $p=0.007$, wild $p=0.007$), with the
+private-bank slope $-3.20$ pp ($p=0.038$). AI~$\times$~baseline age +1.99 pp ($p=0.033$). AI~$\times$~demonetisation on
+stock return $-161\%$ ($p=0.012$) is identified from a single year and I treat it as fragile.
+\begin{qa}
+\q{Your hypothesis was a weaker effect for PSU banks, but the interaction is positive. How do you explain it?}{I report
+it as found. Two readings: (1) PSU banks started from a lower base, so marginal gains are larger; (2) more cautiously,
+PSU profitability recovered strongly after the AQR clean-up from about FY2019, exactly when PSU AI disclosure rose. Year
+fixed effects are common to all banks, so a PSU-specific recovery trend can load on the interaction. A natural next
+check is PSU-specific year effects; I have not run it yet, so I would not claim the positive sign is causal.}
+\q{Why the wild bootstrap?}{Inference with 25 clusters is unreliable with standard cluster-robust SEs. The wild cluster
+bootstrap with Webb weights is the standard fix; here it barely changes the main $p$-values, which is reassuring.}
+\q{Could profitable banks simply talk more about AI (reverse causality)?}{Yes, that is the main threat. The lag, bank
+fixed effects and the DiD on deployment dates are partial answers; none fully solves it without an instrument.}
+\end{qa}
+
+\section{Phase 2b: staggered difference-in-differences (\var{post\_adopt})}
+\begin{decisions}
+\row{Callaway--Sant'Anna estimator (\var{did::att\_gt}), not-yet-treated controls, covariates baseline age and baseline
+ln(assets); dynamic (event-time) and overall ATT.}
+{Banks adopt in different years. A plain two-way FE DiD with staggered timing uses already-treated banks as controls
+and can put negative weights on some effects (Goodman-Bacon). CS compares each adoption cohort only with banks not yet
+treated. Cost: needs enough not-yet-treated banks in each year, which is thin here.}
+\row{Sun--Abraham (\var{fixest::sunab}) as robustness; Alt~1 and Alt~2 adoption dates.}
+{A second heterogeneity-robust estimator; if both agree on sign that is reassuring, but magnitudes differ here.}
+\row{Post-hoc: re-estimated excluding Yes Bank, labelled post-hoc.}
+{The negative ROE effect starts at event year 3, where Yes Bank's FY2020 reconstruction-year ROE ($-67.5\%$) enters.
+Checking that one bank does not drive the result is reasonable; labelling it post-hoc is honest.}
+\end{decisions}
+\textbf{Results (effect of \var{post\_adopt}=1).} Main: ROE $-23.9$ pp ($p=0.004$; Sun--Abraham $-6.9$ pp);
+stock return $-37.2\%$ ($p=0.001$; Sun--Abraham $-19.1\%$). Alt~2 (keyword thresholds): not significant. Excluding Yes
+Bank: ROE $-21.1$ pp ($p=0.036$), stock $-34.8\%$ ($p=0.012$). Pre-trends: three individually significant ROE
+pre-period estimates (event years $-7$, $-6$, $-4$); stock-return pre-periods $-9$ to $-1$ not significant, two longer
+leads ($-11$, $-10$) significant with opposite signs.
+\begin{qa}
+\q{A $-24$ pp effect on ROE is huge. Do you believe it?}{No, not as a causal effect. The ROE pre-trends fail, the
+never-treated group is six banks (mostly weak PSU banks), early adopters are large private banks, and the two
+estimators differ by a factor of three. I report it as the pre-specified result with these caveats; the honest reading
+is that deployment timing is correlated with bank type and the post-2016 bad-loan cycle.}
+\q{Why not-yet-treated rather than never-treated controls?}{The never-treated group is small and unrepresentative.
+Not-yet-treated controls use more banks and compare like with like in timing.}
+\q{Why did adding four new adopters not change the ROE estimate at all?}{They all adopt in FY2026, after the last
+accounting year. Through FY2025 they serve as controls either way, so the ROE comparison is identical; only stock
+returns (observed in FY2026) changed.}
+\end{qa}
+
+\section{Phase 3: event study}
+\begin{decisions}
+\row{Market model, estimation window [$-250$, $-30$] trading days, minimum 120 valid days; benchmark Nifty 500 (main),
+Nifty Bank (robustness).}
+{Standard short-horizon design. The 30-day gap keeps leakage out of the estimation. Nifty Bank checks whether a result is
+just sector co-movement. Cost: the two benchmarks disagree for PSU banks.}
+\row{CAR windows [$-1$, $+1$] (headline) and [$-5$, $+5$].}
+{Short window = cleanest attribution; the longer window allows for leakage and slow diffusion.}
+\row{Tests: Kolari--Pynnönen adjusted BMP and Corrado rank test.}
+{BMP handles event-induced volatility; the Kolari--Pynnönen adjustment handles cross-correlation when several firms
+announce on the same dates (Global Fintech Fest weeks, Microsoft India announcements in Jan 2025). Corrado is
+non-parametric, robust to fat tails. Agreement across both is required before I call a result robust.}
+\row{Event date = first public announcement; after 15:30 IST $\rightarrow$ next trading day.}
+{The market cannot react to news released after the close.}
+\row{Exclusions: earnings release within $\pm3$ trading days; crisis windows (Paytm Payments Bank action, IndusInd
+derivative disclosure, Kotak and Bajaj Finance RBI embargoes, IL\&FS); pre-listing events; the firm's other events are
+dropped from its estimation window.}
+{Confounding news would swamp a small AI effect. Cost: fewer events (39 eligible, 31 used).}
+\row{Two Paytm events one trading day apart (E070, E039) both kept, flagged as a caveat.}
+{No rule in the spec removes them; dropping one after seeing returns would be discretionary. The overlap means some
+returns are counted twice.}
+\end{decisions}
+\textbf{Results.} All 31 events: CAR[$-1,+1$] $+0.13\%$ (KP $p=0.81$); CAR[$-5,+5$] $-1.28\%$ ($p=0.46$). PSU (8
+events): CAR[$-5,+5$] $-2.70\%$ (KP $p=0.041$, Corrado $p=0.047$) against Nifty 500, but $-2.83\%$ ($p=0.21$) against
+Nifty Bank. Private, NBFC and fintech: nothing significant at 5\%.
+\begin{qa}
+\q{Why might PSU AI announcements see negative returns?}{It is fragile --- it disappears against the bank index, so it
+may reflect PSU-bank sector moves in those weeks. If real, a reading is that investors doubt PSU execution or see the
+announcement as cost without near-term revenue. With 8 events I would not push it.}
+\q{Why the Kolari--Pynnönen adjustment?}{Several firms announce at the same events (fintech fests), so their abnormal
+returns are correlated; the standard BMP test then over-rejects. KP corrects for that cross-correlation.}
+\end{qa}
+
+\section{Robustness}
+\begin{decisions}
+\row{Winsorised outcomes (1/99); lagged profit growth added; year-standardised \var{ai\_kw}; ln(1+count); dropping
+merger years; alternative proxies.}
+{Each targets one specific worry: outliers, omitted profitability momentum, AI-washing, functional form, and the
+mechanical effects of the 2020--21 PSU mergers.}
+\row{Found and fixed a scaling bug before reporting: \var{fintech\_idx} was standardised by each bank's own SD instead
+of the pooled SD.}
+{Units must mean ``per 1 SD'' consistently. The corrected and earlier numbers are both recorded.}
+\end{decisions}
+\textbf{Results (per 1 SD at $t-1$).} All \var{ai\_kw} variants null on ROE and returns. \var{ai\_events\_cum}: ROE
+$-1.85$ pp ($p=0.008$), stock $-7.06\%$ ($p=0.017$). \var{fintech\_idx}: ROE +0.61 pp ($p=0.77$), stock +11.96\%
+($p=0.025$). \var{ai\_capability}: ROE $-0.57$ pp ($p=0.57$), stock +4.51\% ($p=0.10$). \var{ai\_patents}: not
+estimable (no variation).
+\begin{qa}
+\q{Your proxies disagree in sign. Which one do you trust?}{None alone. Talk (\var{ai\_kw}) and capability are null;
+event counts are negative; the digital-infrastructure index is positively priced by the market. A consistent reading is
+that broad digital infrastructure is valued by investors, while AI-specific signals are not yet visible in returns, and
+announcement-heavy banks were not the most profitable ones over this period.}
+\end{qa}
+
+\section{Research integrity and engineering choices}
+\begin{decisions}
+\row{Raw downloads never edited; every transformation is a script; source URLs and download dates logged.}
+{Anyone can rebuild the dataset from scratch. Hand edits are invisible and unreproducible.}
+\row{Merge assertions: row counts and unique bank $\times$ year keys checked after every merge.}
+{Silent duplication in merges is a classic source of wrong results.}
+\row{Version control: public GitHub repo, commit after every task, milestone tags; secrets and large PDFs never
+committed.}
+{Full audit trail of what changed and when.}
+\row{Python for data collection, PDF/text processing and panel assembly; R (\var{fixest}, \var{did}) for estimation.}
+{Each language where its tooling is strongest; the estimators used are the reference implementations.}
+\end{decisions}
+
+\section{Limitations (say them before you are asked)}
+\begin{itemize}
+\item \textbf{Measurement.} No direct data on AI spending or use; every proxy is indirect. Keyword counts measure
+disclosure; event counts depend on media coverage.
+\item \textbf{Identification.} Adoption is not random: large private banks adopted early, weak PSU banks late or never,
+and this coincides with the bad-loan cycle, PCA and mergers. Fixed effects remove level differences, not differential
+trends.
+\item \textbf{Small sample.} 25 banks, 6 never-treated, 31 usable events. Wide confidence intervals; individual
+significant results can be chance given the number of tests.
+\item \textbf{Event count.} 54 verified events, below the 70+ target, because of the strict two-source rule.
+\item \textbf{Timing.} Most AI deployment is recent (FY2023+), leaving few post-adoption years, especially for
+accounting outcomes that end in FY2025.
+\end{itemize}
+
+\section{Quick-fire answers}
+\begin{description}[font=\normalfont\itshape,leftmargin=0pt,style=nextline]
+\q{What is your main contribution?}{A transparent, multi-proxy measurement of AI adoption for Indian banks built
+entirely from public data, with a pre-specified analysis plan, and evidence that average performance effects are not
+detectable yet, with heterogeneity by ownership.}
+\q{What would you do with more time?}{PSU-specific year effects for the AI~$\times$~PSU result; mediation through
+cost-to-income and NPAs (planned, deferred); a media-tone control; hand-verified deployment dates for the remaining
+never-treated banks; and more post-adoption years.}
+\q{What surprised you?}{That Indian banks file essentially no AI patents, and that the PSU interaction has the opposite
+sign to the hypothesis.}
+\q{What was the hardest data problem?}{Making annual-report text comparable across bilingual PSU reports in legacy Hindi
+fonts and English-only private reports, without biasing PSU AI intensity downward.}
+\q{Which result would you put on a slide?}{The null average effect of AI intensity on ROE and returns, with the
+AI~$\times$~PSU interaction and its caveat, and the event-study null with the PSU benchmark sensitivity.}
+\end{description}
+
+\end{document}
