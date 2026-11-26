@@ -40,6 +40,11 @@ clustered by bank (25 clusters); wild cluster bootstrap p (Webb, 9,999 draws). E
 - AI × PSU (lag 1): ROE +4.39 pp (SE 1.49, p = 0.007, wild p = 0.007), with the private-bank slope −3.20 pp
   (p = 0.038, wild p = 0.037); stock return +2.20 % (p = 0.78); ROA +0.22 pp (p = 0.09, wild p = 0.10);
   Tobin's Q +0.02 (p = 0.24).
+- Post-hoc check of AI × PSU (`src/R/22_psu_check.R`, `results/tables/fe_psu_check.csv`): on ROE the interaction is
+  +4.39 pp (p = 0.007) with bank + FY FE, +1.66 pp (SE 1.69, p = 0.34, wild p = 0.35) with PSU-specific year FE, and
+  +3.15 pp (p = 0.19) with bank-specific linear trends. Implied PSU slope (AI + AI × PSU): +1.18 pp (p = 0.077),
+  +0.77 (p = 0.24), +0.58 (p = 0.52). ROA, Tobin's Q and stock-return interactions are not significant except stock
+  return with bank trends (−14.3 %, p = 0.041).
 - Other interactions are in `results/tables/fe_results.csv`. AI × baseline age on ROE is +1.99 pp (p = 0.033).
   AI × demonetisation on stock return is −161 % (p = 0.012) and is identified from a single FY.
 

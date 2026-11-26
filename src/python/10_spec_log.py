@@ -36,6 +36,11 @@ rb = pd.read_csv(T / "robustness.csv")
 for r in rb.itertuples():
     rows.append(f"| {D} | src/R/40_robustness.R | {r.outcome} | `{r.proxy}` (per 1 SD, t−1) | n={r.n} | {r.spec}; "
                 f"controls(t−1); bank + FY FE; cluster bank | {fmt(r.estimate)} | SE {fmt(r.se)}, p={fmt(r.p)} | |")
+pc = pd.read_csv(T / "fe_psu_check.csv") if (T / "fe_psu_check.csv").exists() else pd.DataFrame()
+for r in pc.itertuples():  # POST-HOC (docs/spec_changes.md 2026-11-26)
+    rows.append(f"| {D} | src/R/22_psu_check.R (POST-HOC) | {r.outcome} | `ai_l1:psu` (per 1 SD, t−1) | n={r.n} | "
+                f"{r.spec}; controls(t−1); cluster bank | {fmt(r.interaction)} | SE {fmt(r.se_int)}, p={fmt(r.p_int)}, "
+                f"wild p={fmt(r.p_int_wild)} | PSU slope {fmt(r.psu_slope)} (p={fmt(r.p_psu)}) |")
 ev = pd.read_csv(T / "event_study_tests.csv")
 for r in ev.itertuples():
     rows.append(f"| {D} | src/R/30_event_study.R | CAR{r.window} (%) | AI announcement | {r.group}, N={r.N} | "
@@ -48,4 +53,4 @@ if BEGIN in text:
 block = "\n".join([BEGIN] + rows + [END]) + "\n"
 LOG.write_text(text + block, encoding="utf-8")
 print(f"spec_log: {len(rows)} generated rows (FE {len(fe)}, DiD {len(dd[dd.term.isin(['overall ATT', 'ATT'])])}, "
-      f"robustness {len(rb)}, event study {len(ev)})")
+      f"robustness {len(rb)}, PSU check {len(pc)}, event study {len(ev)})")

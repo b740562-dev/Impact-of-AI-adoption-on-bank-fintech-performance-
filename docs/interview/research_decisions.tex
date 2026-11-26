@@ -1,4 +1,4 @@
-﻿\documentclass[10.5pt,a4paper]{article}
+\documentclass[10.5pt,a4paper]{article}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[margin=2cm]{geometry}
@@ -61,7 +61,8 @@ nulls --- is in the specification log.
 \item Annual-report AI intensity (\var{ai\_kw}) has no detectable average effect on ROE (+0.13 pp per SD, $p=0.86$) or
   stock returns ($-1.72\%$, $p=0.70$).
 \item The AI~$\times$~PSU interaction on ROE is positive (+4.39 pp, $p=0.007$, wild-bootstrap $p=0.007$) --- the
-  \emph{opposite} sign to the hypothesis that the effect is weaker for PSU banks.
+  \emph{opposite} sign to the hypothesis --- but a post-hoc check with PSU-specific year effects cuts it to +1.66 pp
+  ($p=0.34$), so it mostly reflects the PSU post-AQR recovery.
 \item Staggered DiD gives large negative ATTs (ROE $-23.9$ pp; stock return $-37.2\%$), but with significant ROE
   pre-trends and a small, unbalanced never-treated group, so I do not read them as causal.
 \item AI announcements produce no average abnormal return; PSU announcements show $-2.70\%$ CAR[$-5,+5$] against the
@@ -91,7 +92,7 @@ employee/tech data) had to be constructed, and some proxies (patents) turned out
 and annual returns; the event study isolates the short-run price reaction to the news itself, where identification is
 cleaner; the sector view shows the big picture but is not causal.}
 \q{How do you know you didn't p-hack?}{The spec was fixed first, every change was logged before re-running, and the
-spec log holds all 176 estimated rows, including the null ones. The one post-hoc analysis (excluding Yes Bank) is
+spec log holds all 188 estimated rows, including the null ones. The one post-hoc analysis (excluding Yes Bank) is
 labelled post-hoc everywhere and the pre-specified estimate stays the headline.}
 \end{qa}
 
@@ -275,12 +276,27 @@ for this failed with the current \var{fixest}, so I implemented the bootstrap my
 ($p=0.76$); Tobin's Q $-0.006$ ($p=0.29$). AI~$\times$~PSU on ROE +4.39 pp (SE 1.49, $p=0.007$, wild $p=0.007$), with the
 private-bank slope $-3.20$ pp ($p=0.038$). AI~$\times$~baseline age +1.99 pp ($p=0.033$). AI~$\times$~demonetisation on
 stock return $-161\%$ ($p=0.012$) is identified from a single year and I treat it as fragile.
+\textbf{Post-hoc check of AI~$\times$~PSU (ROE).} Logged as post-hoc before running.
+\begin{center}\small
+\begin{tabular}{lccc}
+\toprule
+Specification & AI~$\times$~PSU & $p$ (wild $p$) & Implied PSU slope ($p$)\\
+\midrule
+(1) Bank + year FE (pre-specified) & +4.39 pp & 0.007 (0.006) & +1.18 pp (0.077)\\
+(2) Bank + PSU-specific year FE & +1.66 pp & 0.34 (0.35) & +0.77 pp (0.24)\\
+(3) Bank-specific linear trends + year FE & +3.15 pp & 0.19 (--) & +0.58 pp (0.52)\\
+\bottomrule
+\end{tabular}
+\end{center}
+Once PSU banks get their own year effects, the interaction falls by about 60\% and is no longer significant. The
+pre-specified estimate stays the reported result, with this check beside it.
 \begin{qa}
 \q{Your hypothesis was a weaker effect for PSU banks, but the interaction is positive. How do you explain it?}{I report
-it as found. Two readings: (1) PSU banks started from a lower base, so marginal gains are larger; (2) more cautiously,
-PSU profitability recovered strongly after the AQR clean-up from about FY2019, exactly when PSU AI disclosure rose. Year
-fixed effects are common to all banks, so a PSU-specific recovery trend can load on the interaction. A natural next
-check is PSU-specific year effects; I have not run it yet, so I would not claim the positive sign is causal.}
+it as found, and then I tested the most obvious alternative: PSU profitability recovered strongly after the AQR
+clean-up from about FY2019, exactly when PSU AI disclosure rose, and year fixed effects are common to all banks. With
+PSU-specific year effects the interaction drops from +4.39 to +1.66 pp ($p=0.34$), and with bank-specific trends to
++3.15 pp ($p=0.19$). So the positive sign is largely the PSU recovery trend, not robust evidence that AI helps PSU banks
+more. Honest conclusion: no reliable difference between PSU and private banks.}
 \q{Why the wild bootstrap?}{Inference with 25 clusters is unreliable with standard cluster-robust SEs. The wild cluster
 bootstrap with Webb weights is the standard fix; here it barely changes the main $p$-values, which is reassuring.}
 \q{Could profitable banks simply talk more about AI (reverse causality)?}{Yes, that is the main threat. The lag, bank
@@ -404,7 +420,7 @@ accounting outcomes that end in FY2025.
 \q{What is your main contribution?}{A transparent, multi-proxy measurement of AI adoption for Indian banks built
 entirely from public data, with a pre-specified analysis plan, and evidence that average performance effects are not
 detectable yet, with heterogeneity by ownership.}
-\q{What would you do with more time?}{PSU-specific year effects for the AI~$\times$~PSU result; mediation through
+\q{What would you do with more time?}{Mediation through
 cost-to-income and NPAs (planned, deferred); a media-tone control; hand-verified deployment dates for the remaining
 never-treated banks; and more post-adoption years.}
 \q{What surprised you?}{That Indian banks file essentially no AI patents, and that the PSU interaction has the opposite
@@ -434,7 +450,7 @@ regulator and public bank-wise data from RBI.}
 \Q{Why compare PSU and private banks?}{Different ownership, incentives, hiring rules and tech budgets; the hypothesis was
 that PSU banks convert AI into performance less effectively.}
 \Q{What is your hypothesis, and what did you find?}{Positive effect, weaker for PSU. Found: no average effect of AI
-intensity; the PSU interaction is positive (opposite sign), with a caveat. (\S7)}
+intensity; the PSU interaction is positive but not robust to PSU-specific year effects. (\S7)}
 \Q{What is new compared with existing work?}{Multi-proxy measurement of bank AI adoption from public Indian data,
 verified deployment dates, and a pre-specified analysis plan with all estimates logged.}
 \Q{What would change your conclusion?}{Clean pre-trends in the DiD, more post-adoption years, or direct data on AI
@@ -533,10 +549,11 @@ restricted (WCR) version on demeaned data and checked it reproduces sensible $p$
 \Q{Why lag AI by one year? Why report lags 0 and 2?}{Effects take time and lagging reduces reverse causality; other lags
 show sensitivity. Lag 1 was pre-specified.}
 \Q{Interpret the AI~$\times$~PSU coefficient. What is the PSU slope?}{Private slope $-3.20$ pp; PSU slope = private
-slope + interaction $\approx +1.2$ pp per SD (the sum; its own SE needs a separate test).}
-\Q{Is the PSU result driven by the post-AQR recovery?}{Possibly; year effects are common to all banks, so a PSU-specific
-recovery can load on the interaction. Next check: PSU $\times$ year effects.}
-\Q{How many tests did you run, and how do you handle multiple testing?}{All 176 estimates are logged; I report
+slope + interaction = +1.18 pp per SD (SE 0.64, $p=0.077$), i.e.\ PSU banks show a small positive slope, private banks
+a negative one.}
+\Q{Is the PSU result driven by the post-AQR recovery?}{Largely yes: with PSU-specific year effects the interaction falls
+from +4.39 to +1.66 pp ($p=0.34$); with bank-specific trends to +3.15 pp ($p=0.19$). Post-hoc, logged. (\S7)}
+\Q{How many tests did you run, and how do you handle multiple testing?}{All 188 estimates are logged; I report
 everything and treat isolated significant results (e.g.\ demonetisation interaction) as fragile.}
 \Q{What is reverse causality here and how do you address it?}{Profitable banks can afford AI and write more about it.
 Lags, fixed effects and the DiD on dated deployments help but do not fully solve it.}
@@ -599,8 +616,7 @@ in years of weak returns; it is an association, not a causal effect.}
 typical ROE of 10--15\%, which is why I am cautious.}
 \Q{Statistical vs economic significance: give an example from your results.}{The demonetisation interaction is
 ``significant'' but identified from one year; the fintech index effect is economically large and modestly significant.}
-\Q{How do your results compare with what you expected?}{Expected positive and weaker for PSU; found null and stronger
-(or recovering) PSU.}
+\Q{How do your results compare with what you expected?}{Expected positive and weaker for PSU; found a null average effect and no robust PSU difference.}
 \end{qlist}
 
 \subsection*{I. Robustness, integrity and reproducibility}
@@ -622,7 +638,7 @@ estimation.}
 \begin{qlist}
 \Q{What is the biggest weakness of your study?}{Identification: adoption is not random and coincides with the bad-loan
 cycle and bank type.}
-\Q{What would you do with six more months?}{Mediation (cost-to-income, NPAs), PSU $\times$ year effects, media-tone
+\Q{What would you do with six more months?}{Mediation (cost-to-income, NPAs), media-tone
 controls, hand-collected deployment dates, more post-adoption years.}
 \Q{What data would you most like to have?}{Bank-level IT/AI spending and tech headcount.}
 \Q{Does this generalise beyond India?}{Partly; the PSU/private contrast and disclosure-based measurement apply to other
