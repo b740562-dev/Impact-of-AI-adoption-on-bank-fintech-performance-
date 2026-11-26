@@ -5,8 +5,9 @@ Status as of 2026-11-26 (tags `day2-panel`, `day3-results`). All estimated speci
 
 **Pending updates:** (1) Phase 2b and the robustness table use the round-3 events (54 verified). `ai_events_cum`
 results are unchanged by them: all new events fall in FY2026 or later and enter only with a one-year lag (beyond the
-panel). Phase 3 is unaffected (the new events are panel-only banks). (2) `ai_calls` (transcripts) and (3) `ai_patents` (BigQuery) are not yet in the panel, so the robustness
-table lacks those two proxies.
+panel). Phase 3 is unaffected (the new events are panel-only banks). (2) `ai_calls` (transcripts) is not yet in the panel. (3) `ai_patents` is dropped: the pre-specified Google Patents
+search finds 0 AI patent applications for all 25 banks (1 filing in total), so the proxy has no variation
+(`docs/spec_changes.md`).
 
 ## Data
 - Verified AI events: 54 of 88 candidates, across 25 firms; 39 CAR-eligible; 31 used in the event study after

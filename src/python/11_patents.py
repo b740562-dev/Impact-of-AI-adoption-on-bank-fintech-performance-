@@ -78,7 +78,7 @@ else:
     df.to_csv(RAW_CSV, index=False)
 df["bank_id"] = df["assignee"].map(lambda n: next((b for b, p in ASSIGNEE.items() if re.search(p, str(n).upper())), None))
 df = df[df["bank_id"].notna()].copy()
-text = (df["title"].fillna("") + " " + df["abstract"].fillna(""))
+text = df["title"].astype(object).fillna("") + " " + df["abstract"].astype(object).fillna("")
 df["kw_ai"] = text.map(lambda t: sum(count_terms(t).values()) > 0)
 df["ai"] = df["cpc_g06n"].fillna(False) | df["kw_ai"]
 fd = pd.to_datetime(df["filing_date"].astype(int).astype(str), format="%Y%m%d")

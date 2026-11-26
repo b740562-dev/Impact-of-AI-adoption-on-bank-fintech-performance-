@@ -55,6 +55,15 @@ Script `src/python/06_build_pca.py` (requests only) → `data/interim/pca_spells
 - Overlapping same-firm events (2026-11-26, `src/python/12_check_events.py`): Paytm E070 (Playback, 2025-10-06) and E039 (AI Soundbox, 2025-10-07) are one trading day apart and both enter the event study; their [−5,+5] windows overlap, so the same Paytm returns are counted twice. Both kept by decision (no rule in the spec); reported as a caveat. Paytm E069/E071/E072 also overlap but are excluded by the earnings screen.
 - Unverified first-AI leads for adoption dates (annual-report only, no dated news): Union UVA FAQ chatbot FY2018; PNB PIHU FY2020; BoB Baroda Brainy FY2018; Bank of India BOI Seva 2019-09-07; UCO UMA FY2021; IOB Buddy FY2026; Federal Niki.ai FedMobile bot 2018-01-19 (news only); RBL ChatPay FY2018; Yes mPower 2017-01-05 (news only); Canara CANDI humanoid 2017-07-27 (AR does not say AI); Indian Bank ADYA 2021-04-01 (dated news blocked).
 
+## AI patents (`ai_patents`) (2026-11-26)
+- Source: Google Patents Public Data, `patents-public-data.patents.publications`, queried in BigQuery Studio (sandbox,
+  project bank-ai-patents; 238 GB scanned) because the organisation blocks service-account keys. Query text:
+  `src/sql/patents_query.sql` (written by `11_patents.py --sql`). Export downloaded 2026-11-26 and read with
+  `11_patents.py --from-csv`; raw copy at `data/raw/patents_bigquery_raw.csv` (gitignored).
+- Result: 1 row (SBI, IN202121002961A, filed 2021-01-21, no English title/abstract/CPC), 0 AI applications for all 25
+  banks. Cross-check on patents.google.com: assignee "State Bank of India" after 2009 = the same 1 result;
+  "ICICI Bank" = 0 bank results. Proxy dropped (see `docs/spec_changes.md`).
+
 ## Events: research round 3, never-treated banks (2026-11-26)
 - Scope: the 10 banks with no main adoption date (BOI, Indian, Central, IOB, UCO, BoM, PSB, KVB, SIB, DCB). Rule applied strictly
   (user decision 2026-11-26): a bank document as primary source AND a dated news publication; vendor case studies, bank

@@ -17,7 +17,12 @@ specs <- list(
   "ai_kw_ln = ln(1+count)" = list(ai = "ai_ln_l1", data = p, extra = ""),
   "drop merger years" = list(ai = "ai_l1", data = p[merger_year == 0], extra = ""),
   "ai_events_cum" = list(ai = "ev_l1", data = p, extra = ""))
-for (v in c("fintech_idx", "ai_patents")) if (paste0(v, "_l1") %in% names(p)) specs[[v]] <- list(ai = paste0(v, "_l1"), data = p, extra = "")
+for (v in c("fintech_idx", "ai_patents")) {
+  a <- paste0(v, "_l1")
+  if (!a %in% names(p)) next
+  if (isTRUE(sd(p[[a]], na.rm = TRUE) > 0)) specs[[v]] <- list(ai = a, data = p, extra = "")
+  else message(v, ": no variation across banks and years, not estimated (docs/spec_changes.md)")
+}
 if ("ai_calls_l1" %in% names(p)) specs[["ai_calls (FY2022+)"]] <- list(ai = "ai_calls_l1", data = p[fy >= 2023], extra = "")
 out <- list()
 for (y in c("roe", "stock_ret_pct", "roa", "tobins_q")) for (s in names(specs)) {
