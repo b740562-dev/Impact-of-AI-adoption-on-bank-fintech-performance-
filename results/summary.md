@@ -7,9 +7,9 @@ Status as of 2026-11-26 (tags `day2-panel`, `day3-results`). All estimated speci
 results are unchanged by them: all new events fall in FY2026 or later and enter only with a one-year lag (beyond the
 panel). Phase 3 is unaffected (the new events are panel-only banks). (2) `ai_calls` (transcripts) is not yet in the panel. (3) `ai_patents` is dropped: the pre-specified Google Patents
 search finds 0 AI patent applications for all 25 banks (1 filing in total), so the proxy has no variation
-(`docs/spec_changes.md`); it is replaced by `ai_capability` (0–4 index from annual reports), not yet estimated.
-(4) Bug fixed in `40_robustness.R`: `fintech_idx` was scaled by each bank's own SD instead of the pooled SD, so the
-`fintech_idx` numbers below are superseded once the script is re-run.
+(`docs/spec_changes.md`); it is replaced by `ai_capability` (0–4 index from annual reports).
+(4) Bug fixed in `40_robustness.R` (2026-11-26): `fintech_idx` was scaled by each bank's own SD instead of the pooled
+SD; the numbers below are from the corrected run (earlier: ROE +1.59 pp, stock return +12.71 %, p = 0.040).
 
 ## Data
 - Verified AI events: 54 of 88 candidates, across 25 firms; 39 CAR-eligible; 31 used in the event study after
@@ -69,4 +69,6 @@ Market model, estimation window [−250, −30], Nifty 500 benchmark, N = 31 eve
 `ai_kw` on ROE: baseline +0.10 pp (p = 0.86), winsorised +0.11 (p = 0.85), + lagged profit growth +0.27 (p = 0.67),
 year-standardised −0.51 (p = 0.43), ln(1+count) −0.80 (p = 0.40), excluding merger years +0.04 (p = 0.95). On stock
 return all `ai_kw` variants have p ≥ 0.68. Other proxies: `ai_events_cum` ROE −1.85 pp (p = 0.008), stock return −7.06 %
-(p = 0.017); `fintech_idx` ROE +1.59 pp (p = 0.37), stock return +12.71 % (p = 0.040).
+(p = 0.017); `fintech_idx` ROE +0.61 pp (SE 2.03, p = 0.77), stock return +11.96 % (SE 5.00, p = 0.025);
+`ai_capability` ROE −0.57 pp (SE 0.99, p = 0.57), stock return +4.51 % (SE 2.65, p = 0.10), ROA −0.05 pp (p = 0.48),
+Tobin's Q +0.005 (p = 0.57). `ai_patents` not estimated (no variation).

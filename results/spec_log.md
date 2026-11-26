@@ -119,7 +119,8 @@ Every estimated specification, including null results.
 | 2026-11-26 | src/R/40_robustness.R | roe | `ai_ln_l1` (per 1 SD, t−1) | n=336 | ai_kw_ln = ln(1+count); controls(t−1); bank + FY FE; cluster bank | -0.797 | SE 0.921, p=0.396 | |
 | 2026-11-26 | src/R/40_robustness.R | roe | `ai_l1` (per 1 SD, t−1) | n=328 | drop merger years; controls(t−1); bank + FY FE; cluster bank | 0.038 | SE 0.581, p=0.948 | |
 | 2026-11-26 | src/R/40_robustness.R | roe | `ev_l1` (per 1 SD, t−1) | n=343 | ai_events_cum; controls(t−1); bank + FY FE; cluster bank | -1.852 | SE 0.646, p=0.008 | |
-| 2026-11-26 | src/R/40_robustness.R | roe | `fintech_idx_l1` (per 1 SD, t−1) | n=290 | fintech_idx; controls(t−1); bank + FY FE; cluster bank | 1.590 | SE 1.741, p=0.370 | |
+| 2026-11-26 | src/R/40_robustness.R | roe | `fintech_idx_l1` (per 1 SD, t−1) | n=290 | fintech_idx; controls(t−1); bank + FY FE; cluster bank | 0.609 | SE 2.030, p=0.767 | |
+| 2026-11-26 | src/R/40_robustness.R | roe | `ai_capability_l1` (per 1 SD, t−1) | n=336 | ai_capability; controls(t−1); bank + FY FE; cluster bank | -0.573 | SE 0.986, p=0.567 | |
 | 2026-11-26 | src/R/40_robustness.R | stock_ret_pct | `ai_l1` (per 1 SD, t−1) | n=353 | baseline; controls(t−1); bank + FY FE; cluster bank | -1.315 | SE 3.355, p=0.699 | |
 | 2026-11-26 | src/R/40_robustness.R | stock_ret_pct | `ai_l1` (per 1 SD, t−1) | n=353 | winsorised outcome 1/99; controls(t−1); bank + FY FE; cluster bank | -1.375 | SE 3.353, p=0.685 | |
 | 2026-11-26 | src/R/40_robustness.R | stock_ret_pct | `ai_l1` (per 1 SD, t−1) | n=305 | + lagged profit growth; controls(t−1); bank + FY FE; cluster bank | -1.514 | SE 3.792, p=0.693 | |
@@ -127,7 +128,8 @@ Every estimated specification, including null results.
 | 2026-11-26 | src/R/40_robustness.R | stock_ret_pct | `ai_ln_l1` (per 1 SD, t−1) | n=353 | ai_kw_ln = ln(1+count); controls(t−1); bank + FY FE; cluster bank | -0.744 | SE 4.668, p=0.875 | |
 | 2026-11-26 | src/R/40_robustness.R | stock_ret_pct | `ai_l1` (per 1 SD, t−1) | n=345 | drop merger years; controls(t−1); bank + FY FE; cluster bank | -0.530 | SE 3.416, p=0.878 | |
 | 2026-11-26 | src/R/40_robustness.R | stock_ret_pct | `ev_l1` (per 1 SD, t−1) | n=361 | ai_events_cum; controls(t−1); bank + FY FE; cluster bank | -7.057 | SE 2.764, p=0.017 | |
-| 2026-11-26 | src/R/40_robustness.R | stock_ret_pct | `fintech_idx_l1` (per 1 SD, t−1) | n=312 | fintech_idx; controls(t−1); bank + FY FE; cluster bank | 12.713 | SE 5.849, p=0.040 | |
+| 2026-11-26 | src/R/40_robustness.R | stock_ret_pct | `fintech_idx_l1` (per 1 SD, t−1) | n=312 | fintech_idx; controls(t−1); bank + FY FE; cluster bank | 11.959 | SE 5.002, p=0.025 | |
+| 2026-11-26 | src/R/40_robustness.R | stock_ret_pct | `ai_capability_l1` (per 1 SD, t−1) | n=353 | ai_capability; controls(t−1); bank + FY FE; cluster bank | 4.506 | SE 2.652, p=0.102 | |
 | 2026-11-26 | src/R/40_robustness.R | roa | `ai_l1` (per 1 SD, t−1) | n=336 | baseline; controls(t−1); bank + FY FE; cluster bank | 0.011 | SE 0.035, p=0.760 | |
 | 2026-11-26 | src/R/40_robustness.R | roa | `ai_l1` (per 1 SD, t−1) | n=336 | winsorised outcome 1/99; controls(t−1); bank + FY FE; cluster bank | 0.010 | SE 0.034, p=0.761 | |
 | 2026-11-26 | src/R/40_robustness.R | roa | `ai_l1` (per 1 SD, t−1) | n=288 | + lagged profit growth; controls(t−1); bank + FY FE; cluster bank | 0.021 | SE 0.037, p=0.583 | |
@@ -135,7 +137,8 @@ Every estimated specification, including null results.
 | 2026-11-26 | src/R/40_robustness.R | roa | `ai_ln_l1` (per 1 SD, t−1) | n=336 | ai_kw_ln = ln(1+count); controls(t−1); bank + FY FE; cluster bank | -0.037 | SE 0.059, p=0.536 | |
 | 2026-11-26 | src/R/40_robustness.R | roa | `ai_l1` (per 1 SD, t−1) | n=328 | drop merger years; controls(t−1); bank + FY FE; cluster bank | 0.005 | SE 0.036, p=0.893 | |
 | 2026-11-26 | src/R/40_robustness.R | roa | `ev_l1` (per 1 SD, t−1) | n=343 | ai_events_cum; controls(t−1); bank + FY FE; cluster bank | -0.056 | SE 0.046, p=0.241 | |
-| 2026-11-26 | src/R/40_robustness.R | roa | `fintech_idx_l1` (per 1 SD, t−1) | n=290 | fintech_idx; controls(t−1); bank + FY FE; cluster bank | 0.146 | SE 0.138, p=0.299 | |
+| 2026-11-26 | src/R/40_robustness.R | roa | `fintech_idx_l1` (per 1 SD, t−1) | n=290 | fintech_idx; controls(t−1); bank + FY FE; cluster bank | 0.079 | SE 0.150, p=0.601 | |
+| 2026-11-26 | src/R/40_robustness.R | roa | `ai_capability_l1` (per 1 SD, t−1) | n=336 | ai_capability; controls(t−1); bank + FY FE; cluster bank | -0.052 | SE 0.073, p=0.484 | |
 | 2026-11-26 | src/R/40_robustness.R | tobins_q | `ai_l1` (per 1 SD, t−1) | n=306 | baseline; controls(t−1); bank + FY FE; cluster bank | -0.005 | SE 0.004, p=0.287 | |
 | 2026-11-26 | src/R/40_robustness.R | tobins_q | `ai_l1` (per 1 SD, t−1) | n=306 | winsorised outcome 1/99; controls(t−1); bank + FY FE; cluster bank | -0.004 | SE 0.004, p=0.298 | |
 | 2026-11-26 | src/R/40_robustness.R | tobins_q | `ai_l1` (per 1 SD, t−1) | n=260 | + lagged profit growth; controls(t−1); bank + FY FE; cluster bank | -0.003 | SE 0.006, p=0.651 | |
@@ -143,7 +146,8 @@ Every estimated specification, including null results.
 | 2026-11-26 | src/R/40_robustness.R | tobins_q | `ai_ln_l1` (per 1 SD, t−1) | n=306 | ai_kw_ln = ln(1+count); controls(t−1); bank + FY FE; cluster bank | -0.007 | SE 0.005, p=0.151 | |
 | 2026-11-26 | src/R/40_robustness.R | tobins_q | `ai_l1` (per 1 SD, t−1) | n=298 | drop merger years; controls(t−1); bank + FY FE; cluster bank | -0.004 | SE 0.004, p=0.328 | |
 | 2026-11-26 | src/R/40_robustness.R | tobins_q | `ev_l1` (per 1 SD, t−1) | n=312 | ai_events_cum; controls(t−1); bank + FY FE; cluster bank | 0.007 | SE 0.010, p=0.530 | |
-| 2026-11-26 | src/R/40_robustness.R | tobins_q | `fintech_idx_l1` (per 1 SD, t−1) | n=273 | fintech_idx; controls(t−1); bank + FY FE; cluster bank | 0.016 | SE 0.010, p=0.106 | |
+| 2026-11-26 | src/R/40_robustness.R | tobins_q | `fintech_idx_l1` (per 1 SD, t−1) | n=273 | fintech_idx; controls(t−1); bank + FY FE; cluster bank | 0.017 | SE 0.012, p=0.167 | |
+| 2026-11-26 | src/R/40_robustness.R | tobins_q | `ai_capability_l1` (per 1 SD, t−1) | n=306 | ai_capability; controls(t−1); bank + FY FE; cluster bank | 0.005 | SE 0.008, p=0.569 | |
 | 2026-11-26 | src/R/30_event_study.R | CAR[-1,+1] (%) | AI announcement | All, N=31 | market model [−250,−30], benchmark NIFTY500 | mean 0.13% | KP-BMP p=0.813, Corrado p=0.493 | r̄=0.129 |
 | 2026-11-26 | src/R/30_event_study.R | CAR[-5,+5] (%) | AI announcement | All, N=31 | market model [−250,−30], benchmark NIFTY500 | mean -1.28% | KP-BMP p=0.460, Corrado p=0.200 | r̄=0.129 |
 | 2026-11-26 | src/R/30_event_study.R | CAR[-1,+1] (%) | AI announcement | type: Private, N=14 | market model [−250,−30], benchmark NIFTY500 | mean -0.15% | KP-BMP p=0.914, Corrado p=0.892 | r̄=0.129 |
