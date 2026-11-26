@@ -3,16 +3,16 @@
 Status as of 2026-11-26 (tags `day2-panel`, `day3-results`). All estimated specifications are listed in
 `results/spec_log.md`; spec changes are in `docs/spec_changes.md`. Numbers only; no interpretation beyond them.
 
-**Pending updates:** (1) event verification for the previously never-treated banks is done (54 verified events;
-19 of 25 banks now have a main adoption date in the window), but the R scripts have not yet been re-run, so the
-Phase 2b, Phase 3 and robustness numbers below are from the earlier 48-event data. (2) `ai_calls` (transcripts) and (3) `ai_patents` (BigQuery) are not yet in the panel, so the robustness
+**Pending updates:** (1) Phase 2b below uses the round-3 events (54 verified). The robustness table (`ai_events_cum`)
+has not been re-run on them yet. Phase 3 is unaffected (the new events are panel-only banks). (2) `ai_calls` (transcripts) and (3) `ai_patents` (BigQuery) are not yet in the panel, so the robustness
 table lacks those two proxies.
 
 ## Data
-- Verified AI events: 48 of 78 candidates, across 20 firms; 39 CAR-eligible; 31 used in the event study after
+- Verified AI events: 54 of 88 candidates, across 25 firms; 39 CAR-eligible; 31 used in the event study after
   excluding earnings (±3 trading days) and crisis windows.
 - Firm panel: 392 bank-FYs, 25 banks, FY2011–FY2026 (accounting variables to FY2025). Main adoption definition:
-  15 of 25 banks treated, 10 never-treated.
+  19 of 25 banks treated within the window (5 of them in FY2026, when only stock returns are observed);
+  6 never-treated (Central, UCO, BoM, KVB, DCB; Indian Bank adopts in FY2027).
 - `ai_kw`: 387 of 400 annual reports; SD = 1.47 AI terms per 10,000 English words.
 
 ## Phase 1: sector level (descriptive)
@@ -41,13 +41,17 @@ clustered by bank (25 clusters); wild cluster bootstrap p (Webb, 9,999 draws). E
 ## Phase 2b: staggered DiD (`post_adopt`, effect of post_adopt = 1)
 Callaway–Sant'Anna (not-yet-treated controls, x = baseline age and baseline ln assets) and Sun–Abraham:
 - Main adoption (first deployed AI): ROE −23.9 pp (SE 8.4, p = 0.004; Sun–Abraham −6.9 pp, p = 0.004); stock return
-  −42.4 % (SE 11.5, p < 0.001; Sun–Abraham −16.2 %, p = 0.023).
-- Alt 1 (first AI event): ROE −25.2 pp (p = 0.003); stock return −45.0 % (p < 0.001).
-- Alt 2 (`ai_kw` thresholds): ROE −2.0 pp (p50, p = 0.47) and +1.1 pp (p75, p = 0.28); stock return −24.9 % (p = 0.38)
-  and +12.9 % (p = 0.46).
-- Pre-period event-time estimates (main): stock return −13.5 to +9.2 %, none significant (p ≥ 0.30); ROE −2.6 to
-  +4.1 pp, three individually significant (e = −7, −6, −4).
-- Post-hoc, excluding Yes Bank: ROE −21.1 pp (p = 0.024); stock return −40.0 % (p = 0.004).
+  −37.2 % (SE 11.2, p = 0.001; Sun–Abraham −19.1 %, p = 0.010).
+- Alt 1 (first AI event): ROE −25.2 pp (p = 0.003; Sun–Abraham −7.0, p = 0.005); stock return −40.0 % (p < 0.001;
+  Sun–Abraham −21.4 %, p = 0.006).
+- Alt 2 (`ai_kw` thresholds, CS): ROE −2.0 pp (p50, p = 0.47) and +1.1 pp (p75, p = 0.28); stock return −24.9 % (p = 0.37)
+  and +12.9 % (p = 0.45).
+- ROE estimates are unchanged by the round-3 events: the new adoptions are in FY2026, after the last accounting year,
+  so those banks act as controls through FY2025 either way.
+- Pre-period event-time estimates (main, CS): ROE −2.6 to +4.1 pp, three individually significant (e = −7, −6, −4).
+  Stock return e = −9 to −1: −12.9 to +28.6 %, none significant (p ≥ 0.23); the longer leads now reach e = −14, and
+  e = −11 (−51.7 %, p = 0.001) and e = −10 (+39.8 %, p = 0.005) are individually significant, with opposite signs.
+- Post-hoc, excluding Yes Bank: ROE −21.1 pp (p = 0.036); stock return −34.8 % (p = 0.012).
 
 ## Phase 3: event study (CARs)
 Market model, estimation window [−250, −30], Nifty 500 benchmark, N = 31 events:
