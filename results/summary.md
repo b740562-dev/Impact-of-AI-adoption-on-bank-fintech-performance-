@@ -3,8 +3,9 @@
 Status as of 2026-11-26 (tags `day2-panel`, `day3-results`). All estimated specifications are listed in
 `results/spec_log.md`; spec changes are in `docs/spec_changes.md`. Numbers only; no interpretation beyond them.
 
-**Pending updates:** (1) Phase 2b below uses the round-3 events (54 verified). The robustness table (`ai_events_cum`)
-has not been re-run on them yet. Phase 3 is unaffected (the new events are panel-only banks). (2) `ai_calls` (transcripts) and (3) `ai_patents` (BigQuery) are not yet in the panel, so the robustness
+**Pending updates:** (1) Phase 2b and the robustness table use the round-3 events (54 verified). `ai_events_cum`
+results are unchanged by them: all new events fall in FY2026 or later and enter only with a one-year lag (beyond the
+panel). Phase 3 is unaffected (the new events are panel-only banks). (2) `ai_calls` (transcripts) and (3) `ai_patents` (BigQuery) are not yet in the panel, so the robustness
 table lacks those two proxies.
 
 ## Data
