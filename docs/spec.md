@@ -57,9 +57,12 @@ Main:
    Robustness: `ai_kw_ln` = ln(1 + raw AI-term count), as in the source paper.
 2. `post_adopt` = 1 from the FY of the bank's **first deployed AI system** (staggered DiD).
 Robustness:
-3. `ai_patents` = ln(1 + AI patent applications in year). Same search for ALL banks;
-   no patent found = 0, never missing. Search: Google Patents / Indian Patent Office by assignee,
-   AI classes (CPC G06N) plus AI keywords.
+3. `ai_capability` (replaces `ai_patents`, see docs/spec_changes.md 2026-11-26) = sum (0–4) of binary
+   annual-report mentions per bank × FY: dedicated digital/data/AI leader (CIO/CTO/CISO excluded); AI / analytics /
+   data / innovation lab or centre of excellence; board or management committee for digital / AI / data /
+   innovation (IT Strategy, risk and audit committees excluded); in-house data science / AI / ML / analytics team.
+   As observed per report, no carry-forward. `ai_patents` (Google Patents search: 0 AI applications in all
+   400 bank-years) is kept as a descriptive fact only.
 4. `ai_events_cum` = cumulative count of verified AI events up to FY end.
 5. `fintech_idx` = Fintech index (Variables Selection sheet; Hamdouni 2025, IJFS 13(4):234): equal-weighted average (1/6 each) of
    (a) bank-wise mobile-banking transaction volume from RBI, min-max scaled 0–1 over all bank-FYs, and
@@ -67,7 +70,7 @@ Robustness:
    feature went live. Report year coverage first; NA where the RBI volume is missing.
 6. `ai_calls` = AI-term count per 10,000 words in earnings-call transcripts (BSE filings); FY22 onward only,
    run as a sub-period robustness check.
-Patents source: Google Patents Public Datasets on BigQuery (free tier) or Google Patents search.
+Patents source (descriptive only): Google Patents Public Datasets on BigQuery.
 
 Keyword dictionary for `ai_kw` (case-insensitive except "AI"): artificial intelligence, machine learning,
 deep learning, neural network, natural language processing, NLP, chatbot, conversational AI,
