@@ -55,6 +55,24 @@ Script `src/python/06_build_pca.py` (requests only) → `data/interim/pca_spells
 - Overlapping same-firm events (2026-11-26, `src/python/12_check_events.py`): Paytm E070 (Playback, 2025-10-06) and E039 (AI Soundbox, 2025-10-07) are one trading day apart and both enter the event study; their [−5,+5] windows overlap, so the same Paytm returns are counted twice. Both kept by decision (no rule in the spec); reported as a caveat. Paytm E069/E071/E072 also overlap but are excluded by the earnings screen.
 - Unverified first-AI leads for adoption dates (annual-report only, no dated news): Union UVA FAQ chatbot FY2018; PNB PIHU FY2020; BoB Baroda Brainy FY2018; Bank of India BOI Seva 2019-09-07; UCO UMA FY2021; IOB Buddy FY2026; Federal Niki.ai FedMobile bot 2018-01-19 (news only); RBL ChatPay FY2018; Yes mPower 2017-01-05 (news only); Canara CANDI humanoid 2017-07-27 (AR does not say AI); Indian Bank ADYA 2021-04-01 (dated news blocked).
 
+## Events: research round 3, never-treated banks (2026-11-26)
+- Scope: the 10 banks with no main adoption date (BOI, Indian, Central, IOB, UCO, BoM, PSB, KVB, SIB, DCB). Rule applied strictly
+  (user decision 2026-11-26): a bank document as primary source AND a dated news publication; vendor case studies, bank
+  social posts, awards and executive interviews do not count as news.
+- Verified (E079–E083 new, E048 updated): BOI MuleHunter.AI 2025-08-01 (news reports an RBI official naming BOI; go-live
+  earlier, unknown); PSB MuleHunter.AI 2025-11-12 (paid press release; AR says adopted Sep 2025); IOB Buddy chatbot 2026-03-06
+  (date from the bank's own post; only news is 2026-07-20); SIB AI/ML document generation 2026-01-15 (market-summary news
+  site) and Zeni AI CoE 2026-05-06; Indian Bank AI-TARA 2026-09-10 (FY2027).
+- Not verified (recorded with verified = N, E084–E088 new, E053/E058/E060 notes updated): BoM predictive ML model 2023-02-10
+  (news does not name the model); UCO UMA chatbot FY2021; Central Cent Chanakya FY2024/25; DCB Ringg voice AI (vendor case
+  study only); KVB AI video KYC FY2021; Indian Bank ADYA 2021-04-01 (bank release says AI; news still blocked); SIB SOnA; BOI SEVA.
+- Result: main adoption dates for 19 of 25 banks; never-treated within FY2011–26: Central, UCO, BoM, KVB, DCB, and Indian
+  Bank (adoption FY2027 is after the panel window, so `gname_*` = 0; `04_build_panel.py`). Five banks adopt in FY2026, when
+  only stock returns are observed (accounting variables end FY2025).
+- Blocked URLs that could upgrade unverified events (open manually): thenfapost.com/2021/04/02/indian-bank-launches-its-new-vision-and-mission-statement/
+  and Business Standard 121040101119 (ADYA); pressreader Banking Frontiers 2019-10-20 (BOI SEVA); southindianbank.bank.in
+  Q2 FY26 deck (may date SIB earlier, same FY).
+
 ## BSE corporate announcements (2026-11-25)
 - Source: BSE public announcements listing `api.bseindia.com/BseIndiaAPI/api/AnnSubCategoryGetData/w` (per scrip, quarterly windows, 50 rows/page), attachments from `bseindia.com/xml-data/corpfiling/AttachHis|AttachLive/`. Script `src/python/04_scrape_announcements.py`, 0.7 s between requests. Transient HTTP 400/5xx are retried 3 times with backoff; 401/403/429 stop the run (none occurred). Raw files `data/raw/bse_announcements/{firm}.csv`, `_all.csv`, `pdf/` are gitignored; re-run the script to rebuild.
 - Coverage: 14 event-study firms, 2015-01-01 to 2026-11-25, 27,691 announcements.

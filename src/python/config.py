@@ -131,6 +131,8 @@ EVENT_COMPANIES = {
     "City Union Bank": "CUB", "Yes Bank": "YES", "Indian Bank": "INDIAN", "Federal Bank": "FEDERAL",
     "Union Bank of India": "UNION", "RBL Bank": "RBL", "IDFC First Bank": "IDFCFIRST",
     "South Indian Bank": "SIB", "Karur Vysya Bank": "KVB", "Bank of India": "BOI",
+    "Indian Overseas Bank": "IOB", "Punjab & Sind Bank": "PSB", "Bank of Maharashtra": "BOM", "UCO Bank": "UCO",
+    "Central Bank of India": "CENTRAL", "DCB Bank": "DCB",
 }
 
 EVENT_CATEGORIES = {

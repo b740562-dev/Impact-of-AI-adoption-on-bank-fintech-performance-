@@ -78,7 +78,8 @@ p["profit_growth_l1"] = g["profit_growth"].shift(1)
 for k in ["main", "alt1", "alt2_p50", "alt2_p75"]:
     c = f"adopt_fy_{k}"
     p[f"post_adopt{'' if k == 'main' else '_' + k}"] = ((p["fy"] >= p[c]) & p[c].notna()).astype(int)
-    p[f"gname_{k}"] = p[c].fillna(0).astype(int)  # did::att_gt convention: 0 = never treated
+    # did::att_gt convention: 0 = never treated; adoption after the last panel FY = never treated within the window
+    p[f"gname_{k}"] = p[c].where(p[c] <= FY1).fillna(0).astype(int)
 
 # ---- baseline and shocks ----
 p["baseline_age"] = 2011 - p["founded_year"]

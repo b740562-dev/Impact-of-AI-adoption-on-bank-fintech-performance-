@@ -3,9 +3,9 @@
 Status as of 2026-11-26 (tags `day2-panel`, `day3-results`). All estimated specifications are listed in
 `results/spec_log.md`; spec changes are in `docs/spec_changes.md`. Numbers only; no interpretation beyond them.
 
-**Pending updates:** (1) verification of AI events for the 10 banks currently never-treated (BOI, Indian, Central,
-IOB, UCO, BoM, PSB, KVB, SIB, DCB) is in progress; adoption dates and all Phase 2b estimates will change when it
-completes. (2) `ai_calls` (transcripts) and (3) `ai_patents` (BigQuery) are not yet in the panel, so the robustness
+**Pending updates:** (1) event verification for the previously never-treated banks is done (54 verified events;
+19 of 25 banks now have a main adoption date in the window), but the R scripts have not yet been re-run, so the
+Phase 2b, Phase 3 and robustness numbers below are from the earlier 48-event data. (2) `ai_calls` (transcripts) and (3) `ai_patents` (BigQuery) are not yet in the panel, so the robustness
 table lacks those two proxies.
 
 ## Data
