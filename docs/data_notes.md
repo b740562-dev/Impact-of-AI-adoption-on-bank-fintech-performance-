@@ -55,6 +55,18 @@ Script `src/python/06_build_pca.py` (requests only) → `data/interim/pca_spells
 - Overlapping same-firm events (2026-11-26, `src/python/12_check_events.py`): Paytm E070 (Playback, 2025-10-06) and E039 (AI Soundbox, 2025-10-07) are one trading day apart and both enter the event study; their [−5,+5] windows overlap, so the same Paytm returns are counted twice. Both kept by decision (no rule in the spec); reported as a caveat. Paytm E069/E071/E072 also overlap but are excluded by the earnings screen.
 - Unverified first-AI leads for adoption dates (annual-report only, no dated news): Union UVA FAQ chatbot FY2018; PNB PIHU FY2020; BoB Baroda Brainy FY2018; Bank of India BOI Seva 2019-09-07; UCO UMA FY2021; IOB Buddy FY2026; Federal Niki.ai FedMobile bot 2018-01-19 (news only); RBL ChatPay FY2018; Yes mPower 2017-01-05 (news only); Canara CANDI humanoid 2017-07-27 (AR does not say AI); Indian Bank ADYA 2021-04-01 (dated news blocked).
 
+## Earnings-call transcripts (`ai_calls`, proxy 6) (2026-11-26)
+- `src/python/09_transcripts.py`: BSE announcements (AnnSubCategoryGetData API) from 2021-04-01 whose subject or headline
+  contains "transcript"; PDFs in `data/raw/transcripts/pdf/` (gitignored); per-file counts in
+  `data/raw/transcripts/transcripts_counts.csv`. FY = FY of the BSE filing date (a Q4 call held in May counts in the next FY).
+- 470 files parsed; 111 have < 500 words (none between 500 and 2,500): cover letters that only link to the transcript on
+  the bank's website, or scans. Rule: < 1,000 words = not a transcript, excluded, so the bank-FY is NA (not 0). All
+  filings of Axis (18), Kotak (18), IndusInd (14) and RBL (19) are cover letters, so these four banks have no `ai_calls`;
+  CUB 15 of 28, PNB 7 of 19, DCB 6, Federal 5, others 1–2 excluded.
+- Result: 359 transcripts, 106 bank-FYs (FY2022–27), 21 banks; 85 panel bank-FYs (FY2022–26). FY2022 coverage is thin
+  (5 banks). The Oct–Dec 2026 quarter list was incomplete for 4 banks (FY2027, outside the panel; not cached).
+- Possible extension: follow the links in the cover letters to the banks' own transcripts.
+
 ## AI capability index (`ai_capability`, proxy 3) (2026-11-26)
 - `src/python/13_ai_capability.py` on the extracted annual-report text (`data/interim/ar_text/`, 387 reports); output
   `data/interim/ai_capability.parquet`; manual-check snippets in `logs/ai_capability_snippets.csv` (gitignored; re-run

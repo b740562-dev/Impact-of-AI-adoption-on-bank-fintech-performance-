@@ -1,4 +1,4 @@
-\documentclass[10.5pt,a4paper]{article}
+﻿\documentclass[10.5pt,a4paper]{article}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[margin=2cm]{geometry}
@@ -65,7 +65,7 @@ nulls --- is in the specification log.
 \item Staggered DiD gives large negative ATTs (ROE $-23.9$ pp; stock return $-37.2\%$), but with significant ROE
   pre-trends and a small, unbalanced never-treated group, so I do not read them as causal.
 \item AI announcements produce no average abnormal return; PSU announcements show $-2.70\%$ CAR[$-5,+5$] against the
-  Nifty 500 (Kolari--Pynnönen $p=0.041$), not robust to the Nifty Bank benchmark.
+  Nifty 500 (Kolari--PynnÃ¶nen $p=0.041$), not robust to the Nifty Bank benchmark.
 \end{itemize}
 
 \section{Overall design}
@@ -91,7 +91,7 @@ employee/tech data) had to be constructed, and some proxies (patents) turned out
 and annual returns; the event study isolates the short-run price reaction to the news itself, where identification is
 cleaner; the sector view shows the big picture but is not causal.}
 \q{How do you know you didn't p-hack?}{The spec was fixed first, every change was logged before re-running, and the
-spec log holds all 172 estimated rows, including the null ones. The one post-hoc analysis (excluding Yes Bank) is
+spec log holds all 176 estimated rows, including the null ones. The one post-hoc analysis (excluding Yes Bank) is
 labelled post-hoc everywhere and the pre-specified estimate stays the headline.}
 \end{qa}
 
@@ -208,9 +208,11 @@ carry-forward.}
 designed in: CIO/CTO/CISO (every bank has them), the RBI-mandated IT Strategy Committee, risk/audit committees,
 external bodies (IBA, ministries), school CSR labs, and treasury/risk ``analytics units''. These refinements were made
 after reading match snippets but before any estimate.}
-\row{\var{ai\_calls}: AI terms per 10,000 words in earnings-call transcripts, FY2022 onward only.}
+\row{\var{ai\_calls}: AI terms per 10,000 words in earnings-call transcripts, FY2022 onward only. Files under
+1,000 words (cover letters linking to the bank's website, scans) are excluded, so the bank-year is NA, not 0.}
 {Management's unscripted attention to AI. Cost: transcripts are only filed on BSE from about 2021, so it is a
-sub-period check.}
+sub-period check; Axis, Kotak, IndusInd and RBL file only cover letters, leaving 21 banks. Counting cover letters as
+zero AI talk would have biased these private banks downward.}
 \end{decisions}
 \begin{qa}
 \q{Isn't counting AI words just measuring hype?}{Partly, which is why it is one of six proxies. I control for the
@@ -323,8 +325,8 @@ Nifty Bank (robustness).}
 just sector co-movement. Cost: the two benchmarks disagree for PSU banks.}
 \row{CAR windows [$-1$, $+1$] (headline) and [$-5$, $+5$].}
 {Short window = cleanest attribution; the longer window allows for leakage and slow diffusion.}
-\row{Tests: Kolari--Pynnönen adjusted BMP and Corrado rank test.}
-{BMP handles event-induced volatility; the Kolari--Pynnönen adjustment handles cross-correlation when several firms
+\row{Tests: Kolari--PynnÃ¶nen adjusted BMP and Corrado rank test.}
+{BMP handles event-induced volatility; the Kolari--PynnÃ¶nen adjustment handles cross-correlation when several firms
 announce on the same dates (Global Fintech Fest weeks, Microsoft India announcements in Jan 2025). Corrado is
 non-parametric, robust to fat tails. Agreement across both is required before I call a result robust.}
 \row{Event date = first public announcement; after 15:30 IST $\rightarrow$ next trading day.}
@@ -344,7 +346,7 @@ Nifty Bank. Private, NBFC and fintech: nothing significant at 5\%.
 \q{Why might PSU AI announcements see negative returns?}{It is fragile --- it disappears against the bank index, so it
 may reflect PSU-bank sector moves in those weeks. If real, a reading is that investors doubt PSU execution or see the
 announcement as cost without near-term revenue. With 8 events I would not push it.}
-\q{Why the Kolari--Pynnönen adjustment?}{Several firms announce at the same events (fintech fests), so their abnormal
+\q{Why the Kolari--PynnÃ¶nen adjustment?}{Several firms announce at the same events (fintech fests), so their abnormal
 returns are correlated; the standard BMP test then over-rejects. KP corrects for that cross-correlation.}
 \end{qa}
 
@@ -360,7 +362,8 @@ of the pooled SD.}
 \end{decisions}
 \textbf{Results (per 1 SD at $t-1$).} All \var{ai\_kw} variants null on ROE and returns. \var{ai\_events\_cum}: ROE
 $-1.85$ pp ($p=0.008$), stock $-7.06\%$ ($p=0.017$). \var{fintech\_idx}: ROE +0.61 pp ($p=0.77$), stock +11.96\%
-($p=0.025$). \var{ai\_capability}: ROE $-0.57$ pp ($p=0.57$), stock +4.51\% ($p=0.10$). \var{ai\_patents}: not
+($p=0.025$). \var{ai\_capability}: ROE $-0.57$ pp ($p=0.57$), stock +4.51\% ($p=0.10$). \var{ai\_calls}
+(FY2023+ only, 21 banks): ROE $-0.52$ pp ($p=0.12$, $n=41$), stock $-15.4\%$ ($p=0.12$, $n=63$). \var{ai\_patents}: not
 estimable (no variation).
 \begin{qa}
 \q{Your proxies disagree in sign. Which one do you trust?}{None alone. Talk (\var{ai\_kw}) and capability are null;
@@ -533,7 +536,7 @@ show sensitivity. Lag 1 was pre-specified.}
 slope + interaction $\approx +1.2$ pp per SD (the sum; its own SE needs a separate test).}
 \Q{Is the PSU result driven by the post-AQR recovery?}{Possibly; year effects are common to all banks, so a PSU-specific
 recovery can load on the interaction. Next check: PSU $\times$ year effects.}
-\Q{How many tests did you run, and how do you handle multiple testing?}{All 172 estimates are logged; I report
+\Q{How many tests did you run, and how do you handle multiple testing?}{All 176 estimates are logged; I report
 everything and treat isolated significant results (e.g.\ demonetisation interaction) as fragile.}
 \Q{What is reverse causality here and how do you address it?}{Profitable banks can afford AI and write more about it.
 Lags, fixed effects and the DiD on dated deployments help but do not fully solve it.}
@@ -570,7 +573,7 @@ returns around the event, sum into CARs, test across events. (\S9)}
 days and Indian factor data are less standard.}
 \Q{Why two benchmarks?}{Nifty 500 = market; Nifty Bank = sector. A result that survives only one may be sector
 co-movement.}
-\Q{Why BMP, Kolari--Pynnönen and Corrado tests?}{Event-induced volatility (BMP), cross-correlated events on shared dates
+\Q{Why BMP, Kolari--PynnÃ¶nen and Corrado tests?}{Event-induced volatility (BMP), cross-correlated events on shared dates
 (KP), non-normal returns (Corrado rank).}
 \Q{How did you choose the event date?}{First public announcement; after 15:30 IST it moves to the next trading day.}
 \Q{Why exclude events near earnings releases and crisis windows?}{Confounding news would dominate a small AI effect.}

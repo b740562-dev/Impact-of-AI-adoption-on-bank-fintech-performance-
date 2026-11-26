@@ -5,7 +5,8 @@ Status as of 2026-11-26 (tags `day2-panel`, `day3-results`). All estimated speci
 
 **Pending updates:** (1) Phase 2b and the robustness table use the round-3 events (54 verified). `ai_events_cum`
 results are unchanged by them: all new events fall in FY2026 or later and enter only with a one-year lag (beyond the
-panel). Phase 3 is unaffected (the new events are panel-only banks). (2) `ai_calls` (transcripts) is not yet in the panel. (3) `ai_patents` is dropped: the pre-specified Google Patents
+panel). Phase 3 is unaffected (the new events are panel-only banks). (2) `ai_calls` is in (21 of 25 banks; Axis, Kotak, IndusInd and RBL file only cover letters
+linking to transcripts on their websites, so they are NA). (3) `ai_patents` is dropped: the pre-specified Google Patents
 search finds 0 AI patent applications for all 25 banks (1 filing in total), so the proxy has no variation
 (`docs/spec_changes.md`); it is replaced by `ai_capability` (0–4 index from annual reports).
 (4) Bug fixed in `40_robustness.R` (2026-11-26): `fintech_idx` was scaled by each bank's own SD instead of the pooled
@@ -71,4 +72,6 @@ year-standardised −0.51 (p = 0.43), ln(1+count) −0.80 (p = 0.40), excluding 
 return all `ai_kw` variants have p ≥ 0.68. Other proxies: `ai_events_cum` ROE −1.85 pp (p = 0.008), stock return −7.06 %
 (p = 0.017); `fintech_idx` ROE +0.61 pp (SE 2.03, p = 0.77), stock return +11.96 % (SE 5.00, p = 0.025);
 `ai_capability` ROE −0.57 pp (SE 0.99, p = 0.57), stock return +4.51 % (SE 2.65, p = 0.10), ROA −0.05 pp (p = 0.48),
-Tobin's Q +0.005 (p = 0.57). `ai_patents` not estimated (no variation).
+Tobin's Q +0.005 (p = 0.57). `ai_calls` (FY2023+ outcomes, lagged FY2022+ calls): ROE −0.52 pp (SE 0.32,
+p = 0.12, n = 41), stock return −15.4 % (SE 9.5, p = 0.12, n = 63), ROA −0.02 pp (p = 0.54), Tobin's Q −0.013
+(p = 0.13). `ai_patents` not estimated (no variation).

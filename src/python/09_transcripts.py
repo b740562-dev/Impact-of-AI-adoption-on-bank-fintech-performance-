@@ -99,12 +99,19 @@ for b, code in BSE_CODES.items():
     print(f"{b}: {len(lst)} transcript filings", file=log, flush=True)
 
 t = pd.DataFrame(rows)
+# Some banks file only a cover letter linking to the transcript on their website (< 500 words); word counts are
+# bimodal (none between 500 and 2,500), so < 1,000 words = not a transcript. Excluded, so such bank-FYs are NA, not 0.
+t["is_transcript"] = t["words"] >= 1000
 t.to_csv(OUT / "transcripts_counts.csv", index=False)
+print("files < 1,000 words (cover letters/scans), excluded, by bank:\n"
+      + t[~t["is_transcript"]].groupby("bank_id").size().to_string(), file=log)
+t = t[t["is_transcript"]]
 fy = t.groupby(["bank_id", "fy"]).agg(n_transcripts=("words", "size"), words=("words", "sum"),
                                        ai_count=("ai_count", "sum")).reset_index()
 fy["ai_calls"] = fy["ai_count"] / fy["words"] * 10_000
 fy = fy[fy["fy"] >= 2022]
 fy.to_csv(INTERIM / "ai_calls.csv", index=False)
-print(f"transcripts parsed: {len(t)}; bank-FYs: {len(fy)}; banks: {fy.bank_id.nunique()} of {len(BSE_CODES)}")
+print(f"transcripts used: {len(t)} (cover letters/scans excluded: {len(rows) - len(t)}); bank-FYs: {len(fy)}; "
+      f"banks: {fy.bank_id.nunique()} of {len(BSE_CODES)}")
 print(fy.pivot(index="bank_id", columns="fy", values="n_transcripts").fillna(0).astype(int).to_string())
 print(f"details: {LOG}")
